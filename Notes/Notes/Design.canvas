@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"48e534b016fc5ae7","x":-680,"y":-120,"width":760,"height":380,"type":"text","text":"# Brutalism\n1. characterized by exposure of raw concrete and structural materials\n2. **digital design it means**\n   - grid based layout\n   - bold and oversized typography\n   - \n"},
+		{"id":"38178f43cb5c7b25","x":220,"y":120,"width":400,"height":205,"type":"file","file":"Pasted image 20260827230538.png"},
+		{"id":"b222ec165671cc7a","x":180,"y":-220,"width":400,"height":230,"type":"file","file":"Pasted image 20260827230527.png"}
+	],
+	"edges":[
+		{"id":"0648cbbe245bdaf4","fromNode":"48e534b016fc5ae7","fromSide":"bottom","toNode":"38178f43cb5c7b25","toSide":"bottom"},
+		{"id":"f7d5f1c23670b641","fromNode":"48e534b016fc5ae7","fromSide":"top","toNode":"b222ec165671cc7a","toSide":"top"}
+	]
+}
