@@ -1,8 +1,9 @@
 {
 	"nodes":[
-		{"id":"48e534b016fc5ae7","x":-680,"y":-120,"width":760,"height":380,"type":"text","text":"# Brutalism\n1. characterized by exposure of raw concrete and structural materials\n2. **digital design it means**\n   - grid based layout\n   - bold and oversized typography\n   - \n"},
-		{"id":"38178f43cb5c7b25","x":220,"y":120,"width":400,"height":205,"type":"file","file":"Pasted image 20260827230538.png"},
-		{"id":"b222ec165671cc7a","x":180,"y":-220,"width":400,"height":230,"type":"file","file":"Pasted image 20260827230527.png"}
+		{"id":"48e534b016fc5ae7","type":"text","text":"# Brutalism\n1. characterized by exposure of raw concrete and structural materials\n2. **digital design it means**\n   - grid based layout\n   - bold and oversized typography\n   - \n","x":-680,"y":-120,"width":760,"height":380},
+		{"id":"38178f43cb5c7b25","type":"file","file":"Pasted image 20260827230538.png","x":220,"y":120,"width":400,"height":205},
+		{"id":"b222ec165671cc7a","type":"file","file":"Pasted image 20260827230527.png","x":180,"y":-220,"width":400,"height":230},
+		{"id":"13d77d7143ad3564","x":-840,"y":223,"width":474,"height":455,"type":"text","text":"N #     "}
 	],
 	"edges":[
 		{"id":"0648cbbe245bdaf4","fromNode":"48e534b016fc5ae7","fromSide":"bottom","toNode":"38178f43cb5c7b25","toSide":"bottom"},
