@@ -10,6 +10,7 @@ kanban-plugin: board
 
 ## Queued
 
+- [ ] Abc @{Sep 07, 2026}
 
 
 ## Cooking
