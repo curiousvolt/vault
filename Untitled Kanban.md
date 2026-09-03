@@ -12,19 +12,19 @@ kanban-plugin: board
 
 
 
-## 
+## Cooking
 
 
 
-## 
+## Shipped
 
 
 
-## 
+## Icebox
 
 
 
-## 
+## Graveyard
 
 
 
