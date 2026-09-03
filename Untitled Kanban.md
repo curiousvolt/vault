@@ -4,11 +4,11 @@ kanban-plugin: board
 
 ---
 
-## 
+## Radar
 
 
 
-## 
+## Queued
 
 
 
