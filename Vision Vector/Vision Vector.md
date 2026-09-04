@@ -11,6 +11,7 @@ kanban-plugin: board
 
 ## Queued
 
+- [ ] [[Salesforce Relationship Design Challenge]]
 
 
 ## Cooking
@@ -33,6 +34,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"show-checkboxes":true}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"show-checkboxes":false,"new-card-insertion-method":"prepend-compact"}
 ```
 %%
