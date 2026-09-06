@@ -29,6 +29,9 @@
   "appIcons": {},
   "tabIcons": {},
   "fileIcons": {
+    "Daily Notes": {
+      "icon": "lucide-circle-check-big"
+    },
     "Notes": {
       "icon": "lucide-notebook"
     },

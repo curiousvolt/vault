@@ -11,7 +11,7 @@ kanban-plugin: board
 
 ## Queued
 
-- [[Salesforce Relationship Design Challenge]] @{Oct 04, 2026}
+- [ ] [[Salesforce Relationship Design Challenge]] @{Oct 04, 2026}
 
 
 ## Cooking
@@ -34,6 +34,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"show-checkboxes":false,"new-card-insertion-method":"prepend-compact","move-dates":true}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"show-checkboxes":true,"new-card-insertion-method":"prepend-compact","move-dates":false}
 ```
 %%
