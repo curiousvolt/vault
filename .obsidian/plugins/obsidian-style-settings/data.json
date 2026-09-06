@@ -1,3 +1,4 @@
 {
-  "underwater-theme@@underwater-colors-dark": "uw-deep"
+  "underwater-theme@@underwater-colors-dark": "uw-deep",
+  "underwater-theme@@no-activeline": true
 }
