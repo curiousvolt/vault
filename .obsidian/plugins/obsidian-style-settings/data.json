@@ -1,5 +1,6 @@
 {
   "underwater-theme@@underwater-colors-dark": "uw-deep",
   "underwater-theme@@no-activeline": true,
-  "underwater-theme@@no-justify": true
+  "underwater-theme@@no-justify": true,
+  "underwater-theme@@links-styling": "no-links"
 }
