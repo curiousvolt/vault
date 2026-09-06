@@ -1,0 +1,24 @@
+/* Fix Obsidian window control buttons */
+
+.titlebar-button {
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+/* Close button */
+.titlebar-button.mod-close {
+    background: transparent !important;
+    color: var(--icon-color) !important;
+}
+
+.titlebar-button.mod-close:hover {
+    background: var(--background-modifier-hover) !important;
+    color: var(--text-normal) !important;
+}
+
+/* Minimize + maximize */
+.titlebar-button.mod-minimize:hover,
+.titlebar-button.mod-maximize:hover {
+    background: var(--background-modifier-hover) !important;
+    color: var(--text-normal) !important;
+}

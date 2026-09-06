@@ -4,5 +4,8 @@
   "monospaceFontFamily": "MonoLisa Nerd Font Mono",
   "baseFontSizeAction": true,
   "baseFontSize": 18,
-  "textFontFamily": "Lexend"
+  "textFontFamily": "Lexend",
+  "enabledCssSnippets": [
+    "fix-window-buttons"
+  ]
 }
