@@ -2,5 +2,11 @@
   "underwater-theme@@underwater-colors-dark": "uw-deep",
   "underwater-theme@@no-activeline": true,
   "underwater-theme@@no-justify": true,
-  "underwater-theme@@links-styling": "no-links"
+  "underwater-theme@@links-styling": "no-links",
+  "cupertino@@adaptive-mode-off": true,
+  "cupertino@@colorful-frame": false,
+  "cupertino@@tab-floating": true,
+  "cupertino@@hover-sidedock": true,
+  "cupertino@@tab-icon": false,
+  "cupertino@@reduce-contrast-change": true
 }
