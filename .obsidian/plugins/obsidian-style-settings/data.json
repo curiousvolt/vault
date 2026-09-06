@@ -8,5 +8,6 @@
   "cupertino@@tab-floating": true,
   "cupertino@@hover-sidedock": true,
   "cupertino@@tab-icon": false,
-  "cupertino@@reduce-contrast-change": true
+  "cupertino@@reduce-contrast-change": true,
+  "underwater-theme@@no-center": false
 }
