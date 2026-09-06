@@ -7,5 +7,7 @@
   "textFontFamily": "Lexend",
   "enabledCssSnippets": [
     "fix-window-buttons"
-  ]
+  ],
+  "showViewHeader": true,
+  "showRibbon": true
 }
