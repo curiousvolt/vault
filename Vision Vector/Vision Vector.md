@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## Radar
 
-- [ ] [[aman]]
 
 
 ## Queued
