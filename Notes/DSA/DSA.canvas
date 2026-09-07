@@ -1,6 +1,8 @@
 {
 	"nodes":[
-		{"id":"df5bbcefc45fa0f9","x":-480,"y":-120,"width":260,"height":300,"type":"text","text":"# ![[data-structures-and-algorithms-algorithms-data-structures-programs-computer-science-others-efc305651d3f985720bcabd72a0424d7.png]]      **DSA**"}
+		{"id":"faf13ae9cef7db44","type":"text","text":"","x":-172,"y":402,"width":250,"height":60},
+		{"id":"6024d726cce9204a","type":"text","text":"","x":-297,"y":-300,"width":250,"height":60},
+		{"id":"df5bbcefc45fa0f9","type":"text","text":"#    **DSA**\n\n![[data-structures-and-algorithms-algorithms-data-structures-programs-computer-science-others-efc305651d3f985720bcabd72a0424d7.png]]   ","x":-500,"y":-160,"width":260,"height":300}
 	],
 	"edges":[]
 }

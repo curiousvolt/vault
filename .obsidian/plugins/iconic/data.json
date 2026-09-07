@@ -35,6 +35,9 @@
     "Notes": {
       "icon": "lucide-notebook"
     },
+    "Notes/DSA/Images": {
+      "icon": "lucide-images"
+    },
     "Research": {
       "icon": "lucide-book-search"
     },
