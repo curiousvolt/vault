@@ -13,20 +13,28 @@ kanban-plugin: board
 - [ ] [[Tech Policy Press Fellowship 2027]]
 - [ ] [[MATS Winter 2026]]
 
+
 ## Queued
 
 - [ ] [[Salesforce Relationship Design Challenge]]
 
+
 ## Cooking
 
 
+
 ## Shipped
+
+**Complete**
 
 
 ## Icebox
 
 
+
 ## Graveyard
+
+
 
 
 

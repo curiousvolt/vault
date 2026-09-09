@@ -35,6 +35,12 @@
     "Tech Docs": {
       "icon": "lucide-file-digit"
     },
+    "Tech Docs/AI": {
+      "icon": "lucide-bot"
+    },
+    "Tech Docs/DSA": {
+      "icon": "lucide-waypoints"
+    },
     "Tech Docs/DSA/Images": {
       "icon": "lucide-images"
     },
