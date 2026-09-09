@@ -23,12 +23,12 @@ kanban-plugin: board
 
 
 
-## Shipped
+## Done
 
 **Complete**
 
 
-## Icebox
+## On Hold
 
 
 
