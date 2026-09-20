@@ -32,6 +32,9 @@
     "Daily Notes": {
       "icon": "lucide-circle-check-big"
     },
+    "Excalidraw": {
+      "icon": "lucide-brain-circuit"
+    },
     "Notes": {
       "icon": "lucide-notebook-pen"
     },
