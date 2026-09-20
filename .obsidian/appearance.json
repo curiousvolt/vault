@@ -3,7 +3,7 @@
   "interfaceFontFamily": "",
   "monospaceFontFamily": "MonoLisa Nerd Font Mono",
   "baseFontSizeAction": true,
-  "baseFontSize": 18,
+  "baseFontSize": 15,
   "textFontFamily": "Lexend",
   "enabledCssSnippets": [
     "fix-window-buttons"
