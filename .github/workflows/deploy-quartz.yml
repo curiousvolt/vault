@@ -45,6 +45,8 @@ jobs:
           cp quartz.config.yaml .quartz-build/quartz.config.yaml
           mkdir -p .quartz-build/quartz/styles
           cp quartz/styles/custom.scss .quartz-build/quartz/styles/custom.scss
+          rm -rf .quartz-build/local-plugins
+          cp -R local-plugins .quartz-build/local-plugins
 
       - name: Install Quartz plugins and build
         working-directory: .quartz-build
