@@ -857,3 +857,39 @@ footer a{
     height:0!important;
   }
 }
+
+
+/* ---------- Mobile TOC panel ---------- */
+
+@media all and (max-width:800px){
+  .page-header .toc,
+  .page-header > .popover-hint > .mobile-only .toc{
+    border:1px solid var(--lightgray)!important;
+    border-radius:12px!important;
+    padding:14px 16px!important;
+    box-sizing:border-box!important;
+    background:color-mix(in srgb,var(--light) 55%,transparent)!important;
+  }
+
+  .page-header .toc .toc-header,
+  .page-header > .popover-hint > .mobile-only .toc .toc-header{
+    margin:0!important;
+  }
+
+  .page-header .toc .toc-header svg,
+  .page-header > .popover-hint > .mobile-only .toc .toc-header svg{
+    display:none!important;
+  }
+}
+
+/* ---------- Scroll-to-top visibility ---------- */
+
+.cv-scroll-top{
+  z-index:99999!important;
+}
+
+@media all and (max-width:800px){
+  .cv-scroll-top{
+    bottom:72px!important;
+  }
+}
