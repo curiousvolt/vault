@@ -679,3 +679,35 @@ a.external{
 .sidebar.right>.toc .toc-header{
   gap:0!important;
 }
+
+/* ---------- Global search + footer ---------- */
+
+/* Use the same pill treatment for the search trigger and the actual
+   search input/modal, not just the sidebar trigger. */
+.search-button,
+.search-container input,
+.search-modal input,
+#search-container input,
+#search-container .search-bar{
+  border-radius:999px!important;
+}
+
+.search-container input,
+.search-modal input,
+#search-container input,
+#search-container .search-bar{
+  min-height:48px!important;
+}
+
+/* Keep the Quartz footer centered in the main content column. */
+.center .page-footer,
+.center>footer,
+.page-footer{
+  text-align:center!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+
+.page-footer a{
+  display:inline-block;
+}
