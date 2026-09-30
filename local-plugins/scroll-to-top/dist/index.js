@@ -60,15 +60,31 @@ const script = `
     if (button.dataset.bound !== "true") {
       button.dataset.bound = "true"
 
-      const update = () => {
-        const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0
-        button.classList.toggle("visible", y > 250)
+      const getScrollY = () => {
+        const scrolling = document.scrollingElement
+        return Math.max(
+          window.scrollY || 0,
+          scrolling?.scrollTop || 0,
+          document.documentElement.scrollTop || 0,
+          document.body.scrollTop || 0,
+        )
       }
 
-      window.addEventListener("scroll", update, { passive: true })
+      const update = () => {
+        button.classList.toggle("visible", getScrollY() > 200)
+      }
+
+      window.addEventListener("scroll", update, { passive: true, capture: true })
+      document.addEventListener("scroll", update, { passive: true, capture: true })
       window.addEventListener("resize", update, { passive: true })
-      button.addEventListener("click", () => {
+
+      button.addEventListener("click", (event) => {
+        event.preventDefault()
+        const scrolling = document.scrollingElement
         window.scrollTo({ top: 0, behavior: "smooth" })
+        if (scrolling) scrolling.scrollTo({ top: 0, behavior: "smooth" })
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0
       })
     }
 
