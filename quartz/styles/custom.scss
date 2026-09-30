@@ -1,19 +1,46 @@
-:root{--cv-radius:12px;--cv-radius-sm:9px;--cv-shadow:0 8px 28px rgba(0,0,0,.08)}body{letter-spacing:-.01em}h1,h2,h3,h4,h5,h6,.page-title,.article-title,.explorer-title,.toc-title,.search-button,.breadcrumb-container{letter-spacing:-.025em}.search-button,.search-button>div,#search-container input,input[type=search],button,.toolbar button,.darkmode,.readermode{border-radius:var(--cv-radius-sm)!important}#search-container,.search-container,#graph-container,.graph{border-radius:var(--cv-radius)!important;overflow:hidden}.explorer .folder-container,.explorer .folder-title,.explorer .explorer-item{border-radius:var(--cv-radius-sm)}.explorer .folder-title:hover,.explorer .explorer-item:hover{background:var(--highlight)}a.internal,a.external{text-underline-offset:3px;text-decoration-thickness:1px}.home blockquote{border-left-width:2px;border-radius:0 var(--cv-radius-sm) var(--cv-radius-sm) 0;padding:.9rem 1.1rem;background:var(--highlight)}.cv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem;margin:1rem 0 2.5rem}.cv-card{display:flex;flex-direction:column;gap:.65rem;min-height:150px;padding:1.15rem;border:1px solid var(--lightgray);border-radius:var(--cv-radius);background:color-mix(in srgb,var(--light) 92%,var(--secondary) 8%);text-decoration:none!important;transition:transform 140ms ease,border-color 140ms ease,box-shadow 140ms ease}.cv-card:hover{transform:translateY(-2px);border-color:var(--secondary);box-shadow:var(--cv-shadow)}.cv-card-icon{width:22px;height:22px;color:var(--secondary)}.cv-card-title{font-family:var(--headerFont);font-size:1.05rem;font-weight:700;color:var(--dark)}.cv-card-description{color:var(--darkgray);font-size:.9rem;line-height:1.5}.cv-about{max-width:720px;padding:1.15rem 1.25rem;border:1px solid var(--lightgray);border-radius:var(--cv-radius);background:color-mix(in srgb,var(--light) 96%,var(--secondary) 4%)}.cv-footer-note{color:var(--gray);font-size:.82rem}@media all and (max-width:900px){.cv-grid{grid-template-columns:1fr}.cv-card{min-height:auto}}
+/* CuriousVolt — clean, warm, minimal Quartz theme */
 
-/* CuriousVolt — restrained Obsidian polish */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap");
+
 :root{
   --cv-radius:12px;
   --cv-radius-sm:9px;
-  --cv-border:#e5e7eb;
-  --cv-shadow:0 8px 24px rgba(15,23,42,.06);
+  --cv-accent:#c99a3e;
+  --cv-accent-dark:#a97824;
+  --cv-accent-soft:rgba(201,154,62,.12);
+  --cv-border:#e6e1d7;
+  --cv-shadow:0 10px 28px rgba(40,32,20,.06);
 }
 
-body{letter-spacing:-.008em}
+/* Typography — explicitly applied so the font config is visible */
+html,body{
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  letter-spacing:-.008em;
+}
 
 h1,h2,h3,h4,h5,h6,
 .page-title,.article-title,.explorer-title,.toc-title,
 .search-button,.breadcrumb-container{
+  font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif!important;
   letter-spacing:-.025em;
+}
+
+code,pre,kbd,samp{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace!important;
+}
+
+/* Keep Quartz's warm accent consistent */
+a,
+.explorer .folder-title,
+.explorer .explorer-item,
+.search-button,
+.breadcrumb-container a{
+  color:var(--secondary);
+}
+
+a.internal,a.external{
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
 }
 
 .search-button,
@@ -24,6 +51,12 @@ button,
 .darkmode,
 .readermode{
   border-radius:var(--cv-radius-sm)!important;
+}
+
+.search-button{
+  background:var(--light)!important;
+  border:1px solid var(--lightgray)!important;
+  box-shadow:0 1px 2px rgba(40,32,20,.03);
 }
 
 #search-container,
@@ -45,12 +78,7 @@ button,
   background:var(--highlight);
 }
 
-a.internal,a.external{
-  text-underline-offset:3px;
-  text-decoration-thickness:1px;
-}
-
-/* Logo: strictly monochrome */
+/* Logo */
 .page-title a{
   display:flex;
   align-items:center;
@@ -68,86 +96,93 @@ a.internal,a.external{
   flex:0 0 32px;
   display:block;
   background-color:#111827;
-  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center / 28px 28px no-repeat;
-  mask:url("/vault/static/curiousvolt-logo.svg") center / 28px 28px no-repeat;
+  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/28px 28px no-repeat;
+  mask:url("/vault/static/curiousvolt-logo.svg") center/28px 28px no-repeat;
 }
 
 :root[saved-theme="dark"] .page-title a:before{
   background-color:#f8fafc;
 }
 
-/* Clean column rhythm */
+/* Three-column rhythm */
 .sidebar.left{
   padding-top:1.8rem;
-  padding-right:1.15rem;
+  padding-right:1.45rem;
   border-right:1px solid var(--lightgray);
 }
 
 .sidebar.right{
-  padding-top:2.1rem;
-  padding-left:1.15rem;
+  padding-top:2.15rem;
+  padding-left:1.45rem;
   border-left:1px solid var(--lightgray);
 }
 
 .center{
-  padding-left:.9rem;
-  padding-right:.9rem;
+  padding-left:1.45rem;
+  padding-right:1.45rem;
 }
 
-.search-button{
-  background:var(--light)!important;
-  border:1px solid var(--lightgray)!important;
-  box-shadow:0 1px 2px rgba(15,23,42,.03);
+.explorer-title{
+  font-size:.9rem;
+  font-weight:700;
 }
-
-.explorer-title{font-size:.9rem;font-weight:700}
 
 .toc{
   border-top:1px solid var(--lightgray);
-  padding-top:1rem;
+  padding-top:1.15rem;
 }
 
-.toc h3{font-size:1rem}
+.toc h3{
+  font-size:1rem;
+}
 
-/* Homepage */
+/* Homepage structure */
 .home .center>article{
-  padding-top:1.25rem;
+  padding-top:1.35rem;
+  padding-bottom:3rem;
 }
 
 .home .article-title{
-  margin-top:.15rem;
-  margin-bottom:.35rem;
+  margin-top:.2rem;
+  margin-bottom:.45rem;
 }
 
 .home .content-meta{
-  margin-bottom:2.1rem;
+  margin-bottom:2.35rem;
+  font-size:.88rem;
+}
+
+.home article>h1{
+  margin-bottom:1.2rem;
 }
 
 .home blockquote{
-  border-left-width:2px;
+  margin:0 0 1.65rem;
+  padding:1.2rem 1.3rem;
+  border-left:2px solid var(--secondary);
   border-radius:0 var(--cv-radius-sm) var(--cv-radius-sm) 0;
-  padding:1rem 1.15rem;
   background:var(--highlight);
+  line-height:1.65;
 }
 
 .home .cv-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:1rem;
-  margin:1.6rem 0 2.8rem;
+  gap:1.3rem;
+  margin:1.9rem 0 3.6rem;
 }
 
 .home .cv-card{
   display:flex;
   flex-direction:column;
-  gap:.65rem;
-  min-height:172px;
-  padding:1.2rem;
+  gap:.8rem;
+  min-height:190px;
+  padding:1.4rem;
   border:1px solid var(--lightgray);
   border-radius:var(--cv-radius);
   background:var(--light);
   text-decoration:none!important;
-  box-shadow:0 1px 2px rgba(15,23,42,.025);
+  box-shadow:0 1px 2px rgba(40,32,20,.025);
   transition:transform 140ms ease,border-color 140ms ease,box-shadow 140ms ease;
 }
 
@@ -158,15 +193,16 @@ a.internal,a.external{
 }
 
 .home .cv-card-icon{
-  width:40px;
-  height:40px;
-  padding:9px;
+  width:42px;
+  height:42px;
+  padding:10px;
   box-sizing:border-box;
   display:grid;
   place-items:center;
   border-radius:10px;
   color:var(--secondary);
   background:var(--highlight);
+  margin-bottom:.2rem;
 }
 
 .home .cv-card-icon svg{
@@ -177,7 +213,7 @@ a.internal,a.external{
 
 .home .cv-card-title{
   color:var(--dark);
-  font-family:var(--headerFont);
+  font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif!important;
   font-size:1.05rem;
   font-weight:700;
   line-height:1.2;
@@ -185,45 +221,76 @@ a.internal,a.external{
 
 .home .cv-card-description{
   color:var(--darkgray);
-  font-size:.88rem;
-  line-height:1.5;
+  font-size:.9rem;
+  line-height:1.6;
+  max-width:31ch;
 }
 
 .home .cv-card-action{
   margin-top:auto;
   color:var(--secondary);
-  font-size:.78rem;
+  font-size:.8rem;
   font-weight:650;
+  padding-top:.5rem;
+}
+
+.home article>h2{
+  margin-top:3.4rem;
+  margin-bottom:1.1rem;
+}
+
+.home article>ul{
+  margin-top:.4rem;
+  padding-left:1.4rem;
+}
+
+.home article>ul li{
+  margin-bottom:.7rem;
+  padding-left:.2rem;
 }
 
 .home .cv-about{
   max-width:760px;
-  margin-top:1rem;
-  padding:1.15rem 1.25rem;
+  margin-top:1.25rem;
+  padding:1.35rem 1.4rem;
   border:1px solid var(--lightgray);
   border-radius:var(--cv-radius);
   background:var(--light);
+  line-height:1.7;
 }
 
 .home .cv-footer-note{
   color:var(--gray);
   font-size:.82rem;
-  margin-top:1.5rem;
+  margin-top:2rem;
+}
+
+/* Make the warm accent visible in controls without making the page colorful */
+button:hover,
+.search-button:hover{
+  border-color:var(--secondary)!important;
+}
+
+::selection{
+  background:var(--textHighlight);
+}
+
+/* Dark mode */
+:root[saved-theme="dark"] .home .cv-card,
+:root[saved-theme="dark"] .home .cv-about{
+  background:var(--light);
 }
 
 @media all and (max-width:1100px){
-  .sidebar.left{padding-right:.7rem}
-  .sidebar.right{padding-left:.7rem}
-  .center{padding-left:.5rem;padding-right:.5rem}
+  .sidebar.left{padding-right:1rem}
+  .sidebar.right{padding-left:1rem}
+  .center{padding-left:1rem;padding-right:1rem}
+  .home .cv-grid{gap:1rem}
 }
 
 @media all and (max-width:900px){
   .home .cv-grid{grid-template-columns:1fr}
   .home .cv-card{min-height:auto}
   .sidebar.left,.sidebar.right{padding-top:1.2rem}
-}
-
-:root[saved-theme="dark"] .home .cv-card,
-:root[saved-theme="dark"] .home .cv-about{
-  background:var(--light);
+  .center{padding-left:.85rem;padding-right:.85rem}
 }
