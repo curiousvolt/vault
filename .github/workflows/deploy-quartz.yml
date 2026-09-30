@@ -1,0 +1,68 @@
+name: Deploy Quartz
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout vault
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Download Quartz
+        run: git clone --depth 1 --branch v5 https://github.com/jackyzha0/quartz.git .quartz-build
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: .quartz-build/package-lock.json
+
+      - name: Install Quartz
+        working-directory: .quartz-build
+        run: npm ci
+
+      - name: Use vault configuration
+        run: cp quartz.config.yaml .quartz-build/quartz.config.yaml
+
+      - name: Install Quartz plugins
+        working-directory: .quartz-build
+        run: npx quartz plugin install --from-config
+
+      - name: Build site
+        working-directory: .quartz-build
+        run: npx quartz build -d ..
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .quartz-build/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
