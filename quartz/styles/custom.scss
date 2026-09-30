@@ -102,13 +102,13 @@ code,pre,kbd,samp{
 
 .page-title a:before{
   content:"";
-  width:44px;
-  height:44px;
-  flex:0 0 44px;
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
   display:block;
   background-color:#111827;
-  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/40px 40px no-repeat;
-  mask:url("/vault/static/curiousvolt-logo.svg") center/40px 40px no-repeat;
+  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/36px 36px no-repeat;
+  mask:url("/vault/static/curiousvolt-logo.svg") center/36px 36px no-repeat;
 }
 
 :root[saved-theme="dark"] .page-title a:before{
@@ -754,3 +754,76 @@ footer a{
 }
 
 
+
+/* ---------- Mobile navigation ---------- */
+
+@media all and (max-width:800px){
+  .sidebar.left{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    padding:1rem .75rem .65rem!important;
+    gap:.45rem!important;
+    overflow:hidden!important;
+    align-items:center!important;
+  }
+
+  .sidebar.left .page-title{
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+  }
+
+  .sidebar.left .page-title a{
+    min-height:40px!important;
+    width:40px!important;
+  }
+
+  .sidebar.left .search-button{
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:46px!important;
+    min-height:46px!important;
+    padding:0 12px!important;
+  }
+
+  .sidebar.left .toolbar{
+    flex:0 0 auto!important;
+    min-width:0!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:.15rem!important;
+  }
+
+  .sidebar.left .toolbar > *{
+    flex:0 0 auto!important;
+  }
+
+  .sidebar.left button{
+    min-width:40px;
+  }
+
+  /* Mobile TOC is rendered in beforeBody by the duplicate
+     mobile-only plugin entry. */
+  .page-header .toc{
+    width:100%!important;
+    box-sizing:border-box!important;
+    margin:.75rem 0 1.25rem!important;
+  }
+
+  .page-header .toc .toc-content{
+    max-height:14rem!important;
+    overflow-y:auto!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+  }
+
+  .page-header .toc .toc-content::-webkit-scrollbar{
+    display:none!important;
+    width:0!important;
+    height:0!important;
+  }
+}
