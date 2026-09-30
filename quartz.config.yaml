@@ -22,28 +22,28 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
-      code: IBM Plex Mono
+      header: Space Grotesk
+      body: Inter
+      code: JetBrains Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
+        light: "#fbfbfa"
+        lightgray: "#e6e7e8"
+        gray: "#a8aaad"
+        darkgray: "#52565a"
+        dark: "#202326"
+        secondary: "#315f7a"
+        tertiary: "#5f8f86"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#fff23688"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
+        light: "#151719"
+        lightgray: "#34383c"
+        gray: "#70757a"
+        darkgray: "#d9dcde"
+        dark: "#f1f2f3"
+        secondary: "#8eb2c9"
+        tertiary: "#86aaa1"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
 plugins:
