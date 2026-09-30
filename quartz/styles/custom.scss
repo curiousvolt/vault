@@ -705,19 +705,46 @@ input[placeholder="Search"]{
   min-height:48px!important;
 }
 
-/* Quartz's global footer sits outside .center; center the actual footer
-   element rather than only its inner page-footer components. */
+/* Quartz's global footer sits outside .center. Center the footer
+   container and its link list independently so links cannot stay left-aligned. */
 .page > footer,
 #quartz-footer,
 footer{
-  text-align:center!important;
+  width:100%!important;
   margin-left:auto!important;
   margin-right:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
 }
 
-.page > footer{
+.page > footer *,
+#quartz-footer *,
+footer *{
+  text-align:center!important;
+}
+
+.page > footer ul,
+#quartz-footer ul,
+footer ul{
   width:100%!important;
-  justify-self:center!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding-left:0!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:1rem;
+  list-style:none!important;
+}
+
+.page > footer li,
+#quartz-footer li,
+footer li{
+  margin:0!important;
+  padding:0!important;
 }
 
 .page > footer a,
@@ -725,3 +752,5 @@ footer{
 footer a{
   display:inline-block;
 }
+
+
