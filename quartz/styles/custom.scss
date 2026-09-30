@@ -12,6 +12,13 @@
 html,body{
   font-family:var(--bodyFont),system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
   letter-spacing:-.006em;
+  scrollbar-width:none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  width:0;
+  height:0;
 }
 
 h1,h2,h3,h4,h5,h6,
@@ -26,8 +33,6 @@ code,pre,kbd,samp{
 }
 
 /* ---------- Desktop frame ---------- */
-/* Quartz already provides the three-column frame. On wide screens,
-   make the proportions feel like a real knowledge-base application. */
 
 @media all and (min-width:1400px){
   .page{
@@ -127,11 +132,12 @@ code,pre,kbd,samp{
   text-transform:uppercase;
 }
 
-/* Search: quiet pill rather than a heavy button */
+/* Rounded search */
+
 .search-button{
   background:color-mix(in srgb,var(--lightgray) 18%,transparent)!important;
   border:1px solid var(--lightgray)!important;
-  border-radius:11px!important;
+  border-radius:14px!important;
   box-shadow:none!important;
   min-height:46px;
 }
@@ -156,21 +162,26 @@ button:hover{
   overflow:hidden;
 }
 
-.graph{
-  border:1px solid var(--lightgray);
-  background:color-mix(in srgb,var(--lightgray) 8%,transparent);
+/* Graph: remove only the outer section border */
+.sidebar.right>.graph{
+  border:none!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:16px 0!important;
 }
 
-/* Give right-side modules the same quiet application-panel language */
-.sidebar.right>.graph,
+/* Keep the graph canvas itself contained */
+.sidebar.right>.graph #graph-container,
+.sidebar.right>.graph .graph-container{
+  border-radius:10px!important;
+}
+
+/* TOC remains a bordered panel */
 .sidebar.right>.toc{
   background:color-mix(in srgb,var(--light) 55%,transparent);
   border:1px solid var(--lightgray);
   border-radius:14px;
   padding:16px;
-}
-
-.sidebar.right>.toc{
   margin-top:.35rem;
 }
 
@@ -247,6 +258,7 @@ button:hover{
 }
 
 /* Main navigation cards */
+
 .home .cv-links{
   display:grid;
   grid-template-columns:1fr;
@@ -258,8 +270,7 @@ button:hover{
   position:relative;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  gap:16px;
   min-height:92px;
   width:100%;
   box-sizing:border-box;
@@ -281,25 +292,40 @@ button:hover{
   background:color-mix(in srgb,var(--lightgray) 13%,transparent);
 }
 
-.home .cv-link:before{
-  content:"";
+/* Real card icons */
+
+.home .cv-link .cv-icon{
+  display:grid;
+  place-items:center;
   width:46px;
   height:46px;
   flex:0 0 46px;
   border-radius:13px;
-  margin-right:0;
+  color:var(--cv-gold);
   background:color-mix(in srgb,var(--cv-gold) 15%,transparent);
   box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cv-gold) 18%,transparent);
 }
 
-.home .cv-link:nth-child(2):before{
+.home .cv-link:nth-child(2) .cv-icon{
+  color:var(--cv-blue);
   background:color-mix(in srgb,var(--cv-blue) 15%,transparent);
   box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cv-blue) 18%,transparent);
 }
 
-.home .cv-link:nth-child(3):before{
+.home .cv-link:nth-child(3) .cv-icon{
+  color:var(--cv-purple);
   background:color-mix(in srgb,var(--cv-purple) 15%,transparent);
   box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cv-purple) 18%,transparent);
+}
+
+.home .cv-link .cv-icon svg{
+  width:23px;
+  height:23px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
 .home .cv-link .cv-copy{
@@ -341,6 +367,7 @@ button:hover{
 }
 
 /* Section heading */
+
 .home article>h2{
   display:flex;
   align-items:center;
@@ -368,6 +395,7 @@ button:hover{
 }
 
 /* Four compact navigation hints */
+
 .home .cv-tools{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
@@ -502,10 +530,15 @@ a.external{
     gap:12px;
   }
 
-  .home .cv-link:before{
+  .home .cv-link .cv-icon{
     width:40px;
     height:40px;
     flex-basis:40px;
+  }
+
+  .home .cv-link .cv-icon svg{
+    width:20px;
+    height:20px;
   }
 
   .home .cv-tools{
