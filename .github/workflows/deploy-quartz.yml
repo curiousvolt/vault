@@ -23,18 +23,18 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Download Quartz
+        env:
+          GIT_TERMINAL_PROMPT: 0
+        run: |
+          git clone --depth 1 --branch v5 https://github.com/jackyzha0/quartz.git .quartz-build
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: .quartz-build/package-lock.json
-
-      - name: Download Quartz
-        env:
-          GIT_TERMINAL_PROMPT: 0
-        run: |
-          git clone --depth 1 --branch v5 https://github.com/jackyzha0/quartz.git .quartz-build
 
       - name: Install Quartz
         working-directory: .quartz-build
