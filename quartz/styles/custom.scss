@@ -152,15 +152,15 @@ button:hover{
 
 /* Replace Quartz's chevron-only folder indicators with compact folder icons. */
 .sidebar.left .explorer .folder-icon{
+  position:absolute!important;
+  left:4px;
+  top:50%;
   width:17px!important;
   height:17px!important;
-  flex:0 0 17px;
-  border:0!important;
-  transform:none!important;
-  color:var(--cv-gold);
-  display:block!important;
-  overflow:visible;
-  opacity:1;
+  transform:translateY(-50%)!important;
+  z-index:2;
+  opacity:0!important;
+  cursor:pointer;
 }
 
 .sidebar.left .explorer .folder-icon polyline{
