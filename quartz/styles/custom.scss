@@ -1,74 +1,58 @@
-/* CuriousVolt — clean, warm, minimal Quartz theme */
+/* CuriousVolt — restrained, documentation-first theme */
 
 :root{
-  --cv-radius:12px;
-  --cv-radius-sm:9px;
+  --cv-radius:8px;
   --cv-accent:#c99a3e;
-  --cv-accent-dark:#a97824;
-  --cv-accent-soft:rgba(201,154,62,.12);
-  --cv-border:#e6e1d7;
-  --cv-shadow:0 10px 28px rgba(40,32,20,.06);
 }
 
-/* Typography — explicitly applied so the font config is visible */
+/* Typography */
 html,body{
   font-family:var(--bodyFont),system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
-  letter-spacing:-.008em;
+  letter-spacing:-.005em;
 }
 
 h1,h2,h3,h4,h5,h6,
 .page-title,.article-title,.explorer-title,.toc-title,
 .search-button,.breadcrumb-container{
   font-family:var(--headerFont),var(--bodyFont),system-ui,sans-serif!important;
-  letter-spacing:-.025em;
+  letter-spacing:-.02em;
 }
 
 code,pre,kbd,samp{
   font-family:var(--codeFont),ui-monospace,SFMono-Regular,Menlo,monospace!important;
 }
 
-/* Keep Quartz's warm accent consistent */
-a,
-.explorer .folder-title,
-.explorer .explorer-item,
-.search-button,
-.breadcrumb-container a{
-  color:var(--secondary);
+/* Keep the Quartz layout from producing horizontal overflow */
+.page,
+#quartz-body,
+.center,
+.center article{
+  min-width:0;
+  max-width:100%;
+  box-sizing:border-box;
 }
 
-a.internal,a.external{
-  text-underline-offset:3px;
-  text-decoration-thickness:1px;
+/* Quiet, compact sidebars */
+.sidebar.left{
+  padding-top:1.25rem;
+  padding-right:1.25rem;
+  border-right:1px solid var(--lightgray);
 }
 
-.search-button,
-#search-container input,
-input[type=search],
-button,
-.toolbar button,
-.darkmode,
-.readermode{
-  border-radius:var(--cv-radius-sm)!important;
+.sidebar.right{
+  padding-top:1.5rem;
+  padding-left:1.25rem;
+  border-left:1px solid var(--lightgray);
 }
 
-.search-button{
-  background:var(--light)!important;
-  border:1px solid var(--lightgray)!important;
-  box-shadow:0 1px 2px rgba(40,32,20,.03);
+.center{
+  padding-left:1.75rem;
+  padding-right:1.75rem;
 }
 
-#search-container,
-.search-container,
-#graph-container,
-.graph{
-  border-radius:var(--cv-radius)!important;
-  overflow:hidden;
-}
-
-.explorer .folder-container,
 .explorer .folder-title,
 .explorer .explorer-item{
-  border-radius:var(--cv-radius-sm);
+  border-radius:5px;
 }
 
 .explorer .folder-title:hover,
@@ -76,219 +60,182 @@ button,
   background:var(--highlight);
 }
 
-/* Logo */
-.page-title a{
-  display:flex;
-  align-items:center;
-  gap:.65rem;
-  min-height:42px;
-  overflow:visible;
-  font-size:1.12rem;
-  font-weight:750;
-}
-
-.page-title a:before{
-  content:"";
-  width:32px;
-  height:32px;
-  flex:0 0 32px;
-  display:block;
-  background-color:#111827;
-  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/28px 28px no-repeat;
-  mask:url("/vault/static/curiousvolt-logo.svg") center/28px 28px no-repeat;
-}
-
-:root[saved-theme="dark"] .page-title a:before{
-  background-color:#f8fafc;
-}
-
-/* Three-column rhythm */
-.sidebar.left{
-  padding-top:1.8rem;
-  padding-right:1.45rem;
-  border-right:1px solid var(--lightgray);
-}
-
-.sidebar.right{
-  padding-top:2.15rem;
-  padding-left:1.45rem;
-  border-left:1px solid var(--lightgray);
-}
-
-.center{
-  padding-left:1.45rem;
-  padding-right:1.45rem;
-}
-
 .explorer-title{
   font-size:.9rem;
   font-weight:700;
 }
 
-.toc{
-  border-top:1px solid var(--lightgray);
-  padding-top:1.15rem;
+/* Header / logo */
+.page-title a{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  min-height:40px;
+  font-size:1.08rem;
+  font-weight:750;
 }
 
-.toc h3{
-  font-size:1rem;
+.page-title a:before{
+  content:"";
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  display:block;
+  background-color:#111827;
+  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/27px 27px no-repeat;
+  mask:url("/vault/static/curiousvolt-logo.svg") center/27px 27px no-repeat;
 }
 
-/* Homepage structure */
+:root[saved-theme="dark"] .page-title a:before{
+  background-color:#f4f7fb;
+}
+
+/* Search and controls */
+.search-button{
+  background:transparent!important;
+  border:1px solid var(--lightgray)!important;
+  border-radius:6px!important;
+  box-shadow:none!important;
+}
+
+.search-button:hover,
+button:hover{
+  border-color:var(--secondary)!important;
+}
+
+#search-container,
+.search-container,
+#graph-container,
+.graph{
+  border-radius:6px!important;
+  overflow:hidden;
+}
+
+/* Homepage */
 .home .center>article{
-  padding-top:1.35rem;
+  padding-top:.9rem;
   padding-bottom:3rem;
 }
 
 .home .article-title{
-  margin-top:.2rem;
-  margin-bottom:.45rem;
+  margin:.15rem 0 .35rem;
 }
 
 .home .content-meta{
-  margin-bottom:2.35rem;
-  font-size:.88rem;
-}
-
-.home article>h1{
-  margin-bottom:1.2rem;
+  margin-bottom:2.1rem;
+  font-size:.84rem;
 }
 
 .home blockquote{
-  margin:0 0 1.65rem;
-  padding:1.2rem 1.3rem;
+  margin:0 0 2rem;
+  padding:.9rem 1rem;
   border-left:2px solid var(--secondary);
-  border-radius:0 var(--cv-radius-sm) var(--cv-radius-sm) 0;
+  border-radius:0 5px 5px 0;
   background:var(--highlight);
   line-height:1.65;
 }
 
-.home .cv-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:1.3rem;
-  margin:1.9rem 0 3.6rem;
-}
-
-.home .cv-card{
+/* Simple navigation rows — no cards, shadows, or fixed heights */
+.home .cv-links{
   display:flex;
   flex-direction:column;
-  gap:.8rem;
-  min-height:190px;
-  padding:1.4rem;
-  border:1px solid var(--lightgray);
-  border-radius:var(--cv-radius);
-  background:var(--light);
-  text-decoration:none!important;
-  box-shadow:0 1px 2px rgba(40,32,20,.025);
-  transition:transform 140ms ease,border-color 140ms ease,box-shadow 140ms ease;
+  margin:2rem 0 3.2rem;
+  border-top:1px solid var(--lightgray);
 }
 
-.home .cv-card:hover{
-  transform:translateY(-2px);
-  border-color:var(--secondary);
-  box-shadow:var(--cv-shadow);
-}
-
-.home .cv-card-icon{
-  width:42px;
-  height:42px;
-  padding:10px;
-  box-sizing:border-box;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  color:var(--secondary);
-  background:var(--highlight);
-  margin-bottom:.2rem;
-}
-
-.home .cv-card-icon svg{
+.home .cv-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
   width:100%;
-  height:100%;
+  box-sizing:border-box;
+  padding:1.05rem .2rem;
+  border-bottom:1px solid var(--lightgray);
+  color:var(--dark)!important;
+  text-decoration:none!important;
+}
+
+.home .cv-link:hover{
+  background:var(--highlight);
+}
+
+.home .cv-link strong{
   display:block;
-}
-
-.home .cv-card-title{
+  margin-bottom:.2rem;
   color:var(--dark);
-  font-family:"Plus Jakarta Sans",Inter,system-ui,sans-serif!important;
-  font-size:1.05rem;
+  font-family:var(--headerFont),var(--bodyFont),system-ui,sans-serif!important;
+  font-size:1rem;
   font-weight:700;
-  line-height:1.2;
 }
 
-.home .cv-card-description{
+.home .cv-link small{
+  display:block;
   color:var(--darkgray);
-  font-size:.9rem;
-  line-height:1.6;
-  max-width:31ch;
+  font-size:.86rem;
+  line-height:1.5;
 }
 
-.home .cv-card-action{
-  margin-top:auto;
+.home .cv-arrow{
+  flex:0 0 auto;
   color:var(--secondary);
-  font-size:.8rem;
-  font-weight:650;
-  padding-top:.5rem;
+  font-size:1.1rem;
 }
 
 .home article>h2{
-  margin-top:3.4rem;
-  margin-bottom:1.1rem;
+  margin-top:3rem;
+  margin-bottom:1rem;
 }
 
 .home article>ul{
-  margin-top:.4rem;
-  padding-left:1.4rem;
+  margin-top:.25rem;
+  padding-left:1.35rem;
 }
 
 .home article>ul li{
-  margin-bottom:.7rem;
-  padding-left:.2rem;
-}
-
-.home .cv-about{
-  max-width:760px;
-  margin-top:1.25rem;
-  padding:1.35rem 1.4rem;
-  border:1px solid var(--lightgray);
-  border-radius:var(--cv-radius);
-  background:var(--light);
-  line-height:1.7;
+  margin-bottom:.55rem;
 }
 
 .home .cv-footer-note{
-  color:var(--gray);
-  font-size:.82rem;
   margin-top:2rem;
+  color:var(--gray);
+  font-size:.8rem;
 }
 
-/* Make the warm accent visible in controls without making the page colorful */
-button:hover,
-.search-button:hover{
-  border-color:var(--secondary)!important;
+.home .toc{
+  padding-top:1rem;
+  border-top:1px solid var(--lightgray);
+}
+
+/* Links */
+a.internal,
+a.external{
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
 }
 
 ::selection{
   background:var(--textHighlight);
 }
 
-/* Dark mode */
-:root[saved-theme="dark"] .home .cv-card,
-:root[saved-theme="dark"] .home .cv-about{
-  background:var(--light);
-}
-
 @media all and (max-width:1100px){
   .sidebar.left{padding-right:1rem}
   .sidebar.right{padding-left:1rem}
-  .center{padding-left:1rem;padding-right:1rem}
-  .home .cv-grid{gap:1rem}
+  .center{padding-left:1.25rem;padding-right:1.25rem}
 }
 
 @media all and (max-width:900px){
-  .home .cv-grid{grid-template-columns:1fr}
-  .home .cv-card{min-height:auto}
-  .sidebar.left,.sidebar.right{padding-top:1.2rem}
-  .center{padding-left:.85rem;padding-right:.85rem}
+  .sidebar.left,
+  .sidebar.right{
+    padding-top:1rem;
+  }
+
+  .center{
+    padding-left:.85rem;
+    padding-right:.85rem;
+  }
+
+  .home .cv-link{
+    gap:1rem;
+  }
 }
