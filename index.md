@@ -4,8 +4,6 @@ cssclasses:
   - home
 ---
 
-> A public knowledge base by Aman Kumar — an electrical engineer from India, collecting what I learn, build, and figure out.
-
 <p class="cv-intro">This is my digital garden: <strong>notes for ideas</strong>, <strong>documentation for reference</strong>, and <strong>questions I'm actively exploring</strong>.</p>
 
 <div class="cv-links">
