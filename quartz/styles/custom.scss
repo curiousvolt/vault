@@ -864,7 +864,7 @@ footer a{
 @media all and (max-width:800px){
   .page-header .toc,
   .page-header > .popover-hint > .mobile-only .toc{
-    border:1px solid var(--lightgray)!important;
+    border:1.5px solid color-mix(in srgb,var(--darkgray) 28%,var(--lightgray))!important;
     border-radius:12px!important;
     padding:14px 16px!important;
     box-sizing:border-box!important;
