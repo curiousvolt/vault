@@ -16,6 +16,7 @@ configuration:
     - .quartz-build/**
     - node_modules/**
     - public/**
+    - local-plugins/**
     - '**/*.canvas'
     - 'Excalidraw/scripts/**'
   theme:
