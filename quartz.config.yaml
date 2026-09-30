@@ -27,23 +27,23 @@ configuration:
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#fbfbfa"
-        lightgray: "#e6e7e8"
-        gray: "#a8aaad"
-        darkgray: "#52565a"
-        dark: "#202326"
-        secondary: "#315f7a"
-        tertiary: "#5f8f86"
+        light: "#ffffff"
+        lightgray: "#e7ebf2"
+        gray: "#8a94a6"
+        darkgray: "#536078"
+        dark: "#111827"
+        secondary: "#3b82f6"
+        tertiary: "#6366f1"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#fff23688"
       darkMode:
-        light: "#151719"
-        lightgray: "#34383c"
-        gray: "#70757a"
-        darkgray: "#d9dcde"
-        dark: "#f1f2f3"
-        secondary: "#8eb2c9"
-        tertiary: "#86aaa1"
+        light: "#111318"
+        lightgray: "#292e38"
+        gray: "#8992a3"
+        darkgray: "#cbd1dc"
+        dark: "#f4f7fb"
+        secondary: "#60a5fa"
+        tertiary: "#818cf8"
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#b3aa0288"
 plugins:
