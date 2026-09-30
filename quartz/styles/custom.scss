@@ -668,3 +668,14 @@ a.external{
   height:0;
   display:none;
 }
+
+/* TOC is informational here; remove the unused collapse chevron. */
+.sidebar.right>.toc .toc-header svg,
+.sidebar.right>.toc .toc-title svg,
+.sidebar.right>.toc button svg{
+  display:none!important;
+}
+
+.sidebar.right>.toc .toc-header{
+  gap:0!important;
+}
