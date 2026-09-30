@@ -94,21 +94,21 @@ code,pre,kbd,samp{
 .page-title a{
   display:flex;
   align-items:center;
-  gap:.65rem;
-  min-height:42px;
-  font-size:1.08rem;
+  gap:0;
+  min-height:46px;
+  font-size:0;
   font-weight:750;
 }
 
 .page-title a:before{
   content:"";
-  width:31px;
-  height:31px;
-  flex:0 0 31px;
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
   display:block;
   background-color:#111827;
-  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/28px 28px no-repeat;
-  mask:url("/vault/static/curiousvolt-logo.svg") center/28px 28px no-repeat;
+  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/40px 40px no-repeat;
+  mask:url("/vault/static/curiousvolt-logo.svg") center/40px 40px no-repeat;
 }
 
 :root[saved-theme="dark"] .page-title a:before{
@@ -137,14 +137,74 @@ code,pre,kbd,samp{
 .search-button{
   background:color-mix(in srgb,var(--lightgray) 18%,transparent)!important;
   border:1px solid var(--lightgray)!important;
-  border-radius:14px!important;
+  border-radius:999px!important;
   box-shadow:none!important;
-  min-height:46px;
+  min-height:48px;
+  padding:0 15px!important;
 }
 
 .search-button:hover,
 button:hover{
   border-color:var(--secondary)!important;
+}
+
+/* ---------- Explorer icons ---------- */
+
+/* Replace Quartz's chevron-only folder indicators with compact folder icons. */
+.sidebar.left .explorer .folder-icon{
+  width:17px!important;
+  height:17px!important;
+  flex:0 0 17px;
+  border:0!important;
+  transform:none!important;
+  color:var(--cv-gold);
+  display:block!important;
+  overflow:visible;
+  opacity:1;
+}
+
+.sidebar.left .explorer .folder-icon polyline{
+  display:none;
+}
+
+.sidebar.left .explorer .folder-container{
+  position:relative;
+  padding-left:4px;
+}
+
+.sidebar.left .explorer .folder-container::before{
+  content:"";
+  width:17px;
+  height:17px;
+  flex:0 0 17px;
+  display:block;
+  margin-right:7px;
+  background-color:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 6.75A2.75 2.75 0 0 1 5.75 4h4.1c.73 0 1.43.29 1.95.8l1.2 1.2h5.25A2.75 2.75 0 0 1 21 8.75v8.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zM5.75 6a.75.75 0 0 0-.75.75v10.5c0 .41.34.75.75.75h12.5c.41 0 .75-.34.75-.75v-8.5a.75.75 0 0 0-.75-.75h-5.87l-1.79-1.79A.75.75 0 0 0 9.85 6z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 6.75A2.75 2.75 0 0 1 5.75 4h4.1c.73 0 1.43.29 1.95.8l1.2 1.2h5.25A2.75 2.75 0 0 1 21 8.75v8.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zM5.75 6a.75.75 0 0 0-.75.75v10.5c0 .41.34.75.75.75h12.5c.41 0 .75-.34.75-.75v-8.5a.75.75 0 0 0-.75-.75h-5.87l-1.79-1.79A.75.75 0 0 0 9.85 6z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* Use an open-folder silhouette when the folder is expanded. */
+.sidebar.left .explorer .folder-container:has(+ .folder-outer.open)::before{
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.1c.66 0 1.3.26 1.77.73L12.6 7h5.9A2.5 2.5 0 0 1 21 9.5v.55H7.5a2.5 2.5 0 0 0-2.36 1.67L3.75 16.5A1.5 1.5 0 0 0 5.18 18.5h13.07c.99 0 1.88-.61 2.24-1.53l1.42-3.6c.06-.16.09-.33.09-.5V9.5A2.5 2.5 0 0 0 19.5 7h-6.07l-1.35-1.35A3.5 3.5 0 0 0 9.6 4.62H5.5A3.5 3.5 0 0 0 2 8.12v8.94c0 .28.04.56.14.82z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.1c.66 0 1.3.26 1.77.73L12.6 7h5.9A2.5 2.5 0 0 1 21 9.5v.55H7.5a2.5 2.5 0 0 0-2.36 1.67L3.75 16.5A1.5 1.5 0 0 0 5.18 18.5h13.07c.99 0 1.88-.61 2.24-1.53l1.42-3.6c.06-.16.09-.33.09-.5V9.5A2.5 2.5 0 0 0 19.5 7h-6.07l-1.35-1.35A3.5 3.5 0 0 0 9.6 4.62H5.5A3.5 3.5 0 0 0 2 8.12v8.94c0 .28.04.56.14.82z'/%3E%3C/svg%3E");
+}
+
+.sidebar.left .explorer .folder-container > div{
+  min-width:0;
+}
+
+.sidebar.left .explorer .folder-button,
+.sidebar.left .explorer .folder-button + a{
+  display:flex;
+  align-items:center;
+  min-width:0;
+}
+
+.sidebar.left .explorer .folder-title{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 /* ---------- Right sidebar ---------- */
