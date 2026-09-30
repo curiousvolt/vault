@@ -8,14 +8,14 @@ configuration:
   locale: en-US
   baseUrl: curiousvolt.github.io/vault
   ignorePatterns:
-    - private
-    - templates
-    - .obsidian
-    - .git
-    - .github
-    - .quartz-build
-    - node_modules
-    - public
+    - private/**
+    - templates/**
+    - .obsidian/**
+    - .git/**
+    - .github/**
+    - .quartz-build/**
+    - node_modules/**
+    - public/**
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
@@ -207,8 +207,7 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/curiousvolt/vault
     layout:
       position: footer
       priority: 50
