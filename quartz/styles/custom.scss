@@ -765,7 +765,7 @@ footer a{
     box-sizing:border-box!important;
     padding:1rem .75rem .65rem!important;
     gap:.45rem!important;
-    overflow:hidden!important;
+    overflow:visible!important;
     align-items:center!important;
   }
 
@@ -822,6 +822,36 @@ footer a{
   }
 
   .page-header .toc .toc-content::-webkit-scrollbar{
+    display:none!important;
+    width:0!important;
+    height:0!important;
+  }
+}
+
+/* ---------- Mobile TOC visibility ---------- */
+
+@media all and (max-width:800px){
+  .page-header > .popover-hint > .mobile-only{
+    display:block!important;
+    width:100%!important;
+  }
+
+  .page-header > .popover-hint > .mobile-only .toc{
+    display:flex!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+    margin:.85rem 0 1.4rem!important;
+  }
+
+  .page-header > .popover-hint > .mobile-only .toc .toc-content{
+    width:100%!important;
+    max-height:14rem!important;
+    overflow-y:auto!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+  }
+
+  .page-header > .popover-hint > .mobile-only .toc .toc-content::-webkit-scrollbar{
     display:none!important;
     width:0!important;
     height:0!important;
