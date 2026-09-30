@@ -682,32 +682,46 @@ a.external{
 
 /* ---------- Global search + footer ---------- */
 
-/* Use the same pill treatment for the search trigger and the actual
-   search input/modal, not just the sidebar trigger. */
+/* Apply the pill treatment to every Quartz search control/input. */
 .search-button,
+.search-container,
 .search-container input,
+.search-modal,
 .search-modal input,
+#search-container,
 #search-container input,
-#search-container .search-bar{
+#search-container .search-bar,
+input[type="search"],
+input[placeholder="Search"]{
   border-radius:999px!important;
 }
 
 .search-container input,
 .search-modal input,
 #search-container input,
-#search-container .search-bar{
+#search-container .search-bar,
+input[type="search"],
+input[placeholder="Search"]{
   min-height:48px!important;
 }
 
-/* Keep the Quartz footer centered in the main content column. */
-.center .page-footer,
-.center>footer,
-.page-footer{
+/* Quartz's global footer sits outside .center; center the actual footer
+   element rather than only its inner page-footer components. */
+.page > footer,
+#quartz-footer,
+footer{
   text-align:center!important;
-  justify-content:center!important;
-  align-items:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
 }
 
-.page-footer a{
+.page > footer{
+  width:100%!important;
+  justify-self:center!important;
+}
+
+.page > footer a,
+#quartz-footer a,
+footer a{
   display:inline-block;
 }
