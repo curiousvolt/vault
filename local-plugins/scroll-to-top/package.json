@@ -6,7 +6,8 @@
   "description": "Floating scroll-to-top button for CuriousVolt Quartz",
   "exports": {
     ".": "./dist/index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./components": "./dist/components.js"
   },
   "main": "./dist/index.js",
   "peerDependencies": {
