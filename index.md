@@ -6,11 +6,11 @@ cssclasses:
 
 > A public knowledge base by Aman Kumar — an electrical engineer from India, collecting what I learn, build, and figure out.
 
-This is my digital garden: **notes for ideas, documentation for reference, and questions I’m actively exploring.**
+<p class="cv-intro">This is my digital garden: <strong>notes for ideas</strong>, <strong>documentation for reference</strong>, and <strong>questions I'm actively exploring</strong>.</p>
 
 <div class="cv-links">
   <a class="cv-link" href="./Notes/">
-    <span>
+    <span class="cv-copy">
       <strong>Notes</strong>
       <small>Ideas, observations, concepts, and things worth remembering.</small>
     </span>
@@ -18,7 +18,7 @@ This is my digital garden: **notes for ideas, documentation for reference, and q
   </a>
 
   <a class="cv-link" href="./Tech%20Docs/">
-    <span>
+    <span class="cv-copy">
       <strong>Documentation</strong>
       <small>Reference material for mathematics, programming, AI, engineering, and more.</small>
     </span>
@@ -26,9 +26,9 @@ This is my digital garden: **notes for ideas, documentation for reference, and q
   </a>
 
   <a class="cv-link" href="./Questions/">
-    <span>
+    <span class="cv-copy">
       <strong>Questions</strong>
-      <small>Open questions, rabbit holes, and things I’m currently figuring out.</small>
+      <small>Open questions, rabbit holes, and things I'm currently figuring out.</small>
     </span>
     <span class="cv-arrow">→</span>
   </a>
@@ -36,10 +36,28 @@ This is my digital garden: **notes for ideas, documentation for reference, and q
 
 ## How to navigate
 
-- **Explorer** — browse the vault by folder.
-- **Search** — find a note or topic quickly.
-- **Graph** — explore connections between notes and ideas.
-- **Table of Contents** — jump between sections of a longer note.
+<div class="cv-tools">
+  <div class="cv-tool">
+    <span class="cv-tool-icon">□</span>
+    <strong>Explorer</strong>
+    <small>Browse the vault by folder.</small>
+  </div>
+  <div class="cv-tool">
+    <span class="cv-tool-icon">⌕</span>
+    <strong>Search</strong>
+    <small>Find a note or topic quickly.</small>
+  </div>
+  <div class="cv-tool">
+    <span class="cv-tool-icon">⌘</span>
+    <strong>Graph</strong>
+    <small>Explore connections between notes.</small>
+  </div>
+  <div class="cv-tool">
+    <span class="cv-tool-icon">≡</span>
+    <strong>Table of Contents</strong>
+    <small>Jump between sections of a longer note.</small>
+  </div>
+</div>
 
 ## About
 
