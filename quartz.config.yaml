@@ -16,6 +16,8 @@ configuration:
     - .quartz-build/**
     - node_modules/**
     - public/**
+    - '**/*.canvas'
+    - 'Excalidraw/scripts/**'
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
