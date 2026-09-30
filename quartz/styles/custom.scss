@@ -545,3 +545,66 @@ a.external{
     grid-template-columns:1fr;
   }
 }
+
+/* ---------- Right sidebar TOC behaviour ---------- */
+/* Keep the graph in normal flow. The TOC gets the remaining viewport
+   space instead of expanding over the graph when opened. */
+
+@media all and (min-width:901px){
+  .sidebar.right{
+    min-height:0;
+    overflow:visible;
+    align-items:stretch;
+  }
+
+  .sidebar.right>.graph{
+    position:relative!important;
+    z-index:0!important;
+    flex:0 0 auto!important;
+    min-height:0;
+  }
+
+  .sidebar.right>.toc{
+    position:relative!important;
+    z-index:1!important;
+    flex:0 1 auto!important;
+    min-height:0!important;
+    max-height:calc(100vh - 430px)!important;
+    overflow:hidden!important;
+  }
+
+  /* Quartz renders the expandable heading list as .toc-content.
+     Keep it scrollable, but remove the ugly native scrollbar. */
+  .sidebar.right>.toc .toc-content,
+  .sidebar.right>.toc nav,
+  .sidebar.right>.toc ul{
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+
+  .sidebar.right>.toc .toc-content::-webkit-scrollbar,
+  .sidebar.right>.toc nav::-webkit-scrollbar,
+  .sidebar.right>.toc ul::-webkit-scrollbar{
+    width:0;
+    height:0;
+    display:none;
+  }
+
+  .sidebar.right>.toc .toc-content{
+    max-height:calc(100vh - 500px)!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain;
+  }
+}
+
+/* The TOC should never create a second page-level scrollbar. */
+.sidebar.right{
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+
+.sidebar.right::-webkit-scrollbar{
+  width:0;
+  height:0;
+  display:none;
+}
