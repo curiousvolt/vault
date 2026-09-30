@@ -19,3 +19,17 @@ article img,pre,blockquote{border-radius:var(--cv-radius)}
 .home .cv-card-icon{background:rgba(255,255,255,.55);padding:9px;width:42px;height:42px;border-radius:12px;box-sizing:border-box}
 .home .cv-about{border-radius:var(--cv-radius);border-color:var(--cv-border);background:linear-gradient(110deg,#f8fbff,#fff)}
 @media all and (prefers-color-scheme:dark){:root{--cv-sidebar:#15181d;--cv-panel:#111318;--cv-border:#292e38;--cv-muted:#94a0b3;--cv-text:#f4f7fb}.home .cv-card:nth-child(1),.home .cv-card:nth-child(2),.home .cv-card:nth-child(3){background:var(--cv-panel)}.home .cv-about{background:var(--cv-panel)}}
+
+/* Sidebar / navigation polish — keeps the Quartz explorer intact */
+.sidebar.left{border-right:1px solid var(--lightgray);background:color-mix(in srgb,var(--light) 96%,var(--secondary) 4%)}
+.sidebar.right{border-left:1px solid var(--lightgray)}
+.page-title{padding-bottom:.35rem}
+.page-title a{font-size:1.18rem;font-weight:750;color:var(--dark)!important}
+.search-button{background:var(--light)!important;border:1px solid var(--lightgray)!important;box-shadow:0 1px 2px rgba(15,23,42,.03)}
+.explorer-title{font-size:.9rem;font-weight:700}
+.explorer .folder-title,.explorer .explorer-item{color:var(--darkgray)}
+.toc{border-top:1px solid var(--lightgray);padding-top:1rem}
+.toc h3{font-size:1rem}
+:root[saved-theme="dark"] .sidebar.left{background:color-mix(in srgb,var(--light) 96%,var(--secondary) 4%)}
+:root[saved-theme="dark"] .sidebar.right{border-color:var(--lightgray)}
+:root[saved-theme="dark"] .search-button{box-shadow:none}
