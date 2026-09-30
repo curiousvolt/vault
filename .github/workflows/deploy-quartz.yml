@@ -41,7 +41,10 @@ jobs:
         run: npm ci
 
       - name: Use vault configuration
-        run: cp quartz.config.yaml .quartz-build/quartz.config.yaml
+        run: |
+          cp quartz.config.yaml .quartz-build/quartz.config.yaml
+          mkdir -p .quartz-build/quartz/styles
+          cp quartz/styles/custom.scss .quartz-build/quartz/styles/custom.scss
 
       - name: Install Quartz plugins and build
         working-directory: .quartz-build

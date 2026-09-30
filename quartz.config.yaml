@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: CuriousVolt — Knowledge Base
+  pageTitle: CuriousVolt
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -22,8 +22,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Space Grotesk
-      body: Inter
+      header: Plus Jakarta Sans
+      body: Lexend
       code: JetBrains Mono
     colors:
       lightMode:
