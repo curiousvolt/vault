@@ -1,0 +1,33 @@
+{
+  "name": "scroll-to-top",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Floating scroll-to-top button for CuriousVolt Quartz",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "quartz": {
+    "name": "scroll-to-top",
+    "displayName": "Scroll to Top",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 10,
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "ScrollTop": {
+        "displayName": "Scroll to Top",
+        "defaultPosition": "footer",
+        "defaultPriority": 10
+      }
+    }
+  }
+}
