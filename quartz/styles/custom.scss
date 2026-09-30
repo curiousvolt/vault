@@ -381,3 +381,173 @@ body:has(article.home) .center>article{
     min-height:145px;
   }
 }
+
+/* =========================================================
+   ARTICLE PAGES — CuriousVolt reading experience
+   ========================================================= */
+
+/* Give normal notes the same calm canvas as the portfolio */
+body:not(:has(article.home)){
+  background:var(--cv-bg);
+}
+
+/* Remove the default explorer/graph clutter from reading pages.
+   TOC becomes the intentional navigation rail. */
+body:not(:has(article.home)) .sidebar.left .explorer,
+body:not(:has(article.home)) .sidebar.left .search,
+body:not(:has(article.home)) .sidebar.left .spacer,
+body:not(:has(article.home)) .sidebar.right #graph-container,
+body:not(:has(article.home)) .sidebar.right .graph,
+body:not(:has(article.home)) .sidebar.right .backlinks{
+  display:none!important;
+}
+
+/* Article canvas */
+body:not(:has(article.home)) .center>article{
+  max-width:760px;
+  margin:0 auto;
+  padding-bottom:5rem;
+}
+
+/* Article title */
+body:not(:has(article.home)) .article-title{
+  font-size:clamp(2.45rem,5vw,4.3rem);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  margin-top:1rem;
+  margin-bottom:1.4rem;
+  color:var(--cv-text);
+}
+
+/* Metadata */
+body:not(:has(article.home)) .content-meta{
+  color:var(--cv-muted);
+  font-size:.86rem;
+  letter-spacing:-.01em;
+}
+
+/* Tags as portfolio-style pills */
+body:not(:has(article.home)) .tag-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:0 0 1rem;
+}
+
+body:not(:has(article.home)) .tag-list a{
+  padding:5px 11px;
+  border:1px solid transparent;
+  border-radius:999px;
+  background:#29231e;
+  color:var(--cv-accent);
+  font-family:var(--codeFont);
+  font-size:.73rem;
+  font-weight:650;
+  text-decoration:none;
+}
+
+/* TOC rail */
+body:not(:has(article.home)) .toc{
+  padding-top:2.8rem;
+}
+
+body:not(:has(article.home)) .toc h3{
+  font-size:1.3rem;
+  letter-spacing:-.04em;
+}
+
+body:not(:has(article.home)) .toc ul{
+  margin-top:1rem;
+}
+
+body:not(:has(article.home)) .toc a{
+  display:block;
+  padding:5px 0;
+  color:var(--cv-muted);
+  font-size:.84rem;
+  line-height:1.35;
+}
+
+body:not(:has(article.home)) .toc a:hover{
+  color:var(--cv-text);
+}
+
+/* Article body */
+body:not(:has(article.home)) article p,
+body:not(:has(article.home)) article li{
+  font-size:1rem;
+}
+
+body:not(:has(article.home)) article>p:first-of-type{
+  color:#ddd9d5;
+  font-size:1.08rem;
+  line-height:1.75;
+}
+
+body:not(:has(article.home)) article h2{
+  margin-top:3.4rem;
+  padding-top:1rem;
+  border-top:1px solid var(--cv-border);
+  font-size:1.7rem;
+  letter-spacing:-.04em;
+}
+
+body:not(:has(article.home)) article h3{
+  margin-top:2.3rem;
+  font-size:1.25rem;
+}
+
+/* Images become editorial rather than raw markdown */
+body:not(:has(article.home)) article img{
+  display:block;
+  width:100%;
+  margin:2rem 0;
+  border:1px solid var(--cv-border);
+  border-radius:14px;
+}
+
+/* Code / callouts */
+body:not(:has(article.home)) article pre{
+  margin:1.6rem 0;
+  padding:1rem;
+  border-radius:14px;
+}
+
+body:not(:has(article.home)) article blockquote{
+  margin:1.8rem 0;
+  padding:1.15rem 1.25rem;
+}
+
+/* Footnotes and separators */
+body:not(:has(article.home)) article hr{
+  margin:3rem 0;
+}
+
+/* Keep the article readable at tablet widths */
+@media all and (max-width:1100px){
+  body:not(:has(article.home)) .sidebar.right{
+    display:none!important;
+  }
+
+  body:not(:has(article.home)) .sidebar.left{
+    padding-left:1rem;
+  }
+
+  body:not(:has(article.home)) .center>article{
+    max-width:780px;
+  }
+}
+
+@media all and (max-width:700px){
+  body:not(:has(article.home)) .sidebar.left{
+    display:none!important;
+  }
+
+  body:not(:has(article.home)) .center>article{
+    padding:0 1rem 4rem;
+  }
+
+  body:not(:has(article.home)) .article-title{
+    font-size:2.45rem;
+  }
+}
