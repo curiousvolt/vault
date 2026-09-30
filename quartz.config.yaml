@@ -19,8 +19,8 @@ configuration:
     - '**/*.canvas'
     - 'Excalidraw/scripts/**'
   theme:
-    fontOrigin: googleFonts
-    cdnCaching: true
+    fontOrigin: local
+    cdnCaching: false
     typography:
       header: Plus Jakarta Sans
       body: Lexend
