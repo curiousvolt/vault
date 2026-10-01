@@ -893,3 +893,98 @@ footer a{
     bottom:72px!important;
   }
 }
+
+
+/* ---------- TOC hardening ---------- */
+
+/* Keep every TOC as a self-contained, bordered panel. */
+.toc{
+  box-sizing:border-box!important;
+  border:1px solid var(--lightgray)!important;
+  border-radius:14px!important;
+  background:color-mix(in srgb,var(--light) 55%,transparent)!important;
+  overflow:hidden!important;
+  min-width:0!important;
+}
+
+/* The list itself owns the scrolling. Never let the list extend
+   beyond the viewport or push the page/sidebar outward. */
+.toc .toc-content{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  max-height:min(55vh,32rem)!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  overscroll-behavior:contain!important;
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+}
+
+.toc .toc-content::-webkit-scrollbar{
+  width:0!important;
+  height:0!important;
+  display:none!important;
+}
+
+/* Long headings must wrap instead of creating horizontal overflow. */
+.toc .toc-content li,
+.toc .toc-content a{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+
+.toc .toc-content a{
+  display:block!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+}
+
+/* The TOC heading is fixed while its list scrolls. */
+.toc .toc-header{
+  flex:0 0 auto!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  padding:0!important;
+}
+
+/* Remove the collapse arrow everywhere. */
+.toc .toc-header svg,
+.toc .toc-title svg,
+.toc button svg{
+  display:none!important;
+}
+
+@media all and (min-width:901px){
+  .sidebar.right{
+    min-height:0!important;
+    max-height:100vh!important;
+    overflow:hidden!important;
+  }
+
+  .sidebar.right>.toc{
+    flex:0 1 auto!important;
+    min-height:0!important;
+    max-height:calc(100vh - 220px)!important;
+    overflow:hidden!important;
+  }
+
+  .sidebar.right>.toc .toc-content{
+    max-height:calc(100vh - 300px)!important;
+  }
+}
+
+@media all and (max-width:900px){
+  .toc{
+    width:100%!important;
+    margin:.85rem 0 1.4rem!important;
+    padding:14px 16px!important;
+  }
+
+  .toc .toc-content{
+    max-height:min(45vh,20rem)!important;
+    margin:.5rem 0!important;
+  }
+}
