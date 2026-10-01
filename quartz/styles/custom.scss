@@ -979,12 +979,18 @@ footer a{
 @media all and (max-width:900px){
   .toc{
     width:100%!important;
-    margin:.85rem 0 1.4rem!important;
-    padding:14px 16px!important;
+    margin:1.25rem 0 1.8rem!important;
+    padding:20px 22px!important;
+  }
+
+  .toc .toc-header{
+    padding:0!important;
+    margin:0 0 .35rem!important;
   }
 
   .toc .toc-content{
     max-height:min(45vh,20rem)!important;
-    margin:.5rem 0!important;
+    margin:.8rem 0 .15rem!important;
+    padding:0!important;
   }
 }
