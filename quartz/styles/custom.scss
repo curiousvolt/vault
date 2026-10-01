@@ -967,12 +967,22 @@ footer a{
   .sidebar.right>.toc{
     flex:0 1 auto!important;
     min-height:0!important;
-    max-height:calc(100vh - 220px)!important;
+    max-height:calc(100vh - 250px)!important;
+    margin:1rem 0 2rem!important;
+    padding:20px 18px 24px!important;
+    box-sizing:border-box!important;
     overflow:hidden!important;
   }
 
+  .sidebar.right>.toc .toc-header{
+    margin:0 0 .6rem!important;
+    padding:0!important;
+  }
+
   .sidebar.right>.toc .toc-content{
-    max-height:calc(100vh - 300px)!important;
+    max-height:calc(100vh - 340px)!important;
+    margin:0!important;
+    padding:0!important;
   }
 }
 
