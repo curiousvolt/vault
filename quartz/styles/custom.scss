@@ -898,9 +898,13 @@ footer a{
 /* ---------- Final TOC layout ---------- */
 
 /*
- * Quartz's right sidebar is a 100vh flex column. Keep the graph and TOC
- * in normal flow and let only the TOC list scroll. This avoids clipping
- * the panel's padding/margins and prevents the TOC from covering the graph.
+ * Quartz v5 renders the modern TOC as:
+ *   .toc
+ *     > button#toc
+ *     > div#toc-content
+ *         > ul.overflow
+ *
+ * Keep the panel itself contained and let only #toc-content scroll.
  */
 @media all and (min-width:901px){
   .sidebar.right{
@@ -908,6 +912,7 @@ footer a{
     flex-direction:column!important;
     align-items:stretch!important;
     gap:1.2rem!important;
+    min-width:0!important;
     min-height:0!important;
     max-height:100vh!important;
     height:100vh!important;
@@ -918,10 +923,12 @@ footer a{
   .sidebar.right>.graph{
     flex:0 0 auto!important;
     width:100%!important;
+    min-width:0!important;
     min-height:0!important;
     margin:0!important;
     padding:16px 0!important;
     overflow:visible!important;
+    box-sizing:border-box!important;
   }
 
   .sidebar.right>.toc{
@@ -939,14 +946,21 @@ footer a{
     background:color-mix(in srgb,var(--light) 55%,transparent)!important;
   }
 
-  .sidebar.right>.toc .toc-header{
+  .sidebar.right>.toc > #toc{
     width:100%!important;
+    min-width:0!important;
     margin:0 0 10px!important;
     padding:0!important;
     box-sizing:border-box!important;
+    border:0!important;
   }
 
-  .sidebar.right>.toc .toc-content{
+  .sidebar.right>.toc > #toc h3{
+    margin:0!important;
+  }
+
+  .sidebar.right>.toc > #toc-content{
+    display:block!important;
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
@@ -961,33 +975,41 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .sidebar.right>.toc .toc-content::-webkit-scrollbar{
+  .sidebar.right>.toc > #toc-content::-webkit-scrollbar{
     display:none!important;
     width:0!important;
     height:0!important;
   }
 
-  .sidebar.right>.toc .toc-content li,
-  .sidebar.right>.toc .toc-content a{
+  .sidebar.right>.toc > #toc-content > .overflow{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding-left:1.1rem!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.toc > #toc-content li,
+  .sidebar.right>.toc > #toc-content a{
     min-width:0!important;
     max-width:100%!important;
     box-sizing:border-box!important;
   }
 
-  .sidebar.right>.toc .toc-content a{
+  .sidebar.right>.toc > #toc-content a{
     display:block!important;
     overflow-wrap:anywhere!important;
     word-break:break-word!important;
   }
 
-  .sidebar.right>.toc .toc-header svg,
-  .sidebar.right>.toc .toc-title svg,
-  .sidebar.right>.toc button svg{
+  .sidebar.right>.toc .fold,
+  .sidebar.right>.toc > #toc svg{
     display:none!important;
   }
 }
 
-/* Mobile TOC: the duplicate mobile-only component lives in the page header. */
+/* Mobile TOC */
 @media all and (max-width:900px){
   .page-header .toc,
   .page-header > .popover-hint > .mobile-only .toc{
@@ -1003,16 +1025,18 @@ footer a{
     background:color-mix(in srgb,var(--light) 55%,transparent)!important;
   }
 
-  .page-header .toc .toc-header,
-  .page-header > .popover-hint > .mobile-only .toc .toc-header{
+  .page-header .toc > #toc,
+  .page-header > .popover-hint > .mobile-only .toc > #toc{
     width:100%!important;
+    min-width:0!important;
     margin:0 0 8px!important;
     padding:0!important;
     box-sizing:border-box!important;
   }
 
-  .page-header .toc .toc-content,
-  .page-header > .popover-hint > .mobile-only .toc .toc-content{
+  .page-header .toc > #toc-content,
+  .page-header > .popover-hint > .mobile-only .toc > #toc-content{
+    display:block!important;
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
@@ -1026,17 +1050,24 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page-header .toc .toc-content::-webkit-scrollbar,
-  .page-header > .popover-hint > .mobile-only .toc .toc-content::-webkit-scrollbar{
+  .page-header .toc > #toc-content::-webkit-scrollbar,
+  .page-header > .popover-hint > .mobile-only .toc > #toc-content::-webkit-scrollbar{
     display:none!important;
     width:0!important;
     height:0!important;
   }
+
+  .page-header .toc > #toc-content > .overflow,
+  .page-header > .popover-hint > .mobile-only .toc > #toc-content > .overflow{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
 }
 
 /* ---------- Scrollbar-free TOC links ---------- */
-.toc .toc-content a{
+.toc #toc-content a{
   overflow-wrap:anywhere!important;
   word-break:break-word!important;
 }
-
