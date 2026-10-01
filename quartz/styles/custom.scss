@@ -961,8 +961,8 @@ footer a{
   word-break:break-word!important;
 }
 
-.toc .fold{
-  display:none!important;
+.toc > button.toc-header .fold{
+  display:block!important;
 }
 
 @media all and (min-width:901px){
@@ -991,20 +991,38 @@ footer a{
   }
 
   .sidebar.right>.toc{
-    flex:0 1 auto!important;
+    flex:0 0 auto!important;
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
-    height:auto!important;
-    max-height:calc(100vh - 300px)!important;
+    height:420px!important;
+    max-height:420px!important;
     margin:0 0 24px!important;
-    padding:18px 18px 20px!important;
+    padding:20px 18px 20px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
   }
 
+  .sidebar.right>.toc > button.toc-header{
+    flex:0 0 auto!important;
+    min-height:24px!important;
+    margin:0 0 10px!important;
+    padding:0!important;
+  }
+
+  .sidebar.right>.toc > button.toc-header .fold{
+    display:none!important;
+  }
+
   .sidebar.right>.toc > ul.toc-content.overflow{
-    max-height:calc(100vh - 390px)!important;
+    flex:1 1 auto!important;
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
   }
 }
 
@@ -1017,16 +1035,32 @@ footer a{
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
-    height:calc(100dvh - 110px)!important;
-    max-height:calc(100dvh - 110px)!important;
+    height:55vh!important;
+    max-height:55vh!important;
     min-height:0!important;
-    margin:1rem 0 2.25rem!important;
-    padding:18px 18px 20px!important;
+    margin:1rem 0 2rem!important;
+    padding:20px 18px 20px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
     border:1.5px solid var(--lightgray)!important;
     border-radius:12px!important;
     background:color-mix(in srgb,var(--light) 55%,transparent)!important;
+  }
+
+  .page-header .toc > button.toc-header,
+  .page-header > .popover-hint > .mobile-only .toc > button.toc-header{
+    flex:0 0 auto!important;
+    min-height:28px!important;
+    width:100%!important;
+    margin:0 0 10px!important;
+    padding:0!important;
+  }
+
+  .page-header .toc > button.toc-header .fold,
+  .page-header > .popover-hint > .mobile-only .toc > button.toc-header .fold{
+    display:block!important;
+    flex:0 0 24px!important;
+    margin-left:.5rem!important;
   }
 
   .page-header .toc > ul.toc-content.overflow,
@@ -1038,7 +1072,7 @@ footer a{
     max-width:100%!important;
     max-height:none!important;
     height:auto!important;
-    margin:.7rem 0 0!important;
+    margin:0!important;
     padding:0!important;
     overflow-y:auto!important;
     overflow-x:hidden!important;
