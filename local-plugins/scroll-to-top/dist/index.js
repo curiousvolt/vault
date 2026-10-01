@@ -100,24 +100,27 @@ const script = `
 })()
 `
 
-const ScrollTop = () =>
-  h(
-    "button",
-    {
-      class: "cv-scroll-top",
-      type: "button",
-      "aria-label": "Scroll to top",
-      title: "Scroll to top",
-    },
+const ScrollTop = () => {
+  const Component = () =>
     h(
-      "svg",
-      { viewBox: "0 0 24 24", "aria-hidden": "true" },
-      h("path", { d: "M12 19V5" }),
-      h("path", { d: "m6 11 6-6 6 6" }),
-    ),
-  )
+      "button",
+      {
+        class: "cv-scroll-top",
+        type: "button",
+        "aria-label": "Scroll to top",
+        title: "Scroll to top",
+      },
+      h(
+        "svg",
+        { viewBox: "0 0 24 24", "aria-hidden": "true" },
+        h("path", { d: "M12 19V5" }),
+        h("path", { d: "m6 11 6-6 6 6" }),
+      ),
+    )
 
-ScrollTop.css = css
-ScrollTop.afterDOMLoaded = script
+  Component.css = css
+  Component.afterDOMLoaded = script
+  return Component
+}
 
 export { ScrollTop }
