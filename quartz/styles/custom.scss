@@ -898,14 +898,73 @@ footer a{
 /* ---------- Final TOC layout ---------- */
 
 /*
- * Quartz v5 renders the modern TOC as:
+ * The community TOC renders:
  *   .toc
- *     > button#toc
- *     > div#toc-content
- *         > ul.overflow
+ *     button.toc-header
+ *     ul.toc-content.overflow
  *
- * Keep the panel itself contained and let only #toc-content scroll.
+ * The UL must be the scroll container. The .toc itself must own the
+ * border/background/padding so the entire list is visually enclosed.
  */
+
+.toc{
+  box-sizing:border-box!important;
+  min-width:0!important;
+  max-width:100%!important;
+  border:1px solid var(--lightgray)!important;
+  border-radius:14px!important;
+  background:color-mix(in srgb,var(--light) 55%,transparent)!important;
+  overflow:hidden!important;
+}
+
+.toc > button.toc-header{
+  flex:0 0 auto!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+}
+
+.toc > ul.toc-content.overflow{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  margin:.7rem 0 0!important;
+  padding:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  overscroll-behavior:contain!important;
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+}
+
+.toc > ul.toc-content.overflow::-webkit-scrollbar{
+  display:none!important;
+  width:0!important;
+  height:0!important;
+}
+
+.toc > ul.toc-content.overflow > li,
+.toc > ul.toc-content.overflow > li > a{
+  min-width:0!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+
+.toc > ul.toc-content.overflow > li > a{
+  display:block!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+}
+
+.toc .fold{
+  display:none!important;
+}
+
 @media all and (min-width:901px){
   .sidebar.right{
     display:flex!important;
@@ -932,142 +991,61 @@ footer a{
   }
 
   .sidebar.right>.toc{
-    flex:0 0 auto!important;
+    flex:0 1 auto!important;
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
+    height:auto!important;
     max-height:calc(100vh - 300px)!important;
     margin:0 0 24px!important;
     padding:18px 18px 20px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
-    border:1px solid var(--lightgray)!important;
-    border-radius:14px!important;
-    background:color-mix(in srgb,var(--light) 55%,transparent)!important;
   }
 
-  .sidebar.right>.toc > #toc{
-    width:100%!important;
-    min-width:0!important;
-    margin:0 0 10px!important;
-    padding:0!important;
-    box-sizing:border-box!important;
-    border:0!important;
-  }
-
-  .sidebar.right>.toc > #toc h3{
-    margin:0!important;
-  }
-
-  .sidebar.right>.toc > #toc-content{
-    display:block!important;
-    width:100%!important;
-    min-width:0!important;
-    max-width:100%!important;
+  .sidebar.right>.toc > ul.toc-content.overflow{
     max-height:calc(100vh - 390px)!important;
-    margin:0!important;
-    padding:0!important;
-    overflow-y:auto!important;
-    overflow-x:hidden!important;
-    scrollbar-width:none!important;
-    -ms-overflow-style:none!important;
-    overscroll-behavior:contain!important;
-    box-sizing:border-box!important;
-  }
-
-  .sidebar.right>.toc > #toc-content::-webkit-scrollbar{
-    display:none!important;
-    width:0!important;
-    height:0!important;
-  }
-
-  .sidebar.right>.toc > #toc-content > .overflow{
-    width:100%!important;
-    min-width:0!important;
-    max-width:100%!important;
-    margin:0!important;
-    padding-left:1.1rem!important;
-    box-sizing:border-box!important;
-  }
-
-  .sidebar.right>.toc > #toc-content li,
-  .sidebar.right>.toc > #toc-content a{
-    min-width:0!important;
-    max-width:100%!important;
-    box-sizing:border-box!important;
-  }
-
-  .sidebar.right>.toc > #toc-content a{
-    display:block!important;
-    overflow-wrap:anywhere!important;
-    word-break:break-word!important;
-  }
-
-  .sidebar.right>.toc .fold,
-  .sidebar.right>.toc > #toc svg{
-    display:none!important;
   }
 }
 
-/* Mobile TOC */
 @media all and (max-width:900px){
   .page-header .toc,
   .page-header > .popover-hint > .mobile-only .toc{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
+    height:auto!important;
+    max-height:calc(100vh - 120px)!important;
     margin:1rem 0 1.75rem!important;
     padding:18px 18px 20px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
-    border:1.5px solid color-mix(in srgb,var(--darkgray) 28%,var(--lightgray))!important;
+    border:1.5px solid var(--lightgray)!important;
     border-radius:12px!important;
     background:color-mix(in srgb,var(--light) 55%,transparent)!important;
   }
 
-  .page-header .toc > #toc,
-  .page-header > .popover-hint > .mobile-only .toc > #toc{
+  .page-header .toc > ul.toc-content.overflow,
+  .page-header > .popover-hint > .mobile-only .toc > ul.toc-content.overflow{
+    flex:1 1 auto!important;
     width:100%!important;
     min-width:0!important;
-    margin:0 0 8px!important;
-    padding:0!important;
-    box-sizing:border-box!important;
-  }
-
-  .page-header .toc > #toc-content,
-  .page-header > .popover-hint > .mobile-only .toc > #toc-content{
-    display:block!important;
-    width:100%!important;
-    min-width:0!important;
+    min-height:0!important;
     max-width:100%!important;
-    max-height:min(45vh,20rem)!important;
-    margin:0!important;
+    max-height:calc(100vh - 205px)!important;
+    margin:.7rem 0 0!important;
     padding:0!important;
     overflow-y:auto!important;
     overflow-x:hidden!important;
-    scrollbar-width:none!important;
-    -ms-overflow-style:none!important;
-    box-sizing:border-box!important;
-  }
-
-  .page-header .toc > #toc-content::-webkit-scrollbar,
-  .page-header > .popover-hint > .mobile-only .toc > #toc-content::-webkit-scrollbar{
-    display:none!important;
-    width:0!important;
-    height:0!important;
-  }
-
-  .page-header .toc > #toc-content > .overflow,
-  .page-header > .popover-hint > .mobile-only .toc > #toc-content > .overflow{
-    width:100%!important;
-    min-width:0!important;
-    max-width:100%!important;
     box-sizing:border-box!important;
   }
 }
 
 /* ---------- Scrollbar-free TOC links ---------- */
-.toc #toc-content a{
+.toc > ul.toc-content.overflow a{
   overflow-wrap:anywhere!important;
   word-break:break-word!important;
 }
