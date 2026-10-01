@@ -1017,9 +1017,10 @@ footer a{
     width:100%!important;
     min-width:0!important;
     max-width:100%!important;
-    height:auto!important;
-    max-height:calc(100vh - 120px)!important;
-    margin:1rem 0 1.75rem!important;
+    height:calc(100dvh - 110px)!important;
+    max-height:calc(100dvh - 110px)!important;
+    min-height:0!important;
+    margin:1rem 0 2.25rem!important;
     padding:18px 18px 20px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
@@ -1035,7 +1036,8 @@ footer a{
     min-width:0!important;
     min-height:0!important;
     max-width:100%!important;
-    max-height:calc(100vh - 205px)!important;
+    max-height:none!important;
+    height:auto!important;
     margin:.7rem 0 0!important;
     padding:0!important;
     overflow-y:auto!important;
