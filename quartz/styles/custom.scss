@@ -895,112 +895,148 @@ footer a{
 }
 
 
-/* ---------- TOC hardening ---------- */
+/* ---------- Final TOC layout ---------- */
 
-/* Keep every TOC as a self-contained, bordered panel. */
-.toc{
-  box-sizing:border-box!important;
-  border:1px solid var(--lightgray)!important;
-  border-radius:14px!important;
-  background:color-mix(in srgb,var(--light) 55%,transparent)!important;
-  overflow:hidden!important;
-  min-width:0!important;
+/*
+ * Quartz's right sidebar is a 100vh flex column. Keep the graph and TOC
+ * in normal flow and let only the TOC list scroll. This avoids clipping
+ * the panel's padding/margins and prevents the TOC from covering the graph.
+ */
+@media all and (min-width:901px){
+  .sidebar.right{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:1.2rem!important;
+    min-height:0!important;
+    max-height:100vh!important;
+    height:100vh!important;
+    overflow:visible!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.graph{
+    flex:0 0 auto!important;
+    width:100%!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:16px 0!important;
+    overflow:visible!important;
+  }
+
+  .sidebar.right>.toc{
+    flex:0 0 auto!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    max-height:calc(100vh - 300px)!important;
+    margin:0 0 24px!important;
+    padding:18px 18px 20px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    border:1px solid var(--lightgray)!important;
+    border-radius:14px!important;
+    background:color-mix(in srgb,var(--light) 55%,transparent)!important;
+  }
+
+  .sidebar.right>.toc .toc-header{
+    width:100%!important;
+    margin:0 0 10px!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.toc .toc-content{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    max-height:calc(100vh - 390px)!important;
+    margin:0!important;
+    padding:0!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+    overscroll-behavior:contain!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.toc .toc-content::-webkit-scrollbar{
+    display:none!important;
+    width:0!important;
+    height:0!important;
+  }
+
+  .sidebar.right>.toc .toc-content li,
+  .sidebar.right>.toc .toc-content a{
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.toc .toc-content a{
+    display:block!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+  }
+
+  .sidebar.right>.toc .toc-header svg,
+  .sidebar.right>.toc .toc-title svg,
+  .sidebar.right>.toc button svg{
+    display:none!important;
+  }
 }
 
-/* The list itself owns the scrolling. Never let the list extend
-   beyond the viewport or push the page/sidebar outward. */
-.toc .toc-content{
-  box-sizing:border-box!important;
-  width:100%!important;
-  min-width:0!important;
-  max-width:100%!important;
-  max-height:min(55vh,32rem)!important;
-  overflow-y:auto!important;
-  overflow-x:hidden!important;
-  overscroll-behavior:contain!important;
-  scrollbar-width:none!important;
-  -ms-overflow-style:none!important;
+/* Mobile TOC: the duplicate mobile-only component lives in the page header. */
+@media all and (max-width:900px){
+  .page-header .toc,
+  .page-header > .popover-hint > .mobile-only .toc{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:1rem 0 1.75rem!important;
+    padding:18px 18px 20px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    border:1.5px solid color-mix(in srgb,var(--darkgray) 28%,var(--lightgray))!important;
+    border-radius:12px!important;
+    background:color-mix(in srgb,var(--light) 55%,transparent)!important;
+  }
+
+  .page-header .toc .toc-header,
+  .page-header > .popover-hint > .mobile-only .toc .toc-header{
+    width:100%!important;
+    margin:0 0 8px!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+  }
+
+  .page-header .toc .toc-content,
+  .page-header > .popover-hint > .mobile-only .toc .toc-content{
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    max-height:min(45vh,20rem)!important;
+    margin:0!important;
+    padding:0!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+    box-sizing:border-box!important;
+  }
+
+  .page-header .toc .toc-content::-webkit-scrollbar,
+  .page-header > .popover-hint > .mobile-only .toc .toc-content::-webkit-scrollbar{
+    display:none!important;
+    width:0!important;
+    height:0!important;
+  }
 }
 
-.toc .toc-content::-webkit-scrollbar{
-  width:0!important;
-  height:0!important;
-  display:none!important;
-}
-
-/* Long headings must wrap instead of creating horizontal overflow. */
-.toc .toc-content li,
+/* ---------- Scrollbar-free TOC links ---------- */
 .toc .toc-content a{
-  min-width:0!important;
-  max-width:100%!important;
-  box-sizing:border-box!important;
-}
-
-.toc .toc-content a{
-  display:block!important;
   overflow-wrap:anywhere!important;
   word-break:break-word!important;
 }
 
-/* The TOC heading is fixed while its list scrolls. */
-.toc .toc-header{
-  flex:0 0 auto!important;
-  width:100%!important;
-  box-sizing:border-box!important;
-  padding:0!important;
-}
-
-/* Remove the collapse arrow everywhere. */
-.toc .toc-header svg,
-.toc .toc-title svg,
-.toc button svg{
-  display:none!important;
-}
-
-@media all and (min-width:901px){
-  .sidebar.right{
-    min-height:0!important;
-    max-height:100vh!important;
-    overflow:hidden!important;
-  }
-
-  .sidebar.right>.toc{
-    flex:0 1 auto!important;
-    min-height:0!important;
-    max-height:calc(100vh - 250px)!important;
-    margin:1rem 0 2rem!important;
-    padding:20px 18px 24px!important;
-    box-sizing:border-box!important;
-    overflow:hidden!important;
-  }
-
-  .sidebar.right>.toc .toc-header{
-    margin:0 0 .6rem!important;
-    padding:0!important;
-  }
-
-  .sidebar.right>.toc .toc-content{
-    max-height:calc(100vh - 340px)!important;
-    margin:0!important;
-    padding:0!important;
-  }
-}
-
-@media all and (max-width:900px){
-  .toc{
-    width:100%!important;
-    margin:1.25rem 0 1.8rem!important;
-    padding:20px 22px!important;
-  }
-
-  .toc .toc-header{
-    padding:0!important;
-    margin:0 0 .35rem!important;
-  }
-
-  .toc .toc-content{
-    max-height:min(45vh,20rem)!important;
-    margin:.8rem 0 .15rem!important;
-    padding:0!important;
-  }
-}
