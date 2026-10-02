@@ -1010,8 +1010,9 @@ footer a{
 }
 
 /* ---------- Canvas pages ---------- */
-/* Canvas is a full-viewport workspace. It must not inherit the normal
-   documentation article max-width, center padding, or sidebar grid rules. */
+/* Canvas is a dedicated full-viewport workspace. It intentionally opts out
+   of the normal article width/padding system while retaining CuriousVolt's
+   visual language. */
 .page[data-frame="canvas"]{
   width:100vw!important;
   max-width:none!important;
@@ -1065,27 +1066,146 @@ footer a{
   min-height:0!important;
   margin:0!important;
   padding:0!important;
+  border:0!important;
   border-radius:0!important;
   box-sizing:border-box!important;
 }
 
-.page[data-frame="canvas"] .canvas-stage{
-  width:100%!important;
-  height:100%!important;
-  min-width:0!important;
-  min-height:0!important;
+/* Canvas controls use the same compact surfaces as the rest of the site. */
+.page[data-frame="canvas"] .canvas-controls{
+  top:14px;
+  right:14px;
+  gap:5px;
 }
 
-/* Search stays vertically centered with the other 40px desktop controls. */
+.page[data-frame="canvas"] .canvas-controls button{
+  width:38px!important;
+  height:38px!important;
+  min-width:38px!important;
+  min-height:38px!important;
+  border:1px solid var(--lightgray)!important;
+  border-radius:10px!important;
+  background:color-mix(in srgb,var(--light) 92%,transparent)!important;
+  color:var(--darkgray)!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.12)!important;
+}
+
+.page[data-frame="canvas"] .canvas-controls button:hover{
+  background:var(--highlight)!important;
+  border-color:var(--secondary)!important;
+  color:var(--dark)!important;
+}
+
+.page[data-frame="canvas"] .canvas-zoom-group{
+  border:1px solid var(--lightgray)!important;
+  border-radius:10px!important;
+  overflow:hidden!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.12)!important;
+}
+
+.page[data-frame="canvas"] .canvas-zoom-group button{
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+
+.page[data-frame="canvas"] .canvas-zoom-group button:first-child{
+  border-bottom:1px solid var(--lightgray)!important;
+}
+
+/* Canvas sidebar mirrors the normal left-rail styling. */
+.page[data-frame="canvas"] .canvas-sidebar{
+  width:300px!important;
+  box-sizing:border-box!important;
+  padding:22px 20px 22px 24px!important;
+  background:var(--light)!important;
+  border-right:1px solid var(--lightgray)!important;
+  box-shadow:8px 0 24px rgba(0,0,0,.12)!important;
+  gap:18px!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.page-title{
+  margin:0!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.page-title a{
+  display:flex!important;
+  align-items:center!important;
+  min-height:40px!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.page-title a:before{
+  width:40px!important;
+  height:40px!important;
+  flex:0 0 40px!important;
+  background-size:30px 30px!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.flex-component{
+  width:100%!important;
+  height:40px!important;
+  min-height:40px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:6px!important;
+  margin:0!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.flex-component>div{
+  width:40px!important;
+  min-width:40px!important;
+  height:40px!important;
+  min-height:40px!important;
+  flex:0 0 40px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  margin:0!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.flex-component .darkmode,
+.page[data-frame="canvas"] .canvas-sidebar>.flex-component .reader-mode,
+.page[data-frame="canvas"] .canvas-sidebar>.flex-component .search-button{
+  transform:translateY(1px);
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.flex-component svg{
+  margin:0!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.explorer{
+  flex:1 1 0!important;
+  min-height:0!important;
+  width:100%!important;
+  margin:0!important;
+  overflow:hidden!important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar>.explorer .explorer-content{
+  height:100%!important;
+  max-height:100%!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+
+/* Canvas image nodes should render responsively instead of being clipped. */
+.page[data-frame="canvas"] .canvas-node-image img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:contain!important;
+}
+
+/* Search icon uses the same optical center on every screen size. */
 @media all and (min-width:1200px){
   .sidebar.left>.flex-component .search-button svg{
     transform:translateY(1px);
   }
 }
 
-/* Explorer folder state icons:
-   collapsed = outline, open = filled. Keep the real SVG indicator invisible
-   but clickable so Quartz's existing event handling remains intact. */
+/* Folder state icons: collapsed = outlined, open = filled. */
 .sidebar.left .explorer .folder-container::before{
   pointer-events:none!important;
   background-color:currentColor;
@@ -1093,31 +1213,55 @@ footer a{
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.2c.7 0 1.3.28 1.77.74L13 7h5.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z'/%3E%3C/svg%3E") center/contain no-repeat!important;
 }
 
-/* An open folder is visibly filled, while preserving the same silhouette. */
 .sidebar.left .explorer .folder-container:has(+ .folder-outer.open)::before{
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.2c.7 0 1.3.28 1.77.74L13 7h5.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z'/%3E%3C/svg%3E") center/contain no-repeat!important;
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.2c.7 0 1.3.28 1.77.74L13 7h5.5A2.5 2.5 0 0 1 21 9.5v7A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5z'/%3E%3C/svg%3E") center/contain no-repeat!important;
 }
 
-/* Search icon uses the same visual center on mobile as the other toolbar icons. */
+/* Mobile toolbar: one fixed control size and one fixed visual gap. */
 @media all and (max-width:800px){
-  .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button svg{
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component{
+    gap:6px!important;
+  }
+
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div{
+    width:40px!important;
+    min-width:40px!important;
+    height:40px!important;
+    min-height:40px!important;
+    flex:0 0 40px!important;
+  }
+
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .darkmode,
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .reader-mode,
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .search-button{
     transform:translateY(1px);
   }
 
-  .page[data-frame="canvas"]{
-    width:100vw!important;
-    min-width:100vw!important;
-    height:100dvh!important;
-    min-height:100dvh!important;
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .darkmode svg,
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .reader-mode svg,
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .search-button svg{
+    margin:0!important;
+    flex:0 0 auto!important;
   }
 
-  .page[data-frame="canvas"]>#quartz-body,
-  .page[data-frame="canvas"]>#quartz-body>.center.canvas-frame{
-    width:100vw!important;
-    min-width:100vw!important;
-    height:100dvh!important;
-    min-height:100dvh!important;
+  .page[data-frame="canvas"] .canvas-sidebar{
+    width:calc(100vw - 56px)!important;
+    max-width:calc(100vw - 56px)!important;
+    padding:16px!important;
+    gap:14px!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-controls{
+    top:12px!important;
+    right:12px!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-controls button{
+    width:36px!important;
+    height:36px!important;
+    min-width:36px!important;
+    min-height:36px!important;
   }
 }
 
