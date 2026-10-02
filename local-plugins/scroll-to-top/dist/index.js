@@ -1,6 +1,17 @@
 import { h } from "preact"
 
 const css = `
+.cv-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cv-scroll-progress, 0%);
+  height: 2px;
+  z-index: 100000;
+  pointer-events: none;
+  background: var(--secondary);
+  transition: width .08s linear;
+}
 .cv-scroll-top {
   position: fixed;
   right: 24px;
@@ -71,27 +82,33 @@ const script = `
       }
 
       const update = () => {
-        button.classList.toggle("visible", getScrollY() > 200)
+        const scrolling = document.scrollingElement || document.documentElement
+        const maxScroll = Math.max(0, scrolling.scrollHeight - window.innerHeight)
+        const progressValue = maxScroll > 0
+          ? Math.min(100, Math.max(0, (getScrollY() / maxScroll) * 100))
+          : 0
+
+        if (button) button.classList.toggle("visible", getScrollY() > 200)
+        document.documentElement.style.setProperty("--cv-scroll-progress", progressValue.toFixed(2) + "%")
       }
 
       window.addEventListener("scroll", update, { passive: true, capture: true })
       document.addEventListener("scroll", update, { passive: true, capture: true })
       window.addEventListener("resize", update, { passive: true })
 
-      button.addEventListener("click", (event) => {
-        event.preventDefault()
-        const scrolling = document.scrollingElement
-        window.scrollTo({ top: 0, behavior: "smooth" })
-        if (scrolling) scrolling.scrollTo({ top: 0, behavior: "smooth" })
-        document.documentElement.scrollTop = 0
-        document.body.scrollTop = 0
-      })
+      if (button) {
+        button.addEventListener("click", (event) => {
+          event.preventDefault()
+          const scrolling = document.scrollingElement
+          window.scrollTo({ top: 0, behavior: "smooth" })
+          if (scrolling) scrolling.scrollTo({ top: 0, behavior: "smooth" })
+          document.documentElement.scrollTop = 0
+          document.body.scrollTop = 0
+        })
+      }
     }
 
-    requestAnimationFrame(() => {
-      const y = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0
-      button.classList.toggle("visible", y > 250)
-    })
+    requestAnimationFrame(update)
   }
 
   setup()
