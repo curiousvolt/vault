@@ -55,6 +55,8 @@ const css = `
 const script = `
 (() => {
   let raf = 0
+  let boundButton = null
+  let globalBound = false
 
   const getScrollElement = () =>
     document.scrollingElement || document.documentElement || document.body
@@ -80,55 +82,59 @@ const script = `
     if (!raf) raf = requestAnimationFrame(update)
   }
 
-  const bind = () => {
+  const scrollToTop = (event) => {
+    event.preventDefault()
+    const el = getScrollElement()
+
+    try {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } catch {
+      window.scrollTo(0, 0)
+    }
+
+    try {
+      el.scrollTo({ top: 0, behavior: "smooth" })
+    } catch {
+      el.scrollTop = 0
+    }
+
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+    scheduleUpdate()
+  }
+
+  const ensureButton = () => {
     const button = document.querySelector(".cv-scroll-top")
-    if (!button || button.dataset.bound === "true") {
+    if (button === boundButton) {
       scheduleUpdate()
       return
     }
 
-    button.dataset.bound = "true"
+    if (boundButton) {
+      boundButton.removeEventListener("click", scrollToTop)
+    }
 
-    window.addEventListener("scroll", scheduleUpdate, { passive: true })
-    document.addEventListener("scroll", scheduleUpdate, { passive: true, capture: true })
-    document.documentElement.addEventListener("scroll", scheduleUpdate, { passive: true })
-    window.addEventListener("wheel", scheduleUpdate, { passive: true })
-    window.addEventListener("touchmove", scheduleUpdate, { passive: true })
-    window.addEventListener("resize", scheduleUpdate, { passive: true })
+    boundButton = button
 
-    button.addEventListener("click", (event) => {
-      event.preventDefault()
-      const el = getScrollElement()
-
-      try {
-        window.scrollTo({ top: 0, behavior: "smooth" })
-      } catch {
-        window.scrollTo(0, 0)
-      }
-
-      try {
-        el.scrollTo({ top: 0, behavior: "smooth" })
-      } catch {
-        el.scrollTop = 0
-      }
-
-      document.documentElement.scrollTop = 0
-      document.body.scrollTop = 0
-      scheduleUpdate()
-    })
+    if (boundButton) {
+      boundButton.addEventListener("click", scrollToTop)
+    }
 
     scheduleUpdate()
   }
 
   const start = () => {
-    bind()
-    document.addEventListener("nav", () => {
-      bind()
-      })
-    document.addEventListener("render", () => {
-      bind()
-      })
+    ensureButton()
 
+    if (!globalBound) {
+      globalBound = true
+      window.addEventListener("scroll", scheduleUpdate, { passive: true })
+      document.addEventListener("scroll", scheduleUpdate, { passive: true, capture: true })
+      window.addEventListener("resize", scheduleUpdate, { passive: true })
+    }
+
+    document.addEventListener("nav", ensureButton)
+    document.addEventListener("render", ensureButton)
   }
 
   if (document.readyState === "loading") {
