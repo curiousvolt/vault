@@ -10,18 +10,14 @@ const css = `
     border-radius: 0 !important;
   }
 
-  .search > .search-container > .search-space {
-    position: relative;
-  }
-
   .cv-mobile-search-close {
     position: fixed;
-    top: 14px;
-    right: 14px;
+    top: 12px;
+    right: 12px;
     z-index: 10001;
     width: 42px;
     height: 42px;
-    display: grid;
+    display: none;
     place-items: center;
     padding: 0;
     border: 1px solid var(--lightgray);
@@ -32,8 +28,14 @@ const css = `
     cursor: pointer;
   }
 
-  .cv-mobile-search-close:hover {
+  .search-container.active .cv-mobile-search-close {
+    display: grid;
+  }
+
+  .cv-mobile-search-close:hover,
+  .cv-mobile-search-close:focus-visible {
     border-color: var(--secondary);
+    outline: none;
   }
 
   .cv-mobile-search-close svg {
@@ -63,11 +65,15 @@ const script = `
       button.addEventListener("click", (event) => {
         event.preventDefault()
         event.stopPropagation()
-        document.dispatchEvent(new KeyboardEvent("keydown", {
-          key: "Escape",
-          bubbles: true,
-          cancelable: true,
-        }))
+
+        const search = container.closest(".search")
+        const searchButton = search?.querySelector(".search-button")
+
+        if (searchButton) {
+          searchButton.click()
+        } else {
+          container.classList.remove("active")
+        }
       })
 
       container.appendChild(button)
@@ -78,6 +84,7 @@ const script = `
     addCloseButton()
     requestAnimationFrame(addCloseButton)
     setTimeout(addCloseButton, 50)
+    setTimeout(addCloseButton, 250)
   }
 
   setup()
@@ -85,7 +92,9 @@ const script = `
   document.addEventListener("nav", setup)
   document.addEventListener("render", setup)
 
-  const observer = new MutationObserver(addCloseButton)
+  const observer = new MutationObserver(() => {
+    addCloseButton()
+  })
   observer.observe(document.body, { childList: true, subtree: true })
 })()
 `
