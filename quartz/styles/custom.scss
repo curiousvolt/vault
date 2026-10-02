@@ -1081,3 +1081,141 @@ footer a{
   overflow-wrap:anywhere!important;
   word-break:break-word!important;
 }
+
+/* ---------- Mobile sidebar polish ---------- */
+/*
+ * Keep the mobile explorer visually quiet: neutral structure, gold only
+ * for interaction/active states. This makes the sidebar sharper without
+ * changing its existing layout.
+ */
+
+@media all and (max-width:800px){
+  .sidebar.left{
+    padding:1rem .75rem .75rem!important;
+    gap:.55rem!important;
+  }
+
+  .sidebar.left .page-title{
+    margin-bottom:.15rem!important;
+  }
+
+  .sidebar.left .page-title a:before{
+    width:38px!important;
+    height:38px!important;
+    flex-basis:38px!important;
+    background-size:34px 34px!important;
+  }
+
+  .sidebar.left .search-button{
+    height:46px!important;
+    min-height:46px!important;
+    padding:0 13px!important;
+    border:1px solid color-mix(in srgb,var(--darkgray) 24%,var(--lightgray))!important;
+    background:color-mix(in srgb,var(--light) 82%,var(--lightgray) 18%)!important;
+    box-shadow:none!important;
+    transition:border-color .15s ease,background .15s ease!important;
+  }
+
+  .sidebar.left .search-button:hover,
+  .sidebar.left .search-button:focus-visible{
+    border-color:color-mix(in srgb,var(--cv-gold) 65%,var(--lightgray))!important;
+    background:var(--light)!important;
+  }
+
+  .sidebar.left .toolbar{
+    gap:.05rem!important;
+    margin-left:.1rem!important;
+  }
+
+  .sidebar.left .toolbar button{
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    padding:0!important;
+    border-radius:9px!important;
+    border:1px solid transparent!important;
+    background:transparent!important;
+  }
+
+  .sidebar.left .toolbar button:hover{
+    background:var(--highlight)!important;
+    border-color:transparent!important;
+  }
+
+  .sidebar.left .explorer{
+    width:100%!important;
+    margin-top:.45rem!important;
+  }
+
+  .sidebar.left .explorer-title{
+    margin-bottom:.35rem!important;
+    font-size:.9rem!important;
+    letter-spacing:-.01em!important;
+    text-transform:none!important;
+  }
+
+  .sidebar.left .explorer .explorer-item,
+  .sidebar.left .explorer .folder-title{
+    min-height:30px!important;
+    margin:1px 0!important;
+    padding-top:4px!important;
+    padding-bottom:4px!important;
+    border-radius:7px!important;
+    color:var(--dark)!important;
+    font-size:.92rem!important;
+    font-weight:600!important;
+  }
+
+  .sidebar.left .explorer .explorer-item:hover,
+  .sidebar.left .explorer .folder-title:hover{
+    color:var(--dark)!important;
+    background:var(--highlight)!important;
+  }
+
+  .sidebar.left .explorer .folder-container{
+    padding-left:0!important;
+  }
+
+  .sidebar.left .explorer .folder-container::before{
+    width:16px!important;
+    height:16px!important;
+    flex-basis:16px!important;
+    margin-right:8px!important;
+    color:var(--darkgray)!important;
+    opacity:.85!important;
+  }
+
+  .sidebar.left .explorer .folder-container:has(+ .folder-outer.open)::before{
+    color:var(--darkgray)!important;
+    opacity:.9!important;
+  }
+
+  .sidebar.left .explorer .folder-button,
+  .sidebar.left .explorer .folder-button + a{
+    min-height:30px!important;
+  }
+
+  .sidebar.left .explorer .folder-outer{
+    margin-left:8px!important;
+    padding-left:9px!important;
+    border-left:1px solid color-mix(in srgb,var(--darkgray) 18%,transparent)!important;
+  }
+
+  .sidebar.left .explorer .folder-outer .folder-outer{
+    margin-left:7px!important;
+  }
+
+  .sidebar.left .explorer .explorer-item > a{
+    color:var(--dark)!important;
+    text-decoration:none!important;
+  }
+
+  .sidebar.left .explorer .explorer-item > a:hover{
+    color:var(--cv-gold)!important;
+  }
+
+  .sidebar.left .explorer .explorer-item.active > a,
+  .sidebar.left .explorer .folder-title.active{
+    color:var(--cv-gold)!important;
+  }
+}
