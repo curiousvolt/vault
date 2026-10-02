@@ -1550,6 +1550,12 @@ footer a{
     overflow:visible!important;
   }
 
+  /* Mobile Explorer is an icon-only control. Hide the desktop Explorer label
+     so it cannot occupy a second row under the brand mark. */
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.explorer-title{
+    display:none!important;
+  }
+
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer{
     display:flex!important;
     align-items:center!important;
