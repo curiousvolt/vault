@@ -50,6 +50,15 @@ const css = `
 
 const script = `
 (() => {
+  let frame = 0
+  const schedule = () => {
+    if (frame) return
+    frame = requestAnimationFrame(() => {
+      frame = 0
+      addCloseButton()
+    })
+  }
+
   const addCloseButton = () => {
     document.querySelectorAll(".search > .search-container").forEach((container) => {
       if (container.querySelector(".cv-mobile-search-close")) return
@@ -90,7 +99,7 @@ const script = `
   document.addEventListener("nav", setup)
   document.addEventListener("render", setup)
 
-  const observer = new MutationObserver(addCloseButton)
+  const observer = new MutationObserver(schedule)
   observer.observe(document.body, { childList: true, subtree: true })
 })()
 `
