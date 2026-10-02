@@ -48,6 +48,40 @@ const css = `
     width: 42px;
     height: 42px;
   }
+
+  .cv-search-close {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 100002;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--lightgray);
+    border-radius: 50%;
+    background: var(--light);
+    color: var(--darkgray);
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    cursor: pointer;
+  }
+
+  .cv-search-close svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .cv-search-close:hover,
+  .cv-search-close:focus-visible {
+    color: var(--dark);
+    border-color: var(--secondary);
+    outline: none;
+  }
 }
 `
 
@@ -119,10 +153,58 @@ const script = `
     scheduleUpdate()
   }
 
+  const ensureSearchClose = () => {
+    if (!window.matchMedia("(max-width: 800px)").matches) return
+
+    const container =
+      document.querySelector("#search-container") ||
+      document.querySelector(".search-modal")
+
+    if (!container || container.querySelector(".cv-search-close")) return
+
+    const close = document.createElement("button")
+    close.type = "button"
+    close.className = "cv-search-close"
+    close.setAttribute("aria-label", "Close search")
+    close.title = "Close search"
+    close.innerHTML = `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12"></path>
+        <path d="M18 6L6 18"></path>
+      </svg>
+    `
+
+    close.addEventListener("click", (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+      document.dispatchEvent(
+        new KeyboardEvent("keydown", {
+          key: "Escape",
+          code: "Escape",
+          keyCode: 27,
+          which: 27,
+          bubbles: true,
+        }),
+      )
+    })
+
+    container.appendChild(close)
+  }
+
   const start = () => {
     bind()
-    document.addEventListener("nav", bind)
-    document.addEventListener("render", bind)
+    ensureSearchClose()
+    document.addEventListener("nav", () => {
+      bind()
+      ensureSearchClose()
+    })
+    document.addEventListener("render", () => {
+      bind()
+      ensureSearchClose()
+    })
+
+    const observer = new MutationObserver(ensureSearchClose)
+    observer.observe(document.body, { childList: true, subtree: true })
   }
 
   if (document.readyState === "loading") {
