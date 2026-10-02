@@ -1,29 +1,18 @@
 import { h } from "preact"
 
 const css = `
-.cv-scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: var(--cv-scroll-progress, 0%);
-  height: 2px;
-  z-index: 100000;
-  pointer-events: none;
-  background: var(--secondary);
-  transition: width .08s linear;
-}
 .cv-scroll-top {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 99999;
+  right: 18px;
+  bottom: 84px;
+  z-index: 100000;
   width: 44px;
   height: 44px;
   display: grid;
   place-items: center;
   border: 1px solid var(--lightgray);
   border-radius: 50%;
-  background: color-mix(in srgb, var(--light) 94%, transparent);
+  background: var(--light);
   color: var(--dark);
   box-shadow: 0 6px 20px rgba(0,0,0,.18);
   cursor: pointer;
@@ -54,8 +43,8 @@ const css = `
 }
 @media (max-width: 800px) {
   .cv-scroll-top {
-    right: 18px;
-    bottom: 72px;
+    right: 16px;
+    bottom: 84px;
     width: 42px;
     height: 42px;
   }
@@ -64,56 +53,83 @@ const css = `
 
 const script = `
 (() => {
-  const setup = () => {
-    const button = document.querySelector(".cv-scroll-top")
-    if (!button) return
+  let raf = 0
 
-    if (button.dataset.bound !== "true") {
-      button.dataset.bound = "true"
+  const getScrollElement = () =>
+    document.scrollingElement || document.documentElement || document.body
 
-      const getScrollY = () => {
-        const scrolling = document.scrollingElement
-        return Math.max(
-          window.scrollY || 0,
-          scrolling?.scrollTop || 0,
-          document.documentElement.scrollTop || 0,
-          document.body.scrollTop || 0,
-        )
-      }
-
-      const update = () => {
-        const scrolling = document.scrollingElement || document.documentElement
-        const maxScroll = Math.max(0, scrolling.scrollHeight - window.innerHeight)
-        const progressValue = maxScroll > 0
-          ? Math.min(100, Math.max(0, (getScrollY() / maxScroll) * 100))
-          : 0
-
-        if (button) button.classList.toggle("visible", getScrollY() > 200)
-        document.documentElement.style.setProperty("--cv-scroll-progress", progressValue.toFixed(2) + "%")
-      }
-
-      window.addEventListener("scroll", update, { passive: true, capture: true })
-      document.addEventListener("scroll", update, { passive: true, capture: true })
-      window.addEventListener("resize", update, { passive: true })
-
-      if (button) {
-        button.addEventListener("click", (event) => {
-          event.preventDefault()
-          const scrolling = document.scrollingElement
-          window.scrollTo({ top: 0, behavior: "smooth" })
-          if (scrolling) scrolling.scrollTo({ top: 0, behavior: "smooth" })
-          document.documentElement.scrollTop = 0
-          document.body.scrollTop = 0
-        })
-      }
-    }
-
-    requestAnimationFrame(update)
+  const getScrollY = () => {
+    const el = getScrollElement()
+    return Math.max(
+      window.scrollY || 0,
+      el?.scrollTop || 0,
+      document.documentElement?.scrollTop || 0,
+      document.body?.scrollTop || 0,
+    )
   }
 
-  setup()
-  document.addEventListener("DOMContentLoaded", setup, { once: true })
-  document.addEventListener("nav", setup)
+  const update = () => {
+    raf = 0
+    const button = document.querySelector(".cv-scroll-top")
+    if (!button) return
+    button.classList.toggle("visible", getScrollY() > 200)
+  }
+
+  const scheduleUpdate = () => {
+    if (!raf) raf = requestAnimationFrame(update)
+  }
+
+  const bind = () => {
+    const button = document.querySelector(".cv-scroll-top")
+    if (!button || button.dataset.bound === "true") {
+      scheduleUpdate()
+      return
+    }
+
+    button.dataset.bound = "true"
+
+    window.addEventListener("scroll", scheduleUpdate, { passive: true })
+    document.addEventListener("scroll", scheduleUpdate, { passive: true, capture: true })
+    document.documentElement.addEventListener("scroll", scheduleUpdate, { passive: true })
+    window.addEventListener("wheel", scheduleUpdate, { passive: true })
+    window.addEventListener("touchmove", scheduleUpdate, { passive: true })
+    window.addEventListener("resize", scheduleUpdate, { passive: true })
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault()
+      const el = getScrollElement()
+
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      } catch {
+        window.scrollTo(0, 0)
+      }
+
+      try {
+        el.scrollTo({ top: 0, behavior: "smooth" })
+      } catch {
+        el.scrollTop = 0
+      }
+
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+      scheduleUpdate()
+    })
+
+    scheduleUpdate()
+  }
+
+  const start = () => {
+    bind()
+    document.addEventListener("nav", bind)
+    document.addEventListener("render", bind)
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start, { once: true })
+  } else {
+    start()
+  }
 })()
 `
 
