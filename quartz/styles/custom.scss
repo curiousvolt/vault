@@ -1316,3 +1316,181 @@ footer a{
   stroke-width:1.65!important;
   transform:translateY(1px);
 }
+
+
+/* ---------- Final mobile header fix ---------- */
+/*
+ * Quartz's mobile sidebar is a row containing:
+ * page title -> spacer -> toolbar -> explorer.
+ * The toolbar itself is the .flex-component wrapper, not .toolbar.
+ * Keep the four visible controls in a predictable order:
+ * hamburger -> logo -> search -> theme -> reader.
+ */
+@media all and (max-width:800px){
+  .page > #quartz-body > .sidebar.left{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    gap:8px!important;
+    width:100%!important;
+    max-width:100vw!important;
+    padding:12px 12px 10px!important;
+    box-sizing:border-box!important;
+    overflow:visible!important;
+  }
+
+  .sidebar.left > .mobile-only{
+    display:none!important;
+  }
+
+  .sidebar.left > .explorer{
+    order:1!important;
+    flex:0 0 38px!important;
+    width:38px!important;
+    max-width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+
+  .sidebar.left > .explorer > .mobile-explorer{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    padding:5px!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    border:0!important;
+    background:transparent!important;
+  }
+
+  .sidebar.left > .explorer > .mobile-explorer svg{
+    width:24px!important;
+    height:24px!important;
+    color:var(--darkgray)!important;
+    stroke:currentColor!important;
+  }
+
+  .sidebar.left > .page-title{
+    order:2!important;
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+    margin:0!important;
+  }
+
+  .sidebar.left > .page-title a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    margin:0!important;
+  }
+
+  .sidebar.left > .page-title a:before{
+    width:38px!important;
+    height:38px!important;
+    flex:0 0 38px!important;
+    background-size:34px 34px!important;
+  }
+
+  .sidebar.left > .flex-component{
+    order:3!important;
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:6px!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.left > .flex-component > div:first-child{
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+  }
+
+  .sidebar.left > .flex-component > div:not(:first-child){
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+  }
+
+  .sidebar.left > .flex-component .search,
+  .sidebar.left > .flex-component .search-button{
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.left > .flex-component .search-button{
+    height:44px!important;
+    min-height:44px!important;
+    padding:0 12px!important;
+  }
+
+  .sidebar.left > .flex-component > div:not(:first-child) button{
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    padding:0!important;
+    margin:0!important;
+  }
+}
+
+/* ---------- Final compact mobile TOC ---------- */
+
+@media all and (max-width:800px){
+  .page-header .toc,
+  .page-header > .popover-hint > .mobile-only .toc{
+    flex:0 1 auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:230px!important;
+    margin:1rem 0 1.6rem!important;
+    padding:14px 16px!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    border:1.5px solid var(--lightgray)!important;
+    border-radius:12px!important;
+  }
+
+  .page-header .toc > button.toc-header,
+  .page-header > .popover-hint > .mobile-only .toc > button.toc-header{
+    flex:0 0 30px!important;
+    height:30px!important;
+    min-height:30px!important;
+    margin:0 0 8px!important;
+  }
+
+  .page-header .toc > ul.toc-content.overflow,
+  .page-header > .popover-hint > .mobile-only .toc > ul.toc-content.overflow{
+    flex:0 1 auto!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:160px!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    scrollbar-width:none!important;
+  }
+
+  .page-header .toc > ul.toc-content.overflow::-webkit-scrollbar,
+  .page-header > .popover-hint > .mobile-only .toc > ul.toc-content.overflow::-webkit-scrollbar{
+    display:none!important;
+    width:0!important;
+    height:0!important;
+  }
+}
