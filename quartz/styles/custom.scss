@@ -120,7 +120,7 @@ code,pre,kbd,samp{
   .sidebar.left{
     display:grid!important;
     grid-template-columns:40px minmax(0,1fr)!important;
-    grid-template-rows:auto minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
     align-items:start!important;
     align-content:start!important;
     column-gap:16px!important;
@@ -154,7 +154,7 @@ code,pre,kbd,samp{
     grid-row:1!important;
     display:flex!important;
     align-items:center!important;
-    justify-content:flex-start!important;
+    justify-content:flex-end!important;
     gap:6px!important;
     width:auto!important;
     min-width:0!important;
@@ -208,9 +208,9 @@ code,pre,kbd,samp{
     grid-row:2!important;
     width:100%!important;
     min-width:0!important;
-    min-height:0!important;
+    min-height:1.2rem!important;
     margin:0!important;
-    align-self:stretch!important;
+    align-self:start!important;
   }
 
   .sidebar.left>.explorer .explorer-content{
@@ -402,6 +402,7 @@ button:hover{
     min-height:1.4rem!important;
     max-height:none!important;
     overflow:hidden!important;
+    padding:16px!important;
   }
 
   .sidebar.right .toc .toc-content{
