@@ -18,7 +18,6 @@ configuration:
     - node_modules/**
     - public/**
     - local-plugins/**
-    - '**/*.canvas'
     - 'Excalidraw/scripts/**'
   theme:
     fontOrigin: local
