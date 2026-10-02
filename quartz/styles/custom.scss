@@ -172,9 +172,24 @@ code,pre,kbd,samp{
     margin:0!important;
   }
 
-  .sidebar.left>.flex-component>.darkmode{order:1!important}
-  .sidebar.left>.flex-component>.reader-mode{order:2!important}
-  .sidebar.left>.flex-component>.search{order:3!important}
+  .sidebar.left>.flex-component>div:has(.search){
+    flex-grow:0!important;
+    flex-shrink:0!important;
+    flex-basis:40px!important;
+  }
+
+  .sidebar.left>.flex-component>div:has(.darkmode){
+    order:1!important;
+    flex:0 0 40px!important;
+  }
+  .sidebar.left>.flex-component>div:has(.readermode){
+    order:2!important;
+    flex:0 0 40px!important;
+  }
+  .sidebar.left>.flex-component>div:has(.search){
+    order:3!important;
+    flex:0 0 40px!important;
+  }
 
   .sidebar.left>.flex-component .search-button{
     display:grid!important;
@@ -1191,13 +1206,36 @@ footer a{
     margin:0!important;
   }
 
-  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>.darkmode,
-  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>.reader-mode,
-  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>.search{
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.darkmode),
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.readermode),
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.search){
     width:40px!important;
     min-width:40px!important;
     max-width:40px!important;
     flex:0 0 40px!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.search){
+    order:3!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.darkmode){
+    order:1!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.readermode){
+    order:2!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.search) .search-button p{
+    display:none!important;
+  }
+
+  .page[data-frame="canvas"] .canvas-sidebar>.flex-component>div:has(.search) .search-button{
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
   }
 
   .page[data-frame="canvas"] .canvas-sidebar>.flex-component .search-button{
@@ -1301,6 +1339,12 @@ footer a{
     height:40px!important;
     min-height:40px!important;
     flex:0 0 40px!important;
+  }
+
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.search){
+    flex-grow:0!important;
+    flex-shrink:0!important;
+    flex-basis:40px!important;
   }
 
   .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component .darkmode,
@@ -1486,9 +1530,17 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>.darkmode{order:1!important}
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>.reader-mode{order:2!important}
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>.search{order:3!important}
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.darkmode){
+    order:1!important;
+  }
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.readermode){
+    order:2!important;
+  }
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.search){
+    order:3!important;
+    flex-grow:0!important;
+    flex-shrink:0!important;
+  }
 
   .page>#quartz-body>.sidebar.left:has(.explorer) .search{
     width:38px!important;
