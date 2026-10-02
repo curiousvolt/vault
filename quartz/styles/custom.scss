@@ -831,6 +831,12 @@ a.external{
   }
 }
 
+@media all and (max-width:1199px){
+  .home .cv-tools{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
 @media all and (max-width:600px){
   .home .cv-link{
     min-height:82px;
@@ -855,10 +861,10 @@ a.external{
 }
 
 /* ---------- Right sidebar TOC behaviour ---------- */
-/* Keep the graph in normal flow. The TOC gets the remaining viewport
-   space instead of expanding over the graph when opened. */
+/* Desktop-only TOC sizing. Below 1200px the site uses the mobile/stacked
+   information architecture and the dedicated before-body TOC instead. */
 
-@media all and (min-width:901px){
+@media all and (min-width:1200px){
   .sidebar.right{
     min-height:0;
     overflow:visible;
@@ -1161,7 +1167,7 @@ footer a{
   gap:22px 16px!important;
 }
 
-@media all and (min-width:801px){
+@media all and (min-width:1200px){
   .page[data-frame="canvas"] .canvas-sidebar{
     display:grid!important;
     grid-template-columns:40px minmax(0,1fr)!important;
@@ -1414,22 +1420,84 @@ footer a{
   }
 }
 
-/* ---------- Mobile system: single source of truth ---------- */
+/* ---------- Mobile system: phones + portrait tablets ---------- */
+/* Quartz's tablet range is 800–1199px. For this site, portrait tablets use
+   the same stacked mobile information architecture to avoid a cramped
+   three-column layout. Desktop remains >=1200px. */
 
-@media all and (max-width:800px){
+@media all and (max-width:1199px){
   html,body{
     width:100%!important;
     max-width:100%!important;
     overflow-x:clip!important;
+    scroll-padding-top:62px!important;
   }
 
-  .page,
-  .page>#quartz-body{
+  .page:not([data-frame="canvas"]),
+  .page:not([data-frame="canvas"])>#quartz-body{
     overflow:visible!important;
   }
 
+  .page:not([data-frame="canvas"])>#quartz-body{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0 auto!important;
+  }
+
+  .page:not([data-frame="canvas"])>#quartz-body>.center{
+    order:2!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:0 1rem!important;
+    box-sizing:border-box!important;
+  }
+
+  .page:not([data-frame="canvas"])>#quartz-body>.center>article{
+    width:100%!important;
+    max-width:900px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    box-sizing:border-box!important;
+  }
+
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right{
+    order:3!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    min-height:0!important;
+    height:auto!important;
+    position:static!important;
+    margin:0!important;
+    padding:0 1rem 2rem!important;
+    box-sizing:border-box!important;
+    flex-direction:row!important;
+    overflow:visible!important;
+  }
+
+  /* At portrait-tablet/mobile widths keep Graph + Backlinks as compact
+     secondary panels below the document. The desktop TOC is hidden in favor
+     of the before-body mobile TOC. */
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right>.toc{
+    display:none!important;
+  }
+
+  .page-header>.popover-hint>.desktop-only{
+    display:none!important;
+  }
+
+  .page-header>.popover-hint>.mobile-only{
+    display:block!important;
+    width:100%!important;
+  }
+
   /* ----- Header ----- */
-  .page>#quartz-body>.sidebar.left:has(.explorer){
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer){
     position:sticky!important;
     top:0!important;
     z-index:10000!important;
@@ -1451,11 +1519,11 @@ footer a{
     border-bottom:1px solid var(--lightgray)!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.mobile-only{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.mobile-only{
     display:none!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.explorer{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer{
     order:1!important;
     flex:0 0 38px!important;
     width:38px!important;
@@ -1466,7 +1534,7 @@ footer a{
     overflow:visible!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer{
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
@@ -1480,14 +1548,14 @@ footer a{
     background:transparent!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer svg{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer svg{
     width:24px!important;
     height:24px!important;
     color:var(--darkgray)!important;
   }
 
   /* Smaller brand mark, same 38px touch box. */
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.page-title{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.page-title{
     order:2!important;
     flex:0 0 38px!important;
     width:38px!important;
@@ -1497,7 +1565,7 @@ footer a{
     margin:0!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.page-title a{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.page-title a{
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
@@ -1507,7 +1575,7 @@ footer a{
     margin:0!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.page-title a:before{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.page-title a:before{
     width:38px!important;
     height:38px!important;
     flex:0 0 38px!important;
@@ -1515,7 +1583,7 @@ footer a{
   }
 
   /* ----- Action group ----- */
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.flex-component{
     order:3!important;
     flex:1 1 auto!important;
     width:auto!important;
@@ -1529,7 +1597,7 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div{
     flex:0 0 38px!important;
     width:38px!important;
     min-width:38px!important;
@@ -1542,7 +1610,7 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component button{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.flex-component button{
     width:38px!important;
     height:38px!important;
     min-width:38px!important;
@@ -1552,19 +1620,19 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.darkmode){
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.darkmode){
     order:1!important;
   }
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.readermode){
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.readermode){
     order:2!important;
   }
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.search){
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:has(.search){
     order:3!important;
     flex-grow:0!important;
     flex-shrink:0!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer) .search{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer) .search{
     width:38px!important;
     min-width:38px!important;
     max-width:38px!important;
@@ -1574,7 +1642,7 @@ footer a{
     justify-content:center!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button{
     position:relative!important;
     top:2px!important;
     display:grid!important;
@@ -1596,17 +1664,17 @@ footer a{
     line-height:0!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button svg{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button svg{
     display:block!important;
     width:22px!important;
     height:22px!important;
     margin:0!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button p{display:none!important}
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button p{display:none!important}
 
   /* ----- Mobile search overlay ----- */
-  .page>#quartz-body>.sidebar.left .search>.search-container{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left .search>.search-container{
     position:fixed!important;
     inset:0!important;
     width:100vw!important;
@@ -1623,14 +1691,14 @@ footer a{
     z-index:100001!important;
   }
 
-  .page>#quartz-body>.sidebar.left .search>.search-container>.search-space{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left .search>.search-container>.search-space{
     width:auto!important;
     max-width:none!important;
     margin:12vh 16px 0!important;
     box-sizing:border-box!important;
   }
 
-  .page>#quartz-body>.sidebar.left .search>.search-container>.search-space>input{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left .search>.search-container>.search-space>input{
     width:100%!important;
     min-height:52px!important;
     margin:0 0 1rem!important;
@@ -1638,7 +1706,7 @@ footer a{
     border-radius:999px!important;
   }
 
-  .page>#quartz-body>.sidebar.left .search>.search-container>.search-space>.search-layout{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left .search>.search-container>.search-space>.search-layout{
     width:100%!important;
     border-radius:12px!important;
     overflow:hidden!important;
@@ -1646,7 +1714,7 @@ footer a{
   }
 
   /* Progress line stays attached to the header. */
-  .page>#quartz-body>.sidebar.left:has(.explorer)::after{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)::after{
     content:""!important;
     position:absolute!important;
     left:0!important;
