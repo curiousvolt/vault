@@ -345,6 +345,24 @@ code,pre,kbd,samp{
   padding:0!important;
 }
 
+/* Keep the Graph View above the TOC when their sidebar surfaces meet. */
+@media all and (min-width:1200px){
+  .sidebar.right>.graph{
+    position:relative!important;
+    z-index:5!important;
+  }
+
+  .sidebar.right>.graph #graph-container{
+    position:relative!important;
+    z-index:1!important;
+  }
+
+  .sidebar.right>.toc{
+    position:relative!important;
+    z-index:1!important;
+  }
+}
+
 /* TOC panel: one consistent bordered surface on desktop and mobile.
    Use a box-shadow as a second visual edge so the border cannot disappear
    against a similarly-toned background. */
