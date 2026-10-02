@@ -1488,19 +1488,35 @@ footer a{
     display:none!important;
   }
 
-  /* Keep the frame children in document order. Quartz's Footer is a
-     direct child of #quartz-body and is identified by #quartz-footer. */
+  /* Mobile/tablet frame order. The external footer plugin renders a plain
+     <footer> as a direct child of #quartz-body. Keep it after all content. */
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer){order:1!important;}
   .page:not([data-frame="canvas"])>#quartz-body>.center{order:2!important;}
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right{order:3!important;}
-  .page:not([data-frame="canvas"])>#quartz-body>#quartz-footer{
+  .page:not([data-frame="canvas"])>#quartz-body>footer{
     order:4!important;
-    grid-column:1 / -1!important;
+    flex:0 0 auto!important;
     width:100%!important;
     min-width:0!important;
-    margin-top:2rem!important;
-    position:relative!important;
+    max-width:none!important;
+    margin:2rem 0 0!important;
+    padding:1rem 1rem 2rem!important;
+    box-sizing:border-box!important;
+    position:static!important;
+    float:none!important;
     clear:both!important;
+  }
+
+  /* Replace Quartz's default attribution with the single custom link. */
+  .page:not([data-frame="canvas"])>#quartz-body>footer>p{
+    display:none!important;
+  }
+  .page:not([data-frame="canvas"])>#quartz-body>footer>ul{
+    margin:0!important;
+    padding:0!important;
+    width:100%!important;
+    display:flex!important;
+    justify-content:center!important;
   }
 
   .page-header>.popover-hint>.desktop-only{
