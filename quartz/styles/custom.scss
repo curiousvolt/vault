@@ -1489,6 +1489,9 @@ footer a{
   }
 
   /* Keep the stacked page order deterministic. */
+  .page:not([data-frame="canvas"])>#quartz-body{order:1!important;}
+  .page:not([data-frame="canvas"])>footer{order:2!important;}
+
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer){order:1!important;}
   .page:not([data-frame="canvas"])>#quartz-body>.center{order:2!important;}
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right{order:3!important;}
