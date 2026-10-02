@@ -1303,3 +1303,16 @@ footer a{
     flex:0 0 38px!important;
   }
 }
+
+
+/* Refined Explorer icon */
+.home .cv-tool:first-child .cv-tool-icon{
+  position:relative;
+}
+
+.home .cv-tool:first-child .cv-tool-icon svg{
+  width:21px!important;
+  height:21px!important;
+  stroke-width:1.65!important;
+  transform:translateY(1px);
+}
