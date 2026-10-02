@@ -45,7 +45,9 @@ cssclasses:
 
 <div class="cv-tools">
   <div class="cv-tool">
-    <span class="cv-tool-icon">□</span>
+    <span class="cv-tool-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M3.5 6.5A2.5 2.5 0 0 1 6 4h4l2 2h6.5A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5v-10z"/><path d="M3.5 9h17"/></svg>
+    </span>
     <strong>Explorer</strong>
     <small>Browse the vault by folder.</small>
   </div>
