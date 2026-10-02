@@ -1476,16 +1476,24 @@ footer a{
     margin:0!important;
     padding:0 1rem 2rem!important;
     box-sizing:border-box!important;
-    flex-direction:row!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:1rem!important;
     overflow:visible!important;
   }
 
-  /* At portrait-tablet/mobile widths keep Graph + Backlinks as compact
-     secondary panels below the document. The desktop TOC is hidden in favor
-     of the before-body mobile TOC. */
-  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right>.toc{
+  /* The right sidebar is secondary content below the article on phones
+     and portrait tablets. Only the dedicated before-body TOC is shown. */
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right .toc{
     display:none!important;
   }
+
+  /* Keep the stacked page order deterministic. */
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer){order:1!important;}
+  .page:not([data-frame="canvas"])>#quartz-body>.center{order:2!important;}
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right{order:3!important;}
+  .page:not([data-frame="canvas"])>#quartz-body>footer,
+  .page:not([data-frame="canvas"])>footer{order:4!important;}
 
   .page-header>.popover-hint>.desktop-only{
     display:none!important;
