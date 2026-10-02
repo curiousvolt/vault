@@ -107,9 +107,120 @@ code,pre,kbd,samp{
   flex:0 0 40px;
   display:block;
   background-color:#111827;
-  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/36px 36px no-repeat;
-  mask:url("/vault/static/curiousvolt-logo.svg") center/36px 36px no-repeat;
+  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/32px 32px no-repeat;
+  mask:url("/vault/static/curiousvolt-logo.svg") center/32px 32px no-repeat;
 }
+
+/* Desktop: one compact control row — CV logo, theme, reader, search.
+   The hamburger is a mobile-only Explorer control and is never part of this row. */
+@media all and (min-width:801px){
+  .sidebar.left{
+    display:grid!important;
+    grid-template-columns:40px minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    align-items:center!important;
+    column-gap:12px!important;
+    row-gap:18px!important;
+  }
+
+  .sidebar.left>.mobile-only{
+    display:none!important;
+  }
+
+  .sidebar.left>.page-title{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:40px!important;
+    min-width:40px!important;
+    margin:0!important;
+  }
+
+  .sidebar.left>.page-title a{
+    width:40px!important;
+    min-height:40px!important;
+    height:40px!important;
+    margin:0!important;
+  }
+
+  .sidebar.left>.flex-component{
+    grid-column:2!important;
+    grid-row:1!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:6px!important;
+    width:auto!important;
+    min-width:0!important;
+    height:40px!important;
+  }
+
+  .sidebar.left>.flex-component>div{
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+    height:40px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .sidebar.left>.flex-component>.search{
+    order:3!important;
+    flex:0 0 40px!important;
+    width:40px!important;
+    min-width:40px!important;
+    max-width:40px!important;
+  }
+
+  .sidebar.left>.flex-component>.darkmode{
+    order:1!important;
+  }
+
+  .sidebar.left>.flex-component>.reader-mode{
+    order:2!important;
+  }
+
+  .sidebar.left>.flex-component .search-button{
+    display:grid!important;
+    place-items:center!important;
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+    min-height:40px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:10px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    font-size:0!important;
+    line-height:0!important;
+  }
+
+  .sidebar.left>.flex-component .search-button svg{
+    width:22px!important;
+    height:22px!important;
+    margin:0!important;
+  }
+
+  .sidebar.left>.flex-component .search-button p{
+    display:none!important;
+  }
+
+  .sidebar.left>.explorer{
+    grid-column:1 / -1!important;
+    grid-row:2!important;
+    width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+  }
+
+  .sidebar.left>.explorer .mobile-explorer{
+    display:none!important;
+  }
+}
+
 
 :root[saved-theme="dark"] .page-title a:before{
   background-color:#f4f7fb;
@@ -631,6 +742,9 @@ a.external{
     min-height:0!important;
     max-height:calc(100vh - 430px)!important;
     overflow:hidden!important;
+    box-sizing:border-box!important;
+    border:1px solid var(--lightgray)!important;
+    border-radius:14px!important;
   }
 
   /* Quartz renders the expandable heading list as .toc-content.
@@ -652,8 +766,28 @@ a.external{
 
   .sidebar.right>.toc .toc-content{
     max-height:calc(100vh - 500px)!important;
+    min-height:0!important;
     overflow-y:auto!important;
+    overflow-x:hidden!important;
     overscroll-behavior:contain;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.toc .toc-content>ul,
+  .sidebar.right>.toc .toc-content ul{
+    max-width:100%!important;
+    min-width:0!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right>.toc .toc-content li,
+  .sidebar.right>.toc .toc-content a{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+    box-sizing:border-box!important;
   }
 }
 
@@ -669,15 +803,42 @@ a.external{
   display:none;
 }
 
-/* TOC is informational here; remove the unused collapse chevron. */
-.sidebar.right>.toc .toc-header svg,
-.sidebar.right>.toc .toc-title svg,
-.sidebar.right>.toc button svg{
-  display:none!important;
+/* ---------- TOC collapse control ---------- */
+/* Keep Quartz's native collapse button visible and usable on both desktop
+   and mobile. The previous global SVG-hide rule made the TOC impossible
+   to collapse on mobile. */
+.sidebar.right>.toc .toc-header,
+.page-header .mobile-only .toc .toc-header{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
 }
 
-.sidebar.right>.toc .toc-header{
-  gap:0!important;
+.sidebar.right>.toc .toc-header button,
+.page-header .mobile-only .toc .toc-header button{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:30px!important;
+  height:30px!important;
+  min-width:30px!important;
+  min-height:30px!important;
+  margin:0!important;
+  padding:4px!important;
+  border:0!important;
+  border-radius:8px!important;
+  background:transparent!important;
+  color:var(--darkgray)!important;
+  cursor:pointer;
+}
+
+.sidebar.right>.toc .toc-header button svg,
+.page-header .mobile-only .toc .toc-header button svg{
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  opacity:.85;
 }
 
 /* ---------- Global search + footer ---------- */
@@ -864,7 +1025,7 @@ footer a{
     width:38px!important;
     height:38px!important;
     flex:0 0 38px!important;
-    background-size:34px 34px!important;
+    background-size:30px 30px!important;
   }
 
   /* ----- Action group ----- */
@@ -952,8 +1113,8 @@ footer a{
 
   .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button svg{
     display:block!important;
-    width:23px!important;
-    height:23px!important;
+    width:22px!important;
+    height:22px!important;
     margin:0!important;
     transform:none!important;
   }
@@ -1035,8 +1196,8 @@ footer a{
     padding:14px 16px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
-    border:1.5px solid var(--lightgray)!important;
-    border-radius:12px!important;
+    border:1px solid var(--lightgray)!important;
+    border-radius:14px!important;
   }
 
   .page-header>.popover-hint>.mobile-only .toc>.toc-header{
@@ -1048,17 +1209,39 @@ footer a{
   }
 
   .page-header>.popover-hint>.mobile-only .toc>.toc-header svg{
-    display:none!important;
+    display:block!important;
+    width:18px!important;
+    height:18px!important;
   }
 
   .page-header>.popover-hint>.mobile-only .toc>.toc-content{
     flex:1 1 auto!important;
     min-height:0!important;
     max-height:160px!important;
+    width:100%!important;
     overflow-y:auto!important;
     overflow-x:hidden!important;
     scrollbar-width:none!important;
     -ms-overflow-style:none!important;
+    box-sizing:border-box!important;
+  }
+
+  .page-header>.popover-hint>.mobile-only .toc>.toc-content>ul,
+  .page-header>.popover-hint>.mobile-only .toc>.toc-content ul{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding-left:1rem!important;
+    box-sizing:border-box!important;
+  }
+
+  .page-header>.popover-hint>.mobile-only .toc>.toc-content li,
+  .page-header>.popover-hint>.mobile-only .toc>.toc-content a{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+    box-sizing:border-box!important;
   }
 
   .page-header>.popover-hint>.mobile-only .toc>.toc-content::-webkit-scrollbar{
