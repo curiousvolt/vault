@@ -1782,3 +1782,53 @@ footer a{
     border-radius:0!important;
   }
 }
+
+
+/* ---------- Mobile header: final navigation alignment ---------- */
+/*
+ * Keep the hamburger + logo on the left and move the utility controls
+ * (search, theme, reader) to the right. The search trigger remains icon-only.
+ */
+@media all and (max-width:800px){
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
+    margin-left:auto!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    max-width:none!important;
+    min-width:0!important;
+    gap:4px!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child{
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .page-title{
+    margin-right:0!important;
+  }
+}
+
+/* ---------- Mobile search modal cleanup ---------- */
+/*
+ * The global pill rule is useful for search fields, but must not apply to
+ * the fullscreen search overlay itself.
+ */
+@media all and (max-width:800px){
+  #search-container,
+  .search-modal{
+    border-radius:0!important;
+  }
+
+  #search-container .search-container{
+    border-radius:0!important;
+  }
+
+  #search-container .search-bar,
+  #search-container input,
+  .search-modal input{
+    border-radius:999px!important;
+  }
+}
