@@ -34,7 +34,7 @@ code,pre,kbd,samp{
 
 /* ---------- Desktop frame ---------- */
 
-@media all and (min-width:1201px){
+@media all and (min-width:1200px){
   .page{
     max-width:none!important;
     width:100%!important;
@@ -64,8 +64,6 @@ code,pre,kbd,samp{
     margin-right:auto!important;
   }
 }
-
-/* ---------- Layout safety ---------- */
 
 /* ---------- Layout safety ---------- */
 
@@ -116,7 +114,7 @@ code,pre,kbd,samp{
 
 /* Desktop control row: compact, top-aligned, and independent from Explorer.
    The old two-auto-row grid let the browser stretch the first row vertically. */
-@media all and (min-width:1201px){
+@media all and (min-width:1200px){
   .sidebar.left{
     display:grid!important;
     grid-template-columns:40px minmax(0,1fr)!important;
@@ -271,8 +269,7 @@ code,pre,kbd,samp{
   padding:0 15px!important;
 }
 
-.search-button:hover,
-button:hover{
+.search-button:hover{
   border-color:var(--secondary)!important;
 }
 
@@ -396,7 +393,7 @@ button:hover{
 .sidebar.right .toc:has(.toc-header.collapsed),
 .page-header .mobile-only .toc:has(.toc-header.collapsed){
   flex:0 0 auto!important;
-  max-height:58px!important;
+  max-height:64px!important;
   overflow:hidden!important;
 }
 
@@ -407,7 +404,7 @@ button:hover{
 
 /* Desktop: graph has its native 250px canvas; TOC consumes the remaining
    sidebar height instead of growing over the graph. */
-@media all and (min-width:901px){
+@media all and (min-width:1200px){
   .sidebar.right{
     min-height:0!important;
     overflow:hidden!important;
@@ -1150,9 +1147,9 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:first-child{order:3!important}
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:nth-child(2){order:1!important}
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:nth-child(3){order:2!important}
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>.darkmode{order:1!important}
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>.reader-mode{order:2!important}
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>.search{order:3!important}
 
   .page>#quartz-body>.sidebar.left:has(.explorer) .search{
     width:38px!important;
