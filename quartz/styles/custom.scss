@@ -217,6 +217,28 @@ code,pre,kbd,samp{
     min-height:0!important;
   }
 
+  /* Quartz toggles .collapsed on the Explorer root. Because the sidebar is a
+     CSS grid, the upstream flex collapse alone cannot reduce the grid item's
+     auto row. Give the collapsed state an explicit header-sized height. */
+  .sidebar.left>.explorer.collapsed{
+    height:1.2rem!important;
+    min-height:1.2rem!important;
+    max-height:1.2rem!important;
+    overflow:hidden!important;
+    align-self:start!important;
+  }
+
+  .sidebar.left>.explorer:not(.collapsed){
+    height:auto!important;
+    max-height:none!important;
+    overflow:hidden!important;
+    align-self:start!important;
+  }
+
+  .sidebar.left>.explorer.collapsed>.explorer-content{
+    display:none!important;
+  }
+
   .sidebar.left>.explorer .mobile-explorer{
     display:none!important;
   }
