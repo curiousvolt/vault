@@ -1682,3 +1682,103 @@ footer a{
     box-sizing:border-box!important;
   }
 }
+
+
+/* ---------- Mobile search/header correction ---------- */
+/*
+ * Mobile header:
+ * hamburger -> logo -> flexible space -> theme -> reader -> search.
+ * Search is intentionally the rightmost action.
+ */
+@media all and (max-width:800px){
+  .page > #quartz-body > .sidebar.left:has(.explorer){
+    gap:10px!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
+    flex:1 1 auto!important;
+    min-width:0!important;
+    width:auto!important;
+    max-width:none!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:6px!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child{
+    order:3!important;
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+    height:38px!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:nth-child(2){
+    order:1!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:nth-child(3){
+    order:2!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button{
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+    max-width:38px!important;
+    max-height:38px!important;
+    padding:0!important;
+    margin:0!important;
+    display:grid!important;
+    place-items:center!important;
+    border:0!important;
+    border-radius:10px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    font-size:0!important;
+    line-height:0!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button:hover,
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button:focus-visible{
+    background:var(--highlight)!important;
+    border:0!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button svg{
+    width:22px!important;
+    height:22px!important;
+    margin:0!important;
+  }
+
+  /* The fullscreen search backdrop must stay rectangular.
+     Only the input/results surfaces get rounded corners. */
+  .search > .search-container{
+    border-radius:0!important;
+    overflow-y:auto!important;
+  }
+
+  .search > .search-container > .search-space{
+    width:calc(100vw - 32px)!important;
+    max-width:none!important;
+    margin:76px 16px 24px!important;
+  }
+
+  .search > .search-container > .search-space > input{
+    height:50px!important;
+    min-height:50px!important;
+    border-radius:12px!important;
+  }
+
+  .search > .search-container > .search-space > .search-layout{
+    border-radius:12px!important;
+    overflow:hidden!important;
+  }
+
+  .search > .search-container > .search-space > .search-layout > .results-container{
+    border-radius:0!important;
+  }
+}
