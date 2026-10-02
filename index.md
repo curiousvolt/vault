@@ -52,17 +52,23 @@ cssclasses:
     <small>Browse the vault by folder.</small>
   </div>
   <div class="cv-tool">
-    <span class="cv-tool-icon">⌕</span>
+    <span class="cv-tool-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 4 4"/></svg>
+    </span>
     <strong>Search</strong>
     <small>Find a note or topic quickly.</small>
   </div>
   <div class="cv-tool">
-    <span class="cv-tool-icon">⌘</span>
+    <span class="cv-tool-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="m7.3 11 9.4-4"/><path d="m7.3 13 9.4 4"/></svg>
+    </span>
     <strong>Graph</strong>
     <small>Explore connections between notes.</small>
   </div>
   <div class="cv-tool">
-    <span class="cv-tool-icon">≡</span>
+    <span class="cv-tool-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h14"/></svg>
+    </span>
     <strong>Table of Contents</strong>
     <small>Jump between sections of a longer note.</small>
   </div>
