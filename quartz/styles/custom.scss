@@ -1529,3 +1529,53 @@ footer a{
     gap:8px!important;
   }
 }
+
+
+/* ---------- Final mobile header correction ---------- */
+
+@media all and (max-width:800px){
+  /*
+   * Quartz's Explorer component normally makes this mobile bar sticky.
+   * Re-apply that exact structural selector because earlier overrides
+   * changed the base mobile sidebar positioning.
+   */
+  .page > #quartz-body > .sidebar.left:has(.explorer){
+    position:sticky!important;
+    top:0!important;
+    align-self:start!important;
+    z-index:10000!important;
+    width:100%!important;
+    max-width:100vw!important;
+    min-width:0!important;
+    height:auto!important;
+    box-sizing:border-box!important;
+    background:var(--light)!important;
+    border-bottom:1px solid color-mix(in srgb,var(--darkgray) 38%,var(--lightgray))!important;
+    padding:12px 12px 10px!important;
+    margin:0!important;
+    gap:14px!important;
+    overflow:visible!important;
+  }
+
+  /* Keep the header above the article and above the mobile Explorer panel. */
+  .page > #quartz-body > .sidebar.left:has(.explorer) > *{
+    position:relative;
+    z-index:10001;
+  }
+
+  /* Explicit spacing: hamburger → logo → search. */
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .page-title{
+    margin:0 10px 0 0!important;
+  }
+
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
+    gap:10px!important;
+  }
+
+  /* Do not let the progress line replace the header separator. */
+  .page > #quartz-body > .sidebar.left:has(.explorer)::after{
+    bottom:-1px!important;
+    height:2px!important;
+    z-index:10002!important;
+  }
+}
