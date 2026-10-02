@@ -1579,3 +1579,6 @@ footer a{
     z-index:10002!important;
   }
 }
+
+/* FINAL MOBILE STICKY DEBUG FIX */
+@media all and (max-width:800px){html,body{overflow-x:clip!important}.page,.page>#quartz-body{overflow:visible!important}.page>#quartz-body>.sidebar.left:has(.explorer){position:sticky!important;top:0!important;z-index:10000!important;align-self:start!important;height:auto!important;min-height:62px!important;width:100%!important;box-sizing:border-box!important;padding:10px 12px!important;margin:0!important;gap:12px!important;background:var(--light)!important;border-bottom:1px solid var(--lightgray)!important;box-shadow:0 1px 0 color-mix(in srgb,var(--darkgray) 12%,transparent)!important}.page>#quartz-body>.sidebar.left:has(.explorer)>.explorer{flex:0 0 38px!important;width:38px!important;min-width:38px!important;margin:0!important}.page>#quartz-body>.sidebar.left:has(.explorer)>.page-title{flex:0 0 38px!important;width:38px!important;min-width:38px!important;margin:0 8px 0 0!important}.page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component{flex:1 1 auto!important;min-width:0!important;width:auto!important;gap:8px!important}.page>#quartz-body>.sidebar.left:has(.explorer)::after{bottom:-1px!important;height:2px!important;z-index:10001!important}}
