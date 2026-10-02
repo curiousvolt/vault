@@ -369,6 +369,20 @@ button:hover{
   display:none!important;
 }
 
+/* Quartz toggles the .collapsed class on both the header and content.
+   Keep that state authoritative so custom flex sizing never disables collapse. */
+.sidebar.right .toc:has(.toc-header.collapsed),
+.page-header .mobile-only .toc:has(.toc-header.collapsed){
+  flex:0 0 auto!important;
+  max-height:58px!important;
+  overflow:hidden!important;
+}
+
+.sidebar.right .toc .toc-content.collapsed,
+.page-header .mobile-only .toc .toc-content.collapsed{
+  display:none!important;
+}
+
 /* Desktop: graph has its native 250px canvas; TOC consumes the remaining
    sidebar height instead of growing over the graph. */
 @media all and (min-width:901px){
@@ -1217,7 +1231,7 @@ footer a{
     height:auto!important;
     min-height:0!important;
     max-height:230px!important;
-    flex:0 0 auto!important;
+    flex:0 1 auto!important;
     margin:1rem 0 1.6rem!important;
     padding:14px 16px!important;
     box-sizing:border-box!important;
