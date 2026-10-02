@@ -1237,3 +1237,69 @@ footer a{
   stroke-linecap:round;
   stroke-linejoin:round;
 }
+
+
+/* ---------- Mobile header + reading progress ---------- */
+
+@media all and (max-width:800px){
+  html,
+  body{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:hidden!important;
+  }
+
+  .sidebar.left{
+    position:relative!important;
+    width:100%!important;
+    max-width:100vw!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    overflow:visible!important;
+  }
+
+  .sidebar.left::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:2px;
+    width:var(--cv-scroll-progress,0%);
+    max-width:100%;
+    background:var(--secondary);
+    pointer-events:none;
+    transition:width .08s linear;
+  }
+
+  .sidebar.left .page-title,
+  .sidebar.left .search-button,
+  .sidebar.left .toolbar{
+    min-width:0!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.left .page-title{
+    flex:0 0 38px!important;
+    width:38px!important;
+    max-width:38px!important;
+    overflow:visible!important;
+  }
+
+  .sidebar.left .search-button{
+    flex:1 1 0!important;
+    width:0!important;
+    max-width:none!important;
+  }
+
+  .sidebar.left .toolbar{
+    flex:0 0 auto!important;
+    width:auto!important;
+    max-width:78px!important;
+    overflow:visible!important;
+  }
+
+  .sidebar.left .toolbar > *{
+    flex:0 0 38px!important;
+  }
+}
