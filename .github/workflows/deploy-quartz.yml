@@ -23,11 +23,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Download Quartz
+      - name: Download Quartz (pinned)
         env:
           GIT_TERMINAL_PROMPT: 0
         run: |
-          git clone --depth 1 --branch v5 https://github.com/jackyzha0/quartz.git .quartz-build
+          git init .quartz-build
+          git -C .quartz-build remote add origin https://github.com/jackyzha0/quartz.git
+          git -C .quartz-build fetch --depth 1 origin 97a2d05f80c4c50534959b1d0d41cc4b3895625e
+          git -C .quartz-build checkout --detach FETCH_HEAD
 
       - name: Setup Node
         uses: actions/setup-node@v6
