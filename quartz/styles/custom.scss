@@ -1584,128 +1584,41 @@ footer a{
 @media all and (max-width:800px){html,body{overflow-x:clip!important}.page,.page>#quartz-body{overflow:visible!important}.page>#quartz-body>.sidebar.left:has(.explorer){position:sticky!important;top:0!important;z-index:10000!important;align-self:start!important;height:auto!important;min-height:62px!important;width:100%!important;box-sizing:border-box!important;padding:10px 12px!important;margin:0!important;gap:12px!important;background:var(--light)!important;border-bottom:1px solid var(--lightgray)!important;box-shadow:0 1px 0 color-mix(in srgb,var(--darkgray) 12%,transparent)!important}.page>#quartz-body>.sidebar.left:has(.explorer)>.explorer{flex:0 0 38px!important;width:38px!important;min-width:38px!important;margin:0!important}.page>#quartz-body>.sidebar.left:has(.explorer)>.page-title{flex:0 0 38px!important;width:38px!important;min-width:38px!important;margin:0 8px 0 0!important}.page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component{flex:1 1 auto!important;min-width:0!important;width:auto!important;gap:8px!important}.page>#quartz-body>.sidebar.left:has(.explorer)::after{bottom:-1px!important;height:2px!important;z-index:10001!important}}
 
 
-/* ---------- Mobile search: icon-only trigger ---------- */
+/* ---------- Mobile search: compact right-side action ---------- */
 /*
- * On small screens the search control is navigation chrome, not a text field.
- * Keep the actual search modal unchanged; only collapse the header trigger to
- * a compact icon so hamburger -> logo -> search -> theme -> reader fits cleanly.
+ * Mobile header:
+ * hamburger | logo | spacer | theme | reader | search
+ *
+ * Search remains an icon in the header. The full input is only shown
+ * inside Quartz's search overlay.
  */
 @media all and (max-width:800px){
   .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
-    flex:1 1 auto!important;
-    width:auto!important;
-    min-width:0!important;
-    max-width:none!important;
     display:flex!important;
     align-items:center!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
+    width:auto!important;
+    max-width:none!important;
     gap:8px!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child{
+  /* Theme and reader stay before search. */
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:nth-child(2){
+    order:1!important;
     flex:0 0 38px!important;
     width:38px!important;
     min-width:38px!important;
-    max-width:38px!important;
-    height:38px!important;
-    box-sizing:border-box!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button{
-    display:grid!important;
-    place-items:center!important;
-    width:38px!important;
-    height:38px!important;
-    min-width:38px!important;
-    min-height:38px!important;
-    max-width:38px!important;
-    max-height:38px!important;
-    padding:0!important;
-    margin:0!important;
-    border:0!important;
-    border-radius:10px!important;
-    background:transparent!important;
-    box-shadow:none!important;
-    font-size:0!important;
-    line-height:0!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button:hover,
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button:focus-visible{
-    border:0!important;
-    background:var(--highlight)!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button svg{
-    display:block!important;
-    width:22px!important;
-    height:22px!important;
-    margin:0!important;
-    color:var(--darkgray)!important;
-    stroke:currentColor!important;
-    fill:none!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button span,
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button kbd{
-    display:none!important;
-  }
-
-  /* Theme + reader keep their compact button widths. */
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:not(:first-child){
+  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:nth-child(3){
+    order:2!important;
     flex:0 0 38px!important;
     width:38px!important;
     min-width:38px!important;
-    max-width:38px!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:not(:first-child) button{
-    width:38px!important;
-    height:38px!important;
-    min-width:38px!important;
-    min-height:38px!important;
-    padding:0!important;
-    margin:0!important;
-  }
-
-  /* The full-width input is only for the opened search modal. */
-  .search-modal,
-  .search-container,
-  #search-container{
-    max-width:calc(100vw - 24px)!important;
-    box-sizing:border-box!important;
-  }
-
-  .search-modal input,
-  .search-container input,
-  #search-container input{
-    min-height:48px!important;
-    box-sizing:border-box!important;
-  }
-}
-
-
-/* ---------- Mobile search/header correction ---------- */
-/*
- * Mobile header:
- * hamburger -> logo -> flexible space -> theme -> reader -> search.
- * Search is intentionally the rightmost action.
- */
-@media all and (max-width:800px){
-  .page > #quartz-body > .sidebar.left:has(.explorer){
-    gap:10px!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
-    flex:1 1 auto!important;
-    min-width:0!important;
-    width:auto!important;
-    max-width:none!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:flex-end!important;
-    gap:6px!important;
-  }
-
+  /* Search is the right-most header action. */
   .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child{
     order:3!important;
     flex:0 0 38px!important;
@@ -1713,64 +1626,77 @@ footer a{
     min-width:38px!important;
     max-width:38px!important;
     height:38px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    align-self:center!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:nth-child(2){
-    order:1!important;
+  .page > #quartz-body > .sidebar.left:has(.explorer) .search{
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+    display:block!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:nth-child(3){
-    order:2!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button{
+  .page > #quartz-body > .sidebar.left:has(.explorer) .search > .search-button{
+    display:grid!important;
+    place-items:center!important;
     width:38px!important;
     height:38px!important;
     min-width:38px!important;
     min-height:38px!important;
     max-width:38px!important;
     max-height:38px!important;
-    padding:0!important;
     margin:0!important;
-    display:grid!important;
-    place-items:center!important;
+    padding:0!important;
+    box-sizing:border-box!important;
     border:0!important;
     border-radius:10px!important;
     background:transparent!important;
-    box-shadow:none!important;
-    font-size:0!important;
     line-height:0!important;
+    transform:none!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button:hover,
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button:focus-visible{
+  .page > #quartz-body > .sidebar.left:has(.explorer) .search > .search-button:hover,
+  .page > #quartz-body > .sidebar.left:has(.explorer) .search > .search-button:focus-visible{
     background:var(--highlight)!important;
     border:0!important;
   }
 
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child .search-button svg{
-    width:22px!important;
-    height:22px!important;
+  .page > #quartz-body > .sidebar.left:has(.explorer) .search > .search-button svg{
+    display:block!important;
+    width:23px!important;
+    height:23px!important;
     margin:0!important;
+    transform:none!important;
   }
 
-  /* The fullscreen search backdrop must stay rectangular.
-     Only the input/results surfaces get rounded corners. */
+  .page > #quartz-body > .sidebar.left:has(.explorer) .search > .search-button p{
+    display:none!important;
+  }
+
+  /* The overlay itself is a full-screen rectangle; only its contents may
+     have their own shape. This prevents the blurred backdrop from looking
+     like a random rounded card. */
   .search > .search-container{
     border-radius:0!important;
-    overflow-y:auto!important;
+    width:100vw!important;
+    max-width:none!important;
+    height:100vh!important;
+    max-height:none!important;
+    box-sizing:border-box!important;
   }
 
   .search > .search-container > .search-space{
-    width:calc(100vw - 32px)!important;
-    max-width:none!important;
-    margin:76px 16px 24px!important;
+    width:min(90vw,680px)!important;
+    margin:10vh auto 0!important;
   }
 
+  .search > .search-container > .search-space > .search-bar,
   .search > .search-container > .search-space > input{
-    height:50px!important;
-    min-height:50px!important;
-    border-radius:12px!important;
+    border-radius:999px!important;
   }
 
   .search > .search-container > .search-space > .search-layout{
@@ -1778,57 +1704,14 @@ footer a{
     overflow:hidden!important;
   }
 
-  .search > .search-container > .search-space > .search-layout > .results-container{
+  /* Search results remain rectangular/contained instead of inheriting the
+     global 999px search treatment. */
+  .search > .search-container .result-card{
     border-radius:0!important;
   }
 }
 
-
-/* ---------- Mobile header: final navigation alignment ---------- */
-/*
- * Keep the hamburger + logo on the left and move the utility controls
- * (search, theme, reader) to the right. The search trigger remains icon-only.
- */
-@media all and (max-width:800px){
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
-    margin-left:auto!important;
-    flex:0 0 auto!important;
-    width:auto!important;
-    max-width:none!important;
-    min-width:0!important;
-    gap:4px!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div:first-child{
-    flex:0 0 38px!important;
-    width:38px!important;
-    min-width:38px!important;
-    max-width:38px!important;
-  }
-
-  .page > #quartz-body > .sidebar.left:has(.explorer) > .page-title{
-    margin-right:0!important;
-  }
-}
-
-/* ---------- Mobile search modal cleanup ---------- */
-/*
- * The global pill rule is useful for search fields, but must not apply to
- * the fullscreen search overlay itself.
- */
-@media all and (max-width:800px){
-  #search-container,
-  .search-modal{
-    border-radius:0!important;
-  }
-
-  #search-container .search-container{
-    border-radius:0!important;
-  }
-
-  #search-container .search-bar,
-  #search-container input,
-  .search-modal input{
-    border-radius:999px!important;
-  }
+/* Never apply the pill shape to Quartz's full-screen search overlay. */
+.search > .search-container{
+  border-radius:0!important;
 }
