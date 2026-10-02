@@ -231,8 +231,7 @@ plugins:
     enabled: true
     options:
       links:
-        "Made with love by Aman": https://github.com/curiousvolt
-        "Personal website": https://curiousvolt.is-dev
+        "Created by Aman": https://curiousvolt.is-a.dev
     layout:
       position: footer
       priority: 50
