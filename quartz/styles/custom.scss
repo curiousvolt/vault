@@ -1488,15 +1488,20 @@ footer a{
     display:none!important;
   }
 
-  /* Keep the stacked page order deterministic. */
-  .page:not([data-frame="canvas"])>#quartz-body{order:1!important;}
-  .page:not([data-frame="canvas"])>footer{order:2!important;}
-
+  /* Keep the frame children in document order. Quartz's Footer is a
+     direct child of #quartz-body and is identified by #quartz-footer. */
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer){order:1!important;}
   .page:not([data-frame="canvas"])>#quartz-body>.center{order:2!important;}
   .page:not([data-frame="canvas"])>#quartz-body>.sidebar.right{order:3!important;}
-  .page:not([data-frame="canvas"])>#quartz-body>footer,
-  .page:not([data-frame="canvas"])>footer{order:4!important;}
+  .page:not([data-frame="canvas"])>#quartz-body>#quartz-footer{
+    order:4!important;
+    grid-column:1 / -1!important;
+    width:100%!important;
+    min-width:0!important;
+    margin-top:2rem!important;
+    position:relative!important;
+    clear:both!important;
+  }
 
   .page-header>.popover-hint>.desktop-only{
     display:none!important;
