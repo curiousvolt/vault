@@ -865,9 +865,13 @@ a.external{
     align-items:stretch;
   }
 
+  .sidebar.right{
+    isolation:isolate!important;
+  }
+
   .sidebar.right>.graph{
     position:relative!important;
-    z-index:0!important;
+    z-index:5!important;
     flex:0 0 auto!important;
     min-height:0;
   }
