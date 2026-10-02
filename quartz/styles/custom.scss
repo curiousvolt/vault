@@ -1219,3 +1219,21 @@ footer a{
     color:var(--cv-gold)!important;
   }
 }
+
+
+/* ---------- Homepage tool icon polish ---------- */
+
+.home .cv-tool:first-child .cv-tool-icon{
+  background:color-mix(in srgb,var(--cv-gold) 12%,transparent);
+  color:var(--cv-gold);
+}
+
+.home .cv-tool .cv-tool-icon svg{
+  width:20px;
+  height:20px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
