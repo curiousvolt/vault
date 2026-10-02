@@ -1,0 +1,33 @@
+{
+  "name": "mobile-search-fixes",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Mobile search UI fixes for CuriousVolt Quartz",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "quartz": {
+    "name": "mobile-search-fixes",
+    "displayName": "Mobile Search Fixes",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 5,
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "MobileSearchFixes": {
+        "displayName": "Mobile Search Fixes",
+        "defaultPosition": "footer",
+        "defaultPriority": 5
+      }
+    }
+  }
+}
