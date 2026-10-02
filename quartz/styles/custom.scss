@@ -34,39 +34,38 @@ code,pre,kbd,samp{
 
 /* ---------- Desktop frame ---------- */
 
-@media all and (min-width:1400px){
+@media all and (min-width:1201px){
   .page{
     max-width:none!important;
     width:100%!important;
   }
-
   .page>#quartz-body{
-    grid-template-columns:320px minmax(0,1fr) 360px!important;
+    grid-template-columns:300px minmax(0,1fr) 320px!important;
     column-gap:0!important;
+    row-gap:0!important;
   }
-
   .sidebar.left{
     border-right:1px solid var(--lightgray);
-    padding:24px 20px 24px 24px!important;
+    padding:28px 20px 28px 24px!important;
   }
-
   .sidebar.right{
     border-left:1px solid var(--lightgray);
-    padding:24px 24px 24px 20px!important;
+    padding:28px 24px 28px 20px!important;
   }
-
   .center{
     width:100%!important;
     min-width:0!important;
-    padding:0 38px!important;
+    padding:0 36px!important;
     box-sizing:border-box;
   }
-
   .center>article{
     width:min(100%,900px);
-    margin:0 auto!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
   }
 }
+
+/* ---------- Layout safety ---------- */
 
 /* ---------- Layout safety ---------- */
 
@@ -95,7 +94,7 @@ code,pre,kbd,samp{
   display:flex;
   align-items:center;
   gap:0;
-  min-height:46px;
+  min-height:40px;
   font-size:0;
   font-weight:750;
 }
@@ -107,20 +106,26 @@ code,pre,kbd,samp{
   flex:0 0 40px;
   display:block;
   background-color:#111827;
-  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/32px 32px no-repeat;
-  mask:url("/vault/static/curiousvolt-logo.svg") center/32px 32px no-repeat;
+  -webkit-mask:url("/vault/static/curiousvolt-logo.svg") center/30px 30px no-repeat;
+  mask:url("/vault/static/curiousvolt-logo.svg") center/30px 30px no-repeat;
 }
 
-/* Desktop: one compact control row — CV logo, theme, reader, search.
-   The hamburger is a mobile-only Explorer control and is never part of this row. */
-@media all and (min-width:801px){
+:root[saved-theme="dark"] .page-title a:before{
+  background-color:#f4f7fb;
+}
+
+/* Desktop control row: compact, top-aligned, and independent from Explorer.
+   The old two-auto-row grid let the browser stretch the first row vertically. */
+@media all and (min-width:1201px){
   .sidebar.left{
     display:grid!important;
     grid-template-columns:40px minmax(0,1fr)!important;
-    grid-template-rows:auto auto!important;
-    align-items:center!important;
-    column-gap:12px!important;
-    row-gap:18px!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+    align-items:start!important;
+    align-content:start!important;
+    column-gap:16px!important;
+    row-gap:22px!important;
+    min-height:0!important;
   }
 
   .sidebar.left>.mobile-only{
@@ -132,11 +137,13 @@ code,pre,kbd,samp{
     grid-row:1!important;
     width:40px!important;
     min-width:40px!important;
+    height:40px!important;
     margin:0!important;
   }
 
   .sidebar.left>.page-title a{
     width:40px!important;
+    min-width:40px!important;
     min-height:40px!important;
     height:40px!important;
     margin:0!important;
@@ -147,11 +154,12 @@ code,pre,kbd,samp{
     grid-row:1!important;
     display:flex!important;
     align-items:center!important;
-    justify-content:flex-end!important;
+    justify-content:flex-start!important;
     gap:6px!important;
     width:auto!important;
     min-width:0!important;
     height:40px!important;
+    margin:0!important;
   }
 
   .sidebar.left>.flex-component>div{
@@ -163,23 +171,12 @@ code,pre,kbd,samp{
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
+    margin:0!important;
   }
 
-  .sidebar.left>.flex-component>.search{
-    order:3!important;
-    flex:0 0 40px!important;
-    width:40px!important;
-    min-width:40px!important;
-    max-width:40px!important;
-  }
-
-  .sidebar.left>.flex-component>.darkmode{
-    order:1!important;
-  }
-
-  .sidebar.left>.flex-component>.reader-mode{
-    order:2!important;
-  }
+  .sidebar.left>.flex-component>.darkmode{order:1!important}
+  .sidebar.left>.flex-component>.reader-mode{order:2!important}
+  .sidebar.left>.flex-component>.search{order:3!important}
 
   .sidebar.left>.flex-component .search-button{
     display:grid!important;
@@ -204,26 +201,25 @@ code,pre,kbd,samp{
     margin:0!important;
   }
 
-  .sidebar.left>.flex-component .search-button p{
-    display:none!important;
-  }
+  .sidebar.left>.flex-component .search-button p{display:none!important}
 
   .sidebar.left>.explorer{
     grid-column:1 / -1!important;
     grid-row:2!important;
     width:100%!important;
     min-width:0!important;
+    min-height:0!important;
     margin:0!important;
+    align-self:stretch!important;
+  }
+
+  .sidebar.left>.explorer .explorer-content{
+    min-height:0!important;
   }
 
   .sidebar.left>.explorer .mobile-explorer{
     display:none!important;
   }
-}
-
-
-:root[saved-theme="dark"] .page-title a:before{
-  background-color:#f4f7fb;
 }
 
 .explorer .folder-title,
@@ -243,8 +239,7 @@ code,pre,kbd,samp{
   text-transform:uppercase;
 }
 
-/* Rounded search */
-
+/* Search trigger (overridden to icon-only in the desktop toolbar above). */
 .search-button{
   background:color-mix(in srgb,var(--lightgray) 18%,transparent)!important;
   border:1px solid var(--lightgray)!important;
@@ -273,16 +268,11 @@ button:hover{
   opacity:0!important;
   cursor:pointer;
 }
-
-.sidebar.left .explorer .folder-icon polyline{
-  display:none;
-}
-
+.sidebar.left .explorer .folder-icon polyline{display:none}
 .sidebar.left .explorer .folder-container{
   position:relative;
   padding-left:4px;
 }
-
 .sidebar.left .explorer .folder-container::before{
   content:"";
   width:17px;
@@ -292,68 +282,138 @@ button:hover{
   margin-right:7px;
   background-color:currentColor;
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 6.75A2.75 2.75 0 0 1 5.75 4h4.1c.73 0 1.43.29 1.95.8l1.2 1.2h5.25A2.75 2.75 0 0 1 21 8.75v8.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zM5.75 6a.75.75 0 0 0-.75.75v10.5c0 .41.34.75.75.75h12.5c.41 0 .75-.34.75-.75v-8.5a.75.75 0 0 0-.75-.75h-5.87l-1.79-1.79A.75.75 0 0 0 9.85 6z'/%3E%3C/svg%3E") center/contain no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 6.75A2.75 2.75 0 0 1 5.75 4h4.1c.73 0 1.43.29 1.95.8l1.2 1.2h5.25A2.75 2.75 0 0 1 21 8.75v8.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zM5.75 6a.75.75 0 0 0-.75.75v10.5c0 .41.34.75.75.75h12.5c.41 0 .75-.34.75-.75v-8.5a.75.75 0 0 0-.75-.75h-5.87l-1.79-1.79A.75.75 0 0 0 9.85 6z'/%3E%3C/svg%3E") center/contain no-repeat;
-}
-
-/* Use an open-folder silhouette when the folder is expanded. */
-.sidebar.left .explorer .folder-container:has(+ .folder-outer.open)::before{
-  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.1c.66 0 1.3.26 1.77.73L12.6 7h5.9A2.5 2.5 0 0 1 21 9.5v.55H7.5a2.5 2.5 0 0 0-2.36 1.67L3.75 16.5A1.5 1.5 0 0 0 5.18 18.5h13.07c.99 0 1.88-.61 2.24-1.53l1.42-3.6c.06-.16.09-.33.09-.5V9.5A2.5 2.5 0 0 0 19.5 7h-6.07l-1.35-1.35A3.5 3.5 0 0 0 9.6 4.62H5.5A3.5 3.5 0 0 0 2 8.12v8.94c0 .28.04.56.14.82z'/%3E%3C/svg%3E");
-  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 7.5A2.5 2.5 0 0 1 5.5 5h4.1c.66 0 1.3.26 1.77.73L12.6 7h5.9A2.5 2.5 0 0 1 21 9.5v.55H7.5a2.5 2.5 0 0 0-2.36 1.67L3.75 16.5A1.5 1.5 0 0 0 5.18 18.5h13.07c.99 0 1.88-.61 2.24-1.53l1.42-3.6c.06-.16.09-.33.09-.5V9.5A2.5 2.5 0 0 0 19.5 7h-6.07l-1.35-1.35A3.5 3.5 0 0 0 9.6 4.62H5.5A3.5 3.5 0 0 0 2 8.12v8.94c0 .28.04.56.14.82z'/%3E%3C/svg%3E");
-}
-
-.sidebar.left .explorer .folder-container > div{
-  min-width:0;
-}
-
-.sidebar.left .explorer .folder-button,
-.sidebar.left .explorer .folder-button + a{
-  display:flex;
-  align-items:center;
-  min-width:0;
-}
-
-.sidebar.left .explorer .folder-title{
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-/* ---------- Right sidebar ---------- */
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M3 6.75A2.75 2.75 0 0 1 5.75 4h4.1c.73 0 1.43.29 1.95.8l1.2 1.2h5.25A2.75 2.75 0 0 1 21 8.75v8.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25zM5.75 6a.75.75 0 0 0-.75.75v10.5c0 .41.34.75.75.75h12.5c.41 0 1.43.29 1.95.8l1.2 1.2h5.25A2.75 2.75 0 0 1 21 8.75v8.5A2.75 2.75 0 0 1 18.25 20H5.75A2.75 2.75 0 0 1 3 17.25z'/%3E%3C/svg%3E") center/contain no-repeat;
+}/* ---------- Right sidebar ---------- */
 
 .sidebar.right{
   padding-top:1.5rem;
   padding-left:1.25rem;
 }
 
-#search-container,
-.search-container,
 #graph-container,
 .graph{
-  border-radius:14px!important;
+  border-radius:12px!important;
   overflow:hidden;
 }
 
-/* Graph: remove only the outer section border */
+/* The search overlay is a viewport, not a rounded card. */
+.search>.search-container{
+  border-radius:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+
+/* Keep the graph visually quiet; the actual graph frame supplies the border. */
 .sidebar.right>.graph{
   border:none!important;
   background:transparent!important;
   box-shadow:none!important;
-  padding:16px 0!important;
+  padding:0!important;
 }
 
-/* Keep the graph canvas itself contained */
-.sidebar.right>.graph #graph-container,
-.sidebar.right>.graph .graph-container{
-  border-radius:10px!important;
+/* TOC panel: one consistent bordered surface on desktop and mobile.
+   Use a box-shadow as a second visual edge so the border cannot disappear
+   against a similarly-toned background. */
+.sidebar.right .toc,
+.page-header .mobile-only .toc{
+  background:color-mix(in srgb,var(--light) 96%,var(--lightgray))!important;
+  border:1px solid color-mix(in srgb,var(--darkgray) 24%,transparent)!important;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--lightgray) 55%,transparent)!important;
+  border-radius:14px!important;
+  box-sizing:border-box!important;
 }
 
-/* TOC remains a bordered panel */
-.sidebar.right>.toc{
-  background:color-mix(in srgb,var(--light) 55%,transparent);
-  border:1px solid var(--lightgray);
-  border-radius:14px;
-  padding:16px;
-  margin-top:.35rem;
+/* Exact Quartz v5 TOC markup: the collapse control IS button.toc-header. */
+.sidebar.right .toc .toc-header,
+.page-header .mobile-only .toc .toc-header{
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--dark)!important;
+  cursor:pointer;
+}
+
+.sidebar.right .toc .toc-header h3,
+.page-header .mobile-only .toc .toc-header h3{
+  margin:0!important;
+  font-size:1rem!important;
+  font-weight:750!important;
+}
+
+.sidebar.right .toc .toc-header .fold,
+.page-header .mobile-only .toc .toc-header .fold{
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  flex:0 0 18px!important;
+  margin:0!important;
+  opacity:.8!important;
+}
+
+.sidebar.right .toc .toc-content,
+.page-header .mobile-only .toc .toc-content{
+  scrollbar-width:none!important;
+  -ms-overflow-style:none!important;
+}
+
+.sidebar.right .toc .toc-content::-webkit-scrollbar,
+.page-header .mobile-only .toc .toc-content::-webkit-scrollbar{
+  width:0!important;
+  height:0!important;
+  display:none!important;
+}
+
+/* Desktop: graph has its native 250px canvas; TOC consumes the remaining
+   sidebar height instead of growing over the graph. */
+@media all and (min-width:901px){
+  .sidebar.right{
+    min-height:0!important;
+    overflow:hidden!important;
+    align-items:stretch!important;
+  }
+
+  .sidebar.right>.graph{
+    flex:0 0 auto!important;
+    min-height:0!important;
+  }
+
+  .sidebar.right .toc{
+    flex:1 1 auto!important;
+    min-height:1.4rem!important;
+    max-height:none!important;
+    overflow:hidden!important;
+  }
+
+  .sidebar.right .toc .toc-content{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    overscroll-behavior:contain!important;
+    padding-right:2px!important;
+  }
+
+  .sidebar.right .toc .toc-content li,
+  .sidebar.right .toc .toc-content a{
+    max-width:100%!important;
+    min-width:0!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+    box-sizing:border-box!important;
+  }
+
+  .sidebar.right .toc .toc-content a{
+    display:block!important;
+    line-height:1.45!important;
+    padding:2px 0!important;
+  }
 }
 
 /* ---------- Page header ---------- */
@@ -843,9 +903,7 @@ a.external{
 
 /* ---------- Global search + footer ---------- */
 
-/* Search trigger and actual search fields are pill-shaped.
-   The full-screen search overlay is intentionally excluded. */
-.search-button,
+/* Actual search fields are pills; the full-screen overlay is not. */
 .search-container input,
 .search-modal input,
 input[type="search"],
@@ -860,8 +918,7 @@ input[placeholder="Search"]{
   min-height:48px!important;
 }
 
-/* Quartz's global footer sits outside .center. Center the footer
-   container and its link list independently so links cannot stay left-aligned. */
+/* Quartz's global footer sits outside .center. Center it independently. */
 .page > footer,
 #quartz-footer,
 footer{
@@ -908,28 +965,10 @@ footer a{
   display:inline-block;
 }
 
-
-
 /* ---------- Mobile system: single source of truth ---------- */
-/*
- * Quartz v5 mobile DOM:
- *
- * .sidebar.left
- *   .page-title
- *   .mobile-only spacer
- *   .flex-component
- *     .search
- *     .darkmode
- *     .reader-mode
- *   .explorer
- *
- * Do not style a non-existent ".toolbar" wrapper. The flex-component is the
- * actual toolbar group. Search is deliberately the right-most action.
- */
 
 @media all and (max-width:800px){
-  html,
-  body{
+  html,body{
     width:100%!important;
     max-width:100%!important;
     overflow-x:clip!important;
@@ -940,7 +979,7 @@ footer a{
     overflow:visible!important;
   }
 
-  /* ----- Header frame ----- */
+  /* ----- Header ----- */
   .page>#quartz-body>.sidebar.left:has(.explorer){
     position:sticky!important;
     top:0!important;
@@ -952,8 +991,8 @@ footer a{
     width:100%!important;
     min-width:0!important;
     max-width:100vw!important;
-    height:auto!important;
     min-height:62px!important;
+    height:auto!important;
     margin:0!important;
     padding:10px 12px!important;
     box-sizing:border-box!important;
@@ -967,7 +1006,6 @@ footer a{
     display:none!important;
   }
 
-  /* ----- Hamburger ----- */
   .page>#quartz-body>.sidebar.left:has(.explorer)>.explorer{
     order:1!important;
     flex:0 0 38px!important;
@@ -999,7 +1037,7 @@ footer a{
     color:var(--darkgray)!important;
   }
 
-  /* ----- Logo ----- */
+  /* Smaller brand mark, same 38px touch box. */
   .page>#quartz-body>.sidebar.left:has(.explorer)>.page-title{
     order:2!important;
     flex:0 0 38px!important;
@@ -1008,7 +1046,6 @@ footer a{
     max-width:38px!important;
     height:38px!important;
     margin:0!important;
-    overflow:visible!important;
   }
 
   .page>#quartz-body>.sidebar.left:has(.explorer)>.page-title a{
@@ -1066,18 +1103,9 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  /* Search is explicitly last. This avoids the old "search first" flex order. */
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:first-child{
-    order:3!important;
-  }
-
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:nth-child(2){
-    order:1!important;
-  }
-
-  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:nth-child(3){
-    order:2!important;
-  }
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:first-child{order:3!important}
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:nth-child(2){order:1!important}
+  .page>#quartz-body>.sidebar.left:has(.explorer)>.flex-component>div:nth-child(3){order:2!important}
 
   .page>#quartz-body>.sidebar.left:has(.explorer) .search{
     width:38px!important;
@@ -1116,14 +1144,11 @@ footer a{
     width:22px!important;
     height:22px!important;
     margin:0!important;
-    transform:none!important;
   }
 
-  .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button p{
-    display:none!important;
-  }
+  .page>#quartz-body>.sidebar.left:has(.explorer) .search>.search-button p{display:none!important}
 
-  /* Search modal: full viewport. Never inherit the global pill radius. */
+  /* ----- Mobile search overlay ----- */
   .page>#quartz-body>.sidebar.left .search>.search-container{
     position:fixed!important;
     inset:0!important;
@@ -1136,11 +1161,11 @@ footer a{
     border:0!important;
     border-radius:0!important;
     overflow-y:auto!important;
+    overflow-x:hidden!important;
     box-sizing:border-box!important;
     z-index:100001!important;
   }
 
-  /* Equal 16px edges eliminate the asymmetric left/right offset. */
   .page>#quartz-body>.sidebar.left .search>.search-container>.search-space{
     width:auto!important;
     max-width:none!important;
@@ -1160,9 +1185,10 @@ footer a{
     width:100%!important;
     border-radius:12px!important;
     overflow:hidden!important;
+    box-sizing:border-box!important;
   }
 
-  /* Progress line belongs to the header separator, not its own layout row. */
+  /* Progress line stays attached to the header. */
   .page>#quartz-body>.sidebar.left:has(.explorer)::after{
     content:""!important;
     position:absolute!important;
@@ -1191,48 +1217,46 @@ footer a{
     height:auto!important;
     min-height:0!important;
     max-height:230px!important;
-    flex:0 1 auto!important;
+    flex:0 0 auto!important;
     margin:1rem 0 1.6rem!important;
     padding:14px 16px!important;
     box-sizing:border-box!important;
     overflow:hidden!important;
-    border:1px solid var(--lightgray)!important;
-    border-radius:14px!important;
   }
 
   .page-header>.popover-hint>.mobile-only .toc>.toc-header{
     flex:0 0 30px!important;
+    width:100%!important;
     height:30px!important;
     min-height:30px!important;
     margin:0 0 8px!important;
     padding:0!important;
   }
 
-  .page-header>.popover-hint>.mobile-only .toc>.toc-header svg{
+  .page-header>.popover-hint>.mobile-only .toc>.toc-header .fold{
     display:block!important;
     width:18px!important;
     height:18px!important;
+    flex:0 0 18px!important;
+    margin:0!important;
   }
 
   .page-header>.popover-hint>.mobile-only .toc>.toc-content{
     flex:1 1 auto!important;
     min-height:0!important;
-    max-height:160px!important;
+    max-height:none!important;
     width:100%!important;
     overflow-y:auto!important;
     overflow-x:hidden!important;
-    scrollbar-width:none!important;
-    -ms-overflow-style:none!important;
     box-sizing:border-box!important;
   }
 
-  .page-header>.popover-hint>.mobile-only .toc>.toc-content>ul,
   .page-header>.popover-hint>.mobile-only .toc>.toc-content ul{
     width:100%!important;
     max-width:100%!important;
     min-width:0!important;
     margin:0!important;
-    padding-left:1rem!important;
+    padding:0!important;
     box-sizing:border-box!important;
   }
 
@@ -1244,9 +1268,29 @@ footer a{
     box-sizing:border-box!important;
   }
 
-  .page-header>.popover-hint>.mobile-only .toc>.toc-content::-webkit-scrollbar{
-    display:none!important;
-    width:0!important;
-    height:0!important;
+  .page-header>.popover-hint>.mobile-only .toc>.toc-content a{
+    display:block!important;
+    padding:2px 0!important;
+    line-height:1.45!important;
+  }
+}
+
+@media all and (max-width:600px){
+  .home .cv-link{
+    min-height:82px;
+    padding:15px;
+    gap:12px;
+  }
+  .home .cv-link .cv-icon{
+    width:40px;
+    height:40px;
+    flex-basis:40px;
+  }
+  .home .cv-link .cv-icon svg{
+    width:20px;
+    height:20px;
+  }
+  .home .cv-tools{
+    grid-template-columns:1fr;
   }
 }
