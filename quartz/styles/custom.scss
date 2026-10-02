@@ -1572,8 +1572,19 @@ footer a{
     display:none!important;
   }
 
-  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer{
+  /* Tablet/phone Explorer control: explicitly show the mobile hamburger.
+     Quartz's button carries hide-until-loaded, which otherwise suppresses it. */
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.desktop-explorer{
+    display:none!important;
+  }
+
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer,
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer.hide-until-loaded{
     display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative!important;
+    z-index:101!important;
     align-items:center!important;
     justify-content:center!important;
     width:38px!important;
