@@ -48,6 +48,11 @@ jobs:
           rm -rf .quartz-build/local-plugins
           cp -R local-plugins .quartz-build/local-plugins
 
+      - name: Generate favicon from CuriousVolt logo
+        working-directory: .quartz-build
+        run: |
+          node --input-type=module -e "import sharp from 'sharp'; await sharp('../static/curiousvolt-logo.svg').resize(256, 256, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 0 } }).png().toFile('quartz/static/icon.png')"
+
       - name: Install Quartz plugins and build
         working-directory: .quartz-build
         run: npm run quartz -- build -d .. -o public
