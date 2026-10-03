@@ -122,13 +122,13 @@ The under-confident person does not even know their real limits because they nev
 
 The person who attempts a difficult jump may fail. But the failure gives them information. They discover where their current boundary actually is.
 
-That is why Zakir says he would rather have an active, even over-confident hero than an under-confident person who never acts.
+That is why Zakir says ==he would rather have an active, even over-confident hero than an under-confident person who never acts.==
 
 The same principle applies to storytelling.
 
 If you never speak because you are afraid of embarrassment, you remain exactly where you started. You have no new information about your ability.
 
-> **“अगर आप नहीं बोलते हो तो आप हीरो नहीं हो — अपनी कहानियों तक में नहीं।”**
+> **“अगर आप नहीं बोलते हो तो आप हीरो नहीं हो - अपनी कहानियों तक में नहीं।”**
 
 The statement is deliberately provocative. It does not mean that a storyteller must always be loud. It means that the storyteller has to **participate in their own story**.
 
@@ -156,15 +156,11 @@ Now the listener has an additional point of connection. They know why this story
 
 The same principle applies when retelling something you saw in a film, read in a book, or heard from a friend. Your version should contain your perspective.
 
-What did you notice?
-
-What did you feel?
-
-What did you think was funny?
-
-What did you misunderstand?
-
-What part stayed with you?
+- What did you notice?
+- What did you feel?
+- What did you think was funny?
+- What did you misunderstand?
+- What part stayed with you?
 
 That personal layer is what turns a borrowed incident into **your telling of it**.
 
@@ -250,7 +246,7 @@ Ask:
 - Where does the audience need more detail?
 - Where does it need less?
 
-Sometimes a quote, a proverb, a fact, or a line of poetry can replace a long explanation.
+==Sometimes a quote, a proverb, a fact, or a line of poetry can replace a long explanation.==
 
 This is one of the reasons Zakir talks about having a small personal collection of literary lines. The right line, at the right moment, can carry a large amount of meaning.
 
@@ -262,7 +258,7 @@ One of the most important distinctions in the course is that **a good story is n
 
 Zakir repeatedly emphasizes that there is no problem with the subject itself. A subject may be perfectly good, but the same story can work beautifully in one room and fail completely in another.
 
-> **“सब्जेक्ट कोई बुरा नहीं होता, स्टोरी कोई बुरी नहीं होती — गलत कहानी गलत ऑडियंस को सुना देना...”**
+> **“सब्जेक्ट कोई बुरा नहीं होता, स्टोरी कोई बुरी नहीं होती - गलत कहानी गलत ऑडियंस को सुना देना...”**
 
 The storyteller therefore has to understand the room.
 
