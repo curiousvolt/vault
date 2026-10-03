@@ -221,12 +221,6 @@ plugins:
       position: footer
       priority: 10
 
-  - source: "./local-plugins/keyboard-shortcuts"
-    enabled: true
-    layout:
-      position: footer
-      priority: 4
-
   - source: "./local-plugins/mobile-search-fixes"
     enabled: true
     layout:
