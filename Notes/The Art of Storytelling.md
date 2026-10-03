@@ -1,18 +1,11 @@
-# The Art of Storytelling — Zakir Khan
-
-> **Course notes — transformed from the provided transcript**
->
-> These notes preserve the substance, stories, examples, conversations, and practical ideas from the course. The transcript's spoken language has been transformed into clear English rather than compressed into a summary. Hindi/Urdu expressions are retained where they carry particular flavour, meaning, or memorability.
-
----
 # 1. Everyone Has a Story
 
 Zakir begins with the most basic premise of the course: **every person already has a story**. A person's story does not begin when they become a professional storyteller. It begins with their birth and continues through everything that happens between birth and death. There is a story in how you were born, how your mother first held you, how your grandmother first saw you, what she said about you, what your childhood was like, what happened at school, who you met, what embarrassed you, what made you happy, what you failed at, and what changed you.
 
 The difference between people is therefore not that some people have stories and others do not. Everyone has them. The difference is that **some people are able to bring those stories out and make another person experience them**.
 
-> **Memorable phrase:** *“कहानियाँ हम सबकी हैं।”*  
-> We all have stories.
+>  “कहानियाँ हम सबकी हैं।”*  
+> 
 
 Zakir uses his own childhood to explain why this matters to him personally. He recalls Rahi Masoom Raza's description of a person whose presence in a gathering was almost invisible: when that person got up and left, nobody even noticed that someone had gone. Zakir says that, in a way, this was his own experience. Until around sixth grade, he did not feel that he had much of a presence in conversations. He did not remember saying particularly memorable things, and he remembers more of the humiliation and feeling of being ignored than he remembers of being heard.
 
