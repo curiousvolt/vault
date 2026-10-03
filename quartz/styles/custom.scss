@@ -2490,3 +2490,55 @@ article figcaption {
     box-shadow: 0 1px 0 var(--lightgray);
   }
 }
+
+
+/* ---------- Reading refinements: TOC + rounded annotations ---------- */
+
+/* TOC should remain comfortably readable, using the site's body typography. */
+.sidebar.right .toc {
+  font-family: var(--bodyFont), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+.sidebar.right .toc .toc-header h3 {
+  font-family: var(--headerFont), var(--bodyFont), system-ui, sans-serif !important;
+  font-size: .82rem !important;
+  font-weight: 760 !important;
+  letter-spacing: .075em !important;
+}
+
+.sidebar.right .toc a,
+.sidebar.right .toc .toc-content {
+  font-family: var(--bodyFont), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+.sidebar.right .toc a {
+  font-size: .88rem !important;
+  line-height: 1.48 !important;
+  font-weight: 560 !important;
+}
+
+.sidebar.right .toc .depth-0 > a,
+.sidebar.right .toc .depth-1 > a {
+  font-size: .9rem !important;
+  font-weight: 650 !important;
+}
+
+.sidebar.right .toc .depth-2 > a,
+.sidebar.right .toc .depth-3 > a {
+  font-size: .86rem !important;
+  font-weight: 520 !important;
+}
+
+.sidebar.right .toc ul {
+  margin-top: .35rem !important;
+  margin-bottom: .35rem !important;
+}
+
+/* Quotes and callouts use a rounded surface on every corner. */
+article blockquote {
+  border-radius: 10px !important;
+}
+
+article .callout {
+  border-radius: 10px !important;
+}
