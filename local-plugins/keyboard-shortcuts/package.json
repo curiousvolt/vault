@@ -1,0 +1,33 @@
+{
+  "name": "keyboard-shortcuts",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Keyboard shortcuts and scroll-state accessibility helpers for CuriousVolt Quartz",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "quartz": {
+    "name": "keyboard-shortcuts",
+    "displayName": "Keyboard Shortcuts",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 4,
+    "defaultEnabled": true,
+    "defaultOptions": {},
+    "components": {
+      "KeyboardShortcuts": {
+        "displayName": "Keyboard Shortcuts",
+        "defaultPosition": "footer",
+        "defaultPriority": 4
+      }
+    }
+  }
+}
