@@ -156,33 +156,46 @@ const script = `
   const handleKeydown = (event) => {
     if (event.altKey || event.ctrlKey || event.metaKey) return
 
-    if (event.key === "Escape") {
+    const code = event.code
+
+    if (code === "Escape") {
       if (help && !help.hidden) {
         hideHelp()
         event.preventDefault()
+        event.stopPropagation()
         return
       }
 
-      if (closeSearch()) event.preventDefault()
+      if (closeSearch()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
       return
     }
 
     if (isTypingTarget(event.target)) return
 
-    if (event.key === "?") {
+    if (code === "Slash" && !event.shiftKey) {
       event.preventDefault()
-      showHelp()
-      return
-    }
-
-    if (event.key === "/" && !event.shiftKey) {
-      event.preventDefault()
+      event.stopPropagation()
       focusSearch()
       return
     }
 
-    const key = event.key.toLowerCase()
-    if (!["g", "h", "e", "t"].includes(key)) {
+    if (code === "Slash" && event.shiftKey) {
+      event.preventDefault()
+      event.stopPropagation()
+      showHelp()
+      return
+    }
+
+    const key =
+      code === "KeyG" ? "g" :
+      code === "KeyH" ? "h" :
+      code === "KeyE" ? "e" :
+      code === "KeyT" ? "t" : ""
+
+    if (!key) {
       sequence = ""
       clearTimeout(sequenceTimer)
       return
@@ -196,15 +209,23 @@ const script = `
 
     if (sequence === "gh") {
       sequence = ""
+      event.preventDefault()
+      event.stopPropagation()
       goHome()
     } else if (sequence === "ge") {
       sequence = ""
+      event.preventDefault()
+      event.stopPropagation()
       toggleExplorer()
     } else if (sequence === "gt") {
       sequence = ""
+      event.preventDefault()
+      event.stopPropagation()
       showToc()
     } else if (sequence === "gg") {
       sequence = ""
+      event.preventDefault()
+      event.stopPropagation()
       scrollTop()
     }
   }
@@ -214,7 +235,7 @@ const script = `
     requestAnimationFrame(addCloseButton)
     setTimeout(addCloseButton, 100)
     window.addEventListener("scroll", showScrollState, { passive: true })
-    document.addEventListener("keydown", handleKeydown, true)
+    window.addEventListener("keydown", handleKeydown, { capture: true })
     document.addEventListener("nav", hideHelp)
     document.addEventListener("render", hideHelp)
   }
