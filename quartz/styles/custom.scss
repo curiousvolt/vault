@@ -1868,3 +1868,37 @@ footer a{
     grid-template-columns:1fr;
   }
 }
+
+
+/* ---------- CuriousVolt accessibility + interaction layer ---------- */
+
+/* Invisible at rest; revealed while scrolling or hovering. */
+html,body{scrollbar-width:thin;scrollbar-color:transparent transparent;}
+html.cv-scrolling,body.cv-scrolling{scrollbar-color:color-mix(in srgb,var(--secondary) 72%,var(--gray)) transparent;}
+html:hover,body:hover{scrollbar-color:color-mix(in srgb,var(--secondary) 72%,var(--gray)) transparent;}
+html::-webkit-scrollbar,body::-webkit-scrollbar{width:8px;height:8px;}
+html::-webkit-scrollbar-track,body::-webkit-scrollbar-track{background:transparent;}
+html::-webkit-scrollbar-thumb,body::-webkit-scrollbar-thumb{background:transparent;border:2px solid transparent;background-clip:padding-box;border-radius:999px;min-height:42px;}
+html.cv-scrolling::-webkit-scrollbar-thumb,body.cv-scrolling::-webkit-scrollbar-thumb,html:hover::-webkit-scrollbar-thumb,body:hover::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--secondary) 72%,var(--gray));border-color:transparent;background-clip:padding-box;}
+html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover{background:var(--secondary);}
+
+/* Keyboard focus. */
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:2px solid color-mix(in srgb,var(--secondary) 82%,var(--cv-gold));outline-offset:3px;border-radius:6px;}
+.search-button:focus-visible,.cv-scroll-top:focus-visible,.cv-mobile-search-close:focus-visible{box-shadow:0 0 0 3px color-mix(in srgb,var(--secondary) 22%,transparent);}
+
+/* Keyboard shortcut help panel. */
+.cv-shortcut-help{position:fixed;inset:0;z-index:100500;display:grid;place-items:center;padding:20px;background:color-mix(in srgb,var(--dark) 28%,transparent);backdrop-filter:blur(5px);}
+.cv-shortcut-help[hidden]{display:none;}
+.cv-shortcut-help__panel{width:min(440px,calc(100vw - 32px));padding:22px;border:1px solid var(--lightgray);border-radius:16px;background:var(--light);color:var(--dark);box-shadow:0 18px 60px rgba(0,0,0,.22);}
+.cv-shortcut-help__title{margin:0 0 16px;font-family:var(--headerFont),var(--bodyFont),system-ui,sans-serif;font-size:1.05rem;font-weight:750;}
+.cv-shortcut-help__list{display:grid;gap:9px;margin:0;}
+.cv-shortcut-help__row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:7px 0;border-bottom:1px solid color-mix(in srgb,var(--lightgray) 70%,transparent);}
+.cv-shortcut-help__row:last-child{border-bottom:0;}
+.cv-shortcut-help kbd{min-width:32px;padding:3px 7px;border:1px solid var(--lightgray);border-bottom-width:2px;border-radius:6px;background:color-mix(in srgb,var(--lightgray) 34%,transparent);color:var(--dark);text-align:center;font-size:.75rem;}
+.cv-shortcut-help__hint{color:var(--darkgray);font-size:.84rem;}
+
+/* Respect OS reduced-motion preferences without disabling Graph or state changes. */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important;}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}.home .cv-link:hover,.home .cv-link:hover .cv-arrow{transform:none!important;}.cv-scroll-top{transform:none!important;}}
+
+/* Slightly larger Canvas controls on touch screens. */
+@media all and (max-width:800px){.page[data-frame="canvas"] .canvas-controls button{width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;}}
