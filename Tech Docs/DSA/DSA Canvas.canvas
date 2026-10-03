@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"df5bbcefc45fa0f9","type":"text","text":"# **DSA**\n\n![DSA](./images/data-structures-and-algorithms-algorithms-data-structures-programs-computer-science-others-efc305651d3f985720bcabd72a0424d7.png)   ","x":-680,"y":-550,"width":260,"height":300},
+		{"id":"ab01e29f93840eae","type":"file","file":"Tech Docs/DSA/Intro to C++.md","x":-47,"y":-520,"width":400,"height":400,"color":"1"}
+	],
+	"edges":[
+		{"id":"07e3963c6e7ff4c7","fromNode":"df5bbcefc45fa0f9","fromSide":"right","toNode":"ab01e29f93840eae","toSide":"left"}
+	]
+}
