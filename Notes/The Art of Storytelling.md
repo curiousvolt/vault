@@ -4,14 +4,9 @@ Zakir begins with the most basic premise of the course: **every person already h
 
 The difference between people is therefore not that some people have stories and others do not. Everyone has them. The difference is that **some people are able to bring those stories out and make another person experience them**.
 
->  “कहानियाँ हम सबकी हैं।”*  
-> 
+>  *“कहानियाँ हम सबकी हैं।”*  
 
-Zakir uses his own childhood to explain why this matters to him personally. He recalls Rahi Masoom Raza's description of a person whose presence in a gathering was almost invisible: when that person got up and left, nobody even noticed that someone had gone. Zakir says that, in a way, this was his own experience. Until around sixth grade, he did not feel that he had much of a presence in conversations. He did not remember saying particularly memorable things, and he remembers more of the humiliation and feeling of being ignored than he remembers of being heard.
-
-That experience becomes important because he understands the feeling of being the person standing at the corner while everyone else is talking. He knows what it is like to sit in a gathering where eight people are comfortably talking while you cannot find your place in the conversation. He also connects it to more ordinary professional situations: perhaps four people are sitting in an office meeting, you have done some of the work, but someone who is quicker and more confident at speaking ends up taking the credit.
-
-This is the background from which he approaches the course. He is not saying that completing it will suddenly turn someone into a great stand-up comedian or a professional *dastangoh*. The point is much more practical. The ability to listen, speak, explain, persuade, and tell a meaningful story is useful in almost every kind of life.
+The ability to listen, speak, explain, persuade, and tell a meaningful story is useful in almost every kind of life.
 
 Whether you are a teacher, a student, someone working in sales, someone in an office, someone running a shop, or someone simply talking to people around you, there are situations in which you need to make another person understand what you are trying to say.
 
@@ -26,8 +21,6 @@ Zakir makes an interesting distinction between being rich in money and being ric
 His grandmother's saying captures this idea:
 
 > **“बोलते के बेर बिक जाते हैं और जो चुप होता है ना उसके आम भी धरे रह जाते हैं।”**
-
-The idea is simple: if you speak, your "berries" can be sold; if you remain silent, even your "mangoes" remain lying around. In other words, whatever knowledge, experience, ability, or story you possess has little practical value to other people if you never bring it out.
 
 Zakir describes stories as a strange kind of treasure because **sharing them increases their value rather than reducing it**.
 
