@@ -15,7 +15,9 @@ cssclasses:
       <strong>Notes</strong>
       <small>Ideas, observations, concepts, and things worth remembering.</small>
     </span>
-    <span class="cv-arrow" aria-hidden="true">→</span>
+    <span class="cv-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M8 5h11v11"/></svg>
+    </span>
   </a>
 
   <a class="cv-link" href="./Tech%20Docs/">
@@ -26,7 +28,9 @@ cssclasses:
       <strong>Documentation</strong>
       <small>Reference material for mathematics, programming, AI, engineering, and more.</small>
     </span>
-    <span class="cv-arrow" aria-hidden="true">→</span>
+    <span class="cv-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M8 5h11v11"/></svg>
+    </span>
   </a>
 
   <a class="cv-link" href="./Questions/">
@@ -37,7 +41,9 @@ cssclasses:
       <strong>Questions</strong>
       <small>Open questions, rabbit holes, and things I'm currently figuring out.</small>
     </span>
-    <span class="cv-arrow" aria-hidden="true">→</span>
+    <span class="cv-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M8 5h11v11"/></svg>
+    </span>
   </a>
 </div>
 
