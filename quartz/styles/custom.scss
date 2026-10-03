@@ -656,8 +656,16 @@ code,pre,kbd,samp{
   border-radius:11px;
   background:color-mix(in srgb,var(--lightgray) 20%,transparent);
   color:var(--dark);
-  font-size:1.15rem;
   transition:transform .16s ease;
+}
+.home .cv-arrow svg{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
 .home .cv-link:hover .cv-arrow{
