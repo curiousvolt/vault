@@ -29,12 +29,6 @@
   "appIcons": {},
   "tabIcons": {},
   "fileIcons": {
-    "Daily Notes": {
-      "icon": "lucide-circle-check-big"
-    },
-    "Excalidraw": {
-      "icon": "lucide-brain-circuit"
-    },
     "Notes": {
       "icon": "lucide-notebook-pen"
     },
@@ -49,9 +43,6 @@
     },
     "Tech Docs/DSA/Images": {
       "icon": "lucide-images"
-    },
-    "Vision Vector": {
-      "icon": "lucide-circle-star"
     }
   },
   "bookmarkIcons": {},
