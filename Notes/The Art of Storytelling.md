@@ -449,7 +449,7 @@ The outside world does not necessarily transform.
 **Rani transforms.**
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["Heartbreak"]
     --> B["Journey"]
     --> C["Self-discovery"]
@@ -761,7 +761,7 @@ But the storyteller cannot begin by apologizing for the existence of the story.
 The course's ideas can be converted into a simple practice system.
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["LISTEN"] --> B["COLLECT"]
     B --> C["TELL"]
     C --> D["REVIEW"]
@@ -790,7 +790,7 @@ The remaining work belongs to the storyteller:
 The progression can be understood like this:
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["Experience"]
     --> B["Observation"]
     --> C["Remembering"]
@@ -821,7 +821,7 @@ If even one small change in the way a person speaks, tells stories, listens, or 
 ### Storytelling Practice
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["LISTEN"] --> B["OBSERVE"]
     B --> C["COLLECT"]
     C --> D["TELL"]
@@ -834,7 +834,7 @@ flowchart TD
 ### Basic Story Structure
 
 ```mermaid
-flowchart TD
+flowchart 
     A["SETUP"] --> B["KISSA / INCIDENT"]
     B --> C["HAASIL / RESULT"]
 ```
@@ -865,7 +865,7 @@ flowchart TD
 ### The storyteller's long-term process
 
 ```mermaid
-flowchart TD
+flowchart LR
     A["Have experiences"]
     --> B["Pay attention"]
     --> C["Remember them"]
