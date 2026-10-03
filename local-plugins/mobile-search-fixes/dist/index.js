@@ -52,10 +52,6 @@ const script = `
 (() => {
   let frame = 0
   let scrollTimer = 0
-  let sequenceTimer = 0
-  let sequence = ""
-  let help = null
-
   const isTypingTarget = (target) => {
     if (!target || !(target instanceof Element)) return false
     return target.matches("input, textarea, select, [contenteditable='true'], [contenteditable='']")
@@ -123,121 +119,11 @@ const script = `
     else window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
-  const hideHelp = () => {
-    if (help) help.hidden = true
-  }
-
-  const showHelp = () => {
-    if (!help) {
-      help = document.createElement("div")
-      help.className = "cv-shortcut-help"
-      help.setAttribute("role", "dialog")
-      help.setAttribute("aria-modal", "true")
-      help.setAttribute("aria-label", "Keyboard shortcuts")
-      help.innerHTML =
-        "<div class='cv-shortcut-help__panel' tabindex='-1'><h2 class='cv-shortcut-help__title'>Keyboard shortcuts</h2><div class='cv-shortcut-help__list'>" +
-        "<div class='cv-shortcut-help__row'><span class='cv-shortcut-help__hint'>Focus search</span><kbd>/</kbd></div>" +
-        "<div class='cv-shortcut-help__row'><span class='cv-shortcut-help__hint'>Home</span><span><kbd>G</kbd> <kbd>H</kbd></span></div>" +
-        "<div class='cv-shortcut-help__row'><span class='cv-shortcut-help__hint'>Toggle Explorer</span><span><kbd>G</kbd> <kbd>E</kbd></span></div>" +
-        "<div class='cv-shortcut-help__row'><span class='cv-shortcut-help__hint'>Show table of contents</span><span><kbd>G</kbd> <kbd>T</kbd></span></div>" +
-        "<div class='cv-shortcut-help__row'><span class='cv-shortcut-help__hint'>Scroll to top</span><span><kbd>G</kbd> <kbd>G</kbd></span></div>" +
-        "<div class='cv-shortcut-help__row'><span class='cv-shortcut-help__hint'>Close search / shortcuts</span><kbd>Esc</kbd></div>" +
-        "</div></div>"
-      help.addEventListener("click", (event) => {
-        if (event.target === help) hideHelp()
-      })
-      document.body.appendChild(help)
-    }
-
-    help.hidden = false
-    help.querySelector(".cv-shortcut-help__panel")?.focus()
-  }
-
-  const handleKeydown = (event) => {
-    if (event.altKey || event.ctrlKey || event.metaKey) return
-
-    const code = event.code
-
-    if (code === "Escape") {
-      if (help && !help.hidden) {
-        hideHelp()
-        event.preventDefault()
-        event.stopPropagation()
-        return
-      }
-
-      if (closeSearch()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-      return
-    }
-
-    if (isTypingTarget(event.target)) return
-
-    if (code === "Slash" && !event.shiftKey) {
-      event.preventDefault()
-      event.stopPropagation()
-      focusSearch()
-      return
-    }
-
-    if (code === "Slash" && event.shiftKey) {
-      event.preventDefault()
-      event.stopPropagation()
-      showHelp()
-      return
-    }
-
-    const key =
-      code === "KeyG" ? "g" :
-      code === "KeyH" ? "h" :
-      code === "KeyE" ? "e" :
-      code === "KeyT" ? "t" : ""
-
-    if (!key) {
-      sequence = ""
-      clearTimeout(sequenceTimer)
-      return
-    }
-
-    sequence += key
-    clearTimeout(sequenceTimer)
-    sequenceTimer = window.setTimeout(() => {
-      sequence = ""
-    }, 900)
-
-    if (sequence === "gh") {
-      sequence = ""
-      event.preventDefault()
-      event.stopPropagation()
-      goHome()
-    } else if (sequence === "ge") {
-      sequence = ""
-      event.preventDefault()
-      event.stopPropagation()
-      toggleExplorer()
-    } else if (sequence === "gt") {
-      sequence = ""
-      event.preventDefault()
-      event.stopPropagation()
-      showToc()
-    } else if (sequence === "gg") {
-      sequence = ""
-      event.preventDefault()
-      event.stopPropagation()
-      scrollTop()
-    }
-  }
-
   const start = () => {
     addCloseButton()
     requestAnimationFrame(addCloseButton)
     setTimeout(addCloseButton, 100)
     window.addEventListener("scroll", showScrollState, { passive: true })
-    window.addEventListener("keydown", handleKeydown, { capture: true })
-    document.addEventListener("nav", hideHelp)
-    document.addEventListener("render", hideHelp)
   }
   const schedule = () => {
     if (frame) return
