@@ -1901,3 +1901,42 @@ html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover{backgrou
 
 /* Slightly larger Canvas controls on touch screens. */
 @media all and (max-width:800px){.page[data-frame="canvas"] .canvas-controls button{width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;}}
+
+
+/* ---------- Note typography accents ---------- */
+
+/* Lower-level headings use the site's gold accent for a clear visual hierarchy. */
+article h3,
+article h4 {
+  color: var(--secondary);
+}
+
+article h3 a,
+article h4 a {
+  color: inherit;
+}
+
+/* Subtle Obsidian/Quartz callouts: tinted surface + restrained accent edge. */
+.callout {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--secondary) 18%, var(--lightgray));
+  border-left: 3px solid var(--secondary);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--secondary) 6%, var(--light));
+}
+
+.callout-title {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.callout-content {
+  color: var(--dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .callout {
+    transition: none !important;
+  }
+}
