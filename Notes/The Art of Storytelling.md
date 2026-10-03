@@ -448,16 +448,13 @@ The outside world does not necessarily transform.
 
 **Rani transforms.**
 
-```text
-Heartbreak
-    ↓
-Journey
-    ↓
-Self-discovery
-    ↓
-Self-love
-    ↓
-Healing
+```mermaid
+flowchart TD
+    A["Heartbreak"]
+    --> B["Journey"]
+    --> C["Self-discovery"]
+    --> D["Self-love"]
+    --> E["Healing"]
 ```
 
 ## A journey of quest
@@ -478,21 +475,19 @@ At the same time, he is coaching the women's hockey team and wants to win a tour
 
 So, broadly:
 
-```text
-                 STORY
-                   │
-             CHARACTER
-                   │
-                JOURNEY
-                   │
-       ┌───────────┼───────────┐
-       ↓           ↓           ↓
-     CHANGE       QUEST       BOTH
-       │           │           │
-   Character      Goal      Character
-   transforms   pursued     transforms
-                            while pursuing
-                            a goal
+```mermaid
+flowchart TD
+    A["STORY"]
+    --> B["CHARACTER"]
+    --> C["JOURNEY"]
+
+    C --> D["CHANGE"]
+    C --> E["QUEST"]
+    C --> F["BOTH"]
+
+    D --> G["Character transforms"]
+    E --> H["Goal pursued"]
+    F --> I["Character transforms<br/>while pursuing a goal"]
 ```
 
 But character and journey do not exist independently of the world.
@@ -765,119 +760,15 @@ But the storyteller cannot begin by apologizing for the existence of the story.
 
 The course's ideas can be converted into a simple practice system.
 
-## 1. Listen deliberately
-
-Whenever someone tells you a story, listen not only to the event but to the **method of telling**.
-
-Notice:
-
-- tone,
-- pauses,
-- emphasis,
-- vocabulary,
-- emotional changes,
-- audience reactions.
-
----
-
-## 2. Build your ten-story list
-
-Write down ten stories that you genuinely like.
-
-Do not worry initially about whether they are perfect.
-
-The purpose is to build a starting collection.
-
----
-
-## 3. Tell the stories
-
-Start telling them to real people.
-
-Expect some stories to fail.
-
-That failure is information.
-
----
-
-## 4. Keep a story diary
-
-At the end of the day, record incidents that stayed with you.
-
-A few words can be enough to recover the larger memory later.
-
----
-
-## 5. Read
-
-Read short stories and observe how writers construct:
-
-- characters,
-- perspective,
-- scenes,
-- details,
-- endings.
-
----
-
-## 6. Record yourself
-
-Tell a story into your phone.
-
-Listen back.
-
-Mark where it feels:
-
-- slow,
-- repetitive,
-- confusing,
-- too explanatory,
-- or particularly strong.
-
----
-
-## 7. Identify your audience
-
-Choose around ten different people or audience types in your life.
-
-For each one, think about which of your stories are likely to work.
-
-Then test those assumptions.
-
----
-
-## 8. Retell the same story
-
-Tell it multiple times.
-
-Do not immediately replace a story after one weak performance.
-
-Instead, change one thing and try again.
-
----
-
-## 9. Build a small library of useful lines
-
-Collect a few:
-
-- shers,
-- proverbs,
-- quotes,
-- facts,
-- memorable expressions.
-
-The objective is not to show off literary knowledge. It is to have language available when a particular emotional or conversational situation calls for it.
-
----
-
-## 10. Practise until delivery becomes natural
-
-Repeat a story enough times that:
-
-- you know where the important beats are,
-- you know where the punch arrives,
-- you know where to pause,
-- and you no longer have to consciously search for every sentence.
+```mermaid
+flowchart TD
+    A["LISTEN"] --> B["COLLECT"]
+    B --> C["TELL"]
+    C --> D["REVIEW"]
+    D --> E["REFINE"]
+    E --> F["REPEAT"]
+    F --> C
+```
 
 ---
 
@@ -885,13 +776,10 @@ Repeat a story enough times that:
 
 The course begins with the observation that everyone has a story and ends with a similar idea: **nobody can do the final work for you**.
 
-A teacher can teach you.
-
-A writer can explain technique.
-
-A storyteller can show you how they work.
-
-A friend can give you feedback.
+- A teacher can teach you.
+- A writer can explain technique.
+- A storyteller can show you how they work.
+- A friend can give you feedback.
 
 But eventually the story has to become yours.
 
@@ -901,32 +789,21 @@ The remaining work belongs to the storyteller:
 
 The progression can be understood like this:
 
-```text
-Experience
-    ↓
-Observation
-    ↓
-Remembering
-    ↓
-Collecting stories
-    ↓
-Listening to other storytellers
-    ↓
-Reading
-    ↓
-Telling
-    ↓
-Failure / feedback
-    ↓
-Refinement
-    ↓
-Repeated telling
-    ↓
-Command over the story
-    ↓
-Natural delivery
-    ↓
-Connection with the audience
+```mermaid
+flowchart TD
+    A["Experience"]
+    --> B["Observation"]
+    --> C["Remembering"]
+    --> D["Collecting stories"]
+    --> E["Listening to other storytellers"]
+    --> F["Reading"]
+    --> G["Telling"]
+    --> H["Failure / feedback"]
+    --> I["Refinement"]
+    --> J["Repeated telling"]
+    --> K["Command over the story"]
+    --> L["Natural delivery"]
+    --> M["Connection with the audience"]
 ```
 
 The course is therefore less about discovering a secret formula and more about developing a **practice of storytelling**.
@@ -943,85 +820,61 @@ If even one small change in the way a person speaks, tells stories, listens, or 
 
 ### Storytelling Practice
 
-```text
-LISTEN
-  ↓
-OBSERVE
-  ↓
-COLLECT
-  ↓
-TELL
-  ↓
-FAIL
-  ↓
-LEARN
-  ↓
-REFINE
-  ↓
-TELL AGAIN
+```mermaid
+flowchart TD
+    A["LISTEN"] --> B["OBSERVE"]
+    B --> C["COLLECT"]
+    C --> D["TELL"]
+    D --> E["FAIL"]
+    E --> F["LEARN"]
+    F --> G["REFINE"]
+    G --> D
 ```
 
 ### Basic Story Structure
 
-```text
-SETUP
-  ↓
-KISSA / INCIDENT
-  ↓
-HAASIL / RESULT
+```mermaid
+flowchart TD
+    A["SETUP"] --> B["KISSA / INCIDENT"]
+    B --> C["HAASIL / RESULT"]
 ```
+
 
 ### Character Journey
 
-```text
-CHARACTER
-    ↓
-  JOURNEY
-    ↓
-┌───┼────────────┐
-│   │            │
-CHANGE QUEST    BOTH
-│   │            │
-└───┼────────────┘
-    ↓
-  ENDING
+```mermaid
+flowchart TD
+    A["SETUP"] --> B["KISSA / INCIDENT"]
+    B --> C["HAASIL / RESULT"]
 ```
 
 ### What Makes a Story Connect?
 
-```text
-Story
-  │
-  ├── Language
-  ├── Theme
-  ├── Intellectual stimulation
-  └── Emotion
-          ↓
-     Human connection
+```mermaid
+flowchart TD
+    A["STORY"] --> B["LANGUAGE"]
+    A --> C["THEME"]
+    A --> D["INTELLECTUAL STIMULATION"]
+    A --> E["EMOTION"]
+    E --> F["HUMAN CONNECTION"]
+    B --> F
+    C --> F
+    D --> F
 ```
 
 ### The storyteller's long-term process
 
-```text
-Have experiences
-      ↓
-Pay attention
-      ↓
-Remember them
-      ↓
-Write them down
-      ↓
-Turn them into stories
-      ↓
-Tell them to people
-      ↓
-Read the room
-      ↓
-Adapt the telling
-      ↓
-Practise repeatedly
-      ↓
-Develop command
-      ↓
-Tell naturally
+```mermaid
+flowchart TD
+    A["Have experiences"]
+    --> B["Pay attention"]
+    --> C["Remember them"]
+    --> D["Write them down"]
+    --> E["Turn them into stories"]
+    --> F["Tell them to people"]
+    --> G["Read the room"]
+    --> H["Adapt the telling"]
+    --> I["Practise repeatedly"]
+    --> J["Develop command"]
+    --> K["Tell naturally"]
 ```
