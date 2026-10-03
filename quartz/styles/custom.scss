@@ -2542,3 +2542,41 @@ article blockquote {
 article .callout {
   border-radius: 10px !important;
 }
+
+
+/* ---------- Portrait tablet Explorer safeguard ---------- */
+/* Quartz can leave the mobile Explorer control hidden at the 801–1199px
+   breakpoint after its own hide-until-loaded state is applied. */
+@media all and (min-width:801px) and (max-width:1199px){
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    visibility:visible!important;
+    opacity:1!important;
+  }
+
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer,
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer.hide-until-loaded{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:38px!important;
+    height:38px!important;
+    min-width:38px!important;
+    min-height:38px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    position:relative!important;
+    z-index:100!important;
+  }
+
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer svg{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:24px!important;
+    height:24px!important;
+    color:var(--darkgray)!important;
+  }
+}
