@@ -397,45 +397,9 @@ The knot became what he calls:
 
 A knot whose end cannot be found.
 
-Then the wedding began.
+Then the wedding began. There was sharbat, so he drank sharbat. He danced, became thirsty, and drank water. Later, while travelling in the bus, his cousin asked why he was not drinking cold drink, so he drank that too.
 
-There was sharbat, so he drank sharbat. He danced, became thirsty, and drank water. Later, while travelling in the bus, his cousin asked why he was not drinking cold drink, so he drank that too.
-
-After a couple of hours, he urgently needed to urinate.
-
-The bus would not stop for long.
-
-He tried to open the knot.
-
-It would not open.
-
-He decided to wait until the wedding procession reached the village.
-
-When they finally arrived, he found a corner where he could relieve himself. But the knot was still there.
-
-He tried everything.
-
-Eventually, with the pressure becoming unbearable, he picked up a sharp stone and cut the string.
-
-He finally got relief.
-
-He then tied the remaining string and returned to the wedding.
-
-His cousins saw him and pulled him into the dancing.
-
-He began dancing.
-
-For several seconds he did not notice anything unusual.
-
-Then his legs began catching on something.
-
-People started laughing.
-
-He looked down.
-
-His pajama had slipped below his knees.
-
-He had been dancing in front of everyone with his pajama down.
+After a couple of hours, he urgently needed to urinate. The bus would not stop for long. He tried to open the knot. It would not open. He decided to wait until the wedding procession reached the village. When they finally arrived, he found a corner where he could relieve himself. But the knot was still there. He tried everything. Eventually, with the pressure becoming unbearable, he picked up a sharp stone and cut the string. He finally got relief. He then tied the remaining string and returned to the wedding. His cousins saw him and pulled him into the dancing. He began dancing. For several seconds he did not notice anything unusual. Then his legs began catching on something. People started laughing. He looked down. His pajama had slipped below his knees. He had been dancing in front of everyone with his pajama down.
 
 ---
 
@@ -461,34 +425,12 @@ Afterwards comes the result: Zakir says that he stopped wearing pajama trousers 
 
 This produces a very practical structure:
 
-```text
-SETUP
-   ↓
-Create context and curiosity
-   ↓
-KISSA / INCIDENT
-   ↓
-Let the event unfold
-   ↓
-HAASIL / RESULT
-   ↓
-What changed because of it?
+```mermaid
+flowchart LR
+    A["SETUP<br/>Create context and curiosity"]
+    --> B["KISSA / INCIDENT<br/>Let the event unfold"]
+    --> C["HAASIL / RESULT<br/>What changed because of it?"]
 ```
-
-
-### 1. Setup
-
-The audience needs enough information to understand what is coming and why it matters.
-
-### 2. Kissa
-
-The actual event unfolds.
-
-### 3. Haasil
-
-The story leaves something behind: a lesson, a change, a decision, a consequence, or simply the final meaning of the incident.
-
----
 
 # 14. The Journey of a Character
 
