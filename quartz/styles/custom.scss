@@ -2580,3 +2580,81 @@ article .callout {
     color:var(--darkgray)!important;
   }
 }
+
+/* ---------- Portrait tablet = phone layout ---------- */
+/*
+ * Quartz treats 801–1199px as tablet rather than mobile. The site already
+ * uses the phone/stacked information architecture in this range, so keep
+ * the chrome identical to phones instead of inheriting Quartz's tablet
+ * header spacing and Explorer visibility rules.
+ */
+@media all and (min-width:801px) and (max-width:1199px){
+  /* Remove Quartz's desktop/tablet page-header offset. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .center > .page-header,
+  .page-header{
+    margin-top:0!important;
+    padding-top:1.55rem!important;
+  }
+
+  /* Same compact phone header geometry. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer){
+    min-height:62px!important;
+    height:62px!important;
+    padding:10px 12px!important;
+    gap:12px!important;
+  }
+
+  /* Use the actual mobile Explorer control, not Quartz's tablet/desktop
+     Explorer label. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .desktop-explorer{
+    display:none!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer,
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer.hide-until-loaded{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    margin:0!important;
+    padding:5px!important;
+    position:relative!important;
+    align-items:center!important;
+    justify-content:center!important;
+    z-index:101!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer svg{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:24px!important;
+    height:24px!important;
+    color:var(--darkgray)!important;
+  }
+
+  /* Keep the article width/padding identical to the phone layout. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .center{
+    padding-left:1.1rem!important;
+    padding-right:1.1rem!important;
+  }
+}
