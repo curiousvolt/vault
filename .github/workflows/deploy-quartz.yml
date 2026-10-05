@@ -10,9 +10,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -50,6 +47,9 @@ jobs:
           cp quartz/styles/custom.scss .quartz-build/quartz/styles/custom.scss
           rm -rf .quartz-build/local-plugins
           cp -R local-plugins .quartz-build/local-plugins
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Generate favicon from CuriousVolt logo
         working-directory: .quartz-build
