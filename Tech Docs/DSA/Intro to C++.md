@@ -112,20 +112,20 @@ int x = 10;
 ```
 
 - Variable names can be anything **except** starting with a number — must contain characters (e.g. `raj1` is valid, `1raj` is not).
-- `int` has a limited range (~ -10^9 to 10^9, rounded off for memory).
+- `int` has a limited range ($[ -10^{9} , 10^{9}]$, rounded off for memory).
 
 ```cpp
-long x;        // wider range than int (~ -10^12 to 10^12)
-long long x;   // even wider range (~ -10^18 to 10^18)
+long x;        // wider range than int
+long long x;   // even wider range 
 ```
 
 **Rule of thumb (Striver's approach — don't memorize exact bounds):**
 
-| Type        | Approx. Range     |
-| ----------- | ----------------- |
-| `int`       | $-10^9 to$ $10^9$ |
-| `long`      | $-10^12 to 10^12  |
-| `long long` | -10^18 to 10^18   |
+| Type        | Approx. Range           |
+| ----------- | ----------------------- |
+| `int`       | $-10^9$  to $10^9$      |
+| `long`      | $-10^{12}$ to $10^{12}$ |
+| `long long` | $-10^{18}$ to $10^{18}$ |
 
 > Why not always use `long long`? Because every data type takes up memory — using a bigger type than necessary wastes memory space.
 
