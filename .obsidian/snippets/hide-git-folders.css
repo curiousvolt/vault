@@ -1,0 +1,8 @@
+/* Hide website infrastructure from Obsidian File Explorer */
+
+.nav-folder-title[data-path="quartz"],
+.nav-folder-title[data-path="local-plugins"],
+.nav-folder-title[data-path="static"],
+.nav-folder-title[data-path=".github"] {
+    display: none !important;
+}
