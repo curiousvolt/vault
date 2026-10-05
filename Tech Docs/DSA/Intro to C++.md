@@ -400,7 +400,7 @@ cout << arr[1][3];              // access value at row 1, column 3
 - Uninitialized cells contain **garbage values** (whatever was already in that memory).
 - 2D arrays are heavily used for matrix problems and graph problems later in DSA.
 
-### Looping over an array (preview — combined with for-loops, see section 9)
+### Looping over an array (preview - combined with for-loops, see section 9)
 
 ```cpp
 int arr[5] = {5, 10, ...};
