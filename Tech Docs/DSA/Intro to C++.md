@@ -27,7 +27,6 @@ Instead of including libraries one by one, you can include **all** of them at on
 
 - This bundles every standard library together.
 - It takes a _little_ more compile time, but that's negligible compared to program run time.
-- You can Google the contents of `bits/stdc++.h` to see everything it includes.
 
 ---
 
@@ -122,11 +121,11 @@ long long x;   // even wider range (~ -10^18 to 10^18)
 
 **Rule of thumb (Striver's approach — don't memorize exact bounds):**
 
-|Type|Approx. Range|
-|---|---|
-|`int`|-10^9 to 10^9|
-|`long`|-10^12 to 10^12|
-|`long long`|-10^18 to 10^18|
+| Type        | Approx. Range     |
+| ----------- | ----------------- |
+| `int`       | $-10^9 to$ $10^9$ |
+| `long`      | $-10^12 to 10^12  |
+| `long long` | -10^18 to 10^18   |
 
 > Why not always use `long long`? Because every data type takes up memory — using a bigger type than necessary wastes memory space.
 

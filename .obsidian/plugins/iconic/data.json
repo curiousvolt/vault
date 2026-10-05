@@ -46,6 +46,9 @@
     },
     "Tech Docs/DSA/Images": {
       "icon": "lucide-images"
+    },
+    "Tech Docs/System Design": {
+      "icon": "lucide-server"
     }
   },
   "bookmarkIcons": {},
