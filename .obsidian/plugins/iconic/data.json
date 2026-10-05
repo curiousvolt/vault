@@ -32,6 +32,9 @@
     "Notes": {
       "icon": "lucide-notebook-pen"
     },
+    "Questions": {
+      "icon": "lucide-badge-question-mark"
+    },
     "Tech Docs": {
       "icon": "lucide-file-digit"
     },
