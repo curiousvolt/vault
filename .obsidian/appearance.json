@@ -6,7 +6,8 @@
   "baseFontSize": 18,
   "textFontFamily": "Lexend",
   "enabledCssSnippets": [
-    "hide-git-folders"
+    "hide-git-folders",
+    "fix-window-buttons"
   ],
   "showViewHeader": true,
   "showRibbon": true
