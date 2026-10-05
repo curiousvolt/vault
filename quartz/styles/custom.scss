@@ -2854,3 +2854,187 @@ article .callout::before {
     padding-top:1.55rem!important;
   }
 }
+
+/* ---------- Callout accent: shorter pill ---------- */
+article .callout::before {
+  top:10%!important;
+  bottom:10%!important;
+  width:3px!important;
+  border-radius:999px!important;
+}
+
+/* ---------- Touch tablet portrait: use phone chrome ---------- */
+/*
+ * Some Android tablets/Chrome desktop-mode configurations expose a wide
+ * CSS viewport even when the physical device is a portrait tablet. In that
+ * case width-only Quartz breakpoints do not switch to the mobile chrome.
+ */
+@media (orientation:portrait) and (pointer:coarse) and (hover:none) and (max-width:1600px){
+  .page:not([data-frame="canvas"]) > #quartz-body{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer){
+    position:sticky!important;
+    top:0!important;
+    z-index:10000!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:62px!important;
+    min-height:62px!important;
+    margin:0!important;
+    padding:10px 12px!important;
+    gap:12px!important;
+    box-sizing:border-box!important;
+    overflow:visible!important;
+    background:var(--light)!important;
+    border-bottom:1px solid var(--lightgray)!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    order:1!important;
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    margin:0!important;
+    padding:0!important;
+    align-items:center!important;
+    justify-content:center!important;
+    overflow:visible!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .desktop-explorer{
+    display:none!important;
+  }
+
+  /* Always render the mobile control and draw the bars ourselves.
+     This avoids relying on Quartz's SVG visibility rules. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer,
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer.hide-until-loaded{
+    display:flex!important;
+    visibility:visible!important;
+    opacity:1!important;
+    position:relative!important;
+    z-index:101!important;
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    align-items:center!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer svg{
+    display:none!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .mobile-explorer::before{
+    content:""!important;
+    display:block!important;
+    width:22px!important;
+    height:18px!important;
+    border-radius:1px!important;
+    background:
+      linear-gradient(
+        to bottom,
+        var(--darkgray) 0 2px,
+        transparent 2px 8px,
+        var(--darkgray) 8px 10px,
+        transparent 10px 16px,
+        var(--darkgray) 16px 18px
+      )!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .page-title{
+    order:2!important;
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    margin:0!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .page-title a{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:38px!important;
+    height:38px!important;
+    margin:0!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .flex-component{
+    order:3!important;
+    flex:1 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    height:38px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:8px!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .flex-component > div{
+    flex:0 0 38px!important;
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .center{
+    order:2!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0 1.1rem!important;
+    box-sizing:border-box!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right{
+    order:3!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    position:static!important;
+    padding:0 1rem 2rem!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right .graph,
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right .toc{
+    display:none!important;
+  }
+
+  .page-header{
+    margin-top:0!important;
+    padding-top:1.55rem!important;
+  }
+}
