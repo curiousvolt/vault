@@ -266,6 +266,7 @@ plugins:
       position: beforeBody
       priority: 15
       display: all
+      condition: not-index
   - source: "@quartz-community/unlisted-pages"
     enabled: true
     options: {}
