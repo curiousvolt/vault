@@ -26,6 +26,42 @@ const css = `
   color: var(--secondary);
 }
 
+@media all and (min-width:801px){
+  .page[data-frame="canvas"] .cv-footer{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:10px;
+    z-index:25;
+    padding:8px 16px;
+    border-top:0;
+    pointer-events:none;
+    background:transparent;
+  }
+
+  .page[data-frame="canvas"] .cv-footer a{
+    pointer-events:auto;
+  }
+}
+
+@media all and (max-width:800px){
+  .page[data-frame="canvas"] .cv-footer{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:8px;
+    z-index:25;
+    padding:6px 12px;
+    border-top:0;
+    pointer-events:none;
+    background:transparent;
+  }
+
+  .page[data-frame="canvas"] .cv-footer a{
+    pointer-events:auto;
+  }
+}
+
 .cv-footer-separator {
   display: inline-block;
   margin: 0 .45rem;
@@ -65,6 +101,31 @@ const CuriousVoltFooter = () => {
   }
 
   Component.css = css
+
+  Component.afterDOMLoaded = `
+    (() => {
+      const addCanvasFooter = () => {
+        const frame = document.querySelector(".page[data-frame="canvas"] .canvas-frame")
+        if (!frame || frame.querySelector(".cv-footer")) return
+
+        const footer = document.createElement("footer")
+        footer.className = "cv-footer"
+        const year = new Date().getFullYear()
+        footer.innerHTML =
+          '<p><span>© ' + year + ' </span>' +
+          '<a href="https://curiousvolt.is-a.dev" rel="me">CuriousVolt</a>' +
+          '<span class="cv-footer-separator" aria-hidden="true">·</span>' +
+          '<span>Aman Kumar</span></p>'
+
+        frame.appendChild(footer)
+      }
+
+      addCanvasFooter()
+      document.addEventListener("nav", addCanvasFooter)
+      document.addEventListener("render", addCanvasFooter)
+    })()
+  `
+
   return Component
 }
 
