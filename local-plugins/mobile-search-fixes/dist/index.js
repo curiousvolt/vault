@@ -154,8 +154,15 @@ const script = `
 
   const start = () => {
     addCloseButton()
-    requestAnimationFrame(addCloseButton)
-    setTimeout(addCloseButton, 100)
+    setupExplorerFallback()
+    requestAnimationFrame(() => {
+      addCloseButton()
+      setupExplorerFallback()
+    })
+    setTimeout(() => {
+      addCloseButton()
+      setupExplorerFallback()
+    }, 100)
     window.addEventListener("scroll", showScrollState, { passive: true })
   }
   const schedule = () => {
@@ -163,6 +170,7 @@ const script = `
     frame = requestAnimationFrame(() => {
       frame = 0
       addCloseButton()
+      setupExplorerFallback()
     })
   }
 
@@ -197,8 +205,15 @@ const script = `
 
   const setup = () => {
     addCloseButton()
-    requestAnimationFrame(addCloseButton)
-    setTimeout(addCloseButton, 100)
+    setupExplorerFallback()
+    requestAnimationFrame(() => {
+      addCloseButton()
+      setupExplorerFallback()
+    })
+    setTimeout(() => {
+      addCloseButton()
+      setupExplorerFallback()
+    }, 100)
   }
 
   setup()
