@@ -1060,6 +1060,49 @@ footer a{
   display:inline-block;
 }
 
+/* ---------- Unified site footer ---------- */
+
+/* Keep the footer in normal document flow on notes, docs and the homepage.
+   It should never be clipped by the article/center column. */
+.page:not([data-frame="canvas"]) > #quartz-body > footer,
+.page:not([data-frame="canvas"]) > footer,
+.page:not([data-frame="canvas"]) #quartz-footer {
+  grid-area: grid-footer !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 28px 20px 34px !important;
+  border-top: 1px solid var(--lightgray) !important;
+  color: var(--gray) !important;
+  text-align: center !important;
+  align-self: end !important;
+}
+
+/* The footer plugin renders its own .cv-footer. Keep it visually identical
+   regardless of which Quartz footer wrapper contains it. */
+.page:not([data-frame="canvas"]) .cv-footer {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.page:not([data-frame="canvas"]) .cv-footer p {
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+@media all and (min-width: 801px) {
+  .page:not([data-frame="canvas"]) > #quartz-body > footer,
+  .page:not([data-frame="canvas"]) > footer,
+  .page:not([data-frame="canvas"]) #quartz-footer {
+    min-height: 72px !important;
+  }
+}
+
 /* ---------- Canvas pages ---------- */
 /* Canvas is a dedicated full-viewport workspace. It intentionally opts out
    of the normal article width/padding system while retaining the site's UI. */
