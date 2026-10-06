@@ -2759,7 +2759,7 @@ article blockquote {
   border-radius: 10px !important;
 }
 
-article blockquote::before {
+article blockquote:not(.callout)::before {
   content: "";
   position: absolute;
   left: 0;
@@ -3442,12 +3442,24 @@ article blockquote::before {
   flex:0 0 18px!important;
   width:18px!important;
   height:18px!important;
+  min-width:18px!important;
+  min-height:18px!important;
   margin:0!important;
   padding:0!important;
   border:0!important;
   border-radius:0!important;
   background-color:var(--callout-heading)!important;
   color:var(--callout-heading)!important;
+  background-size:18px 18px!important;
+  background-position:center!important;
+  mask-image:var(--callout-icon)!important;
+  mask-size:18px 18px!important;
+  mask-position:center!important;
+  mask-repeat:no-repeat!important;
+  -webkit-mask-image:var(--callout-icon)!important;
+  -webkit-mask-size:18px 18px!important;
+  -webkit-mask-position:center!important;
+  -webkit-mask-repeat:no-repeat!important;
 }
 
 .callout .fold-callout-icon{
@@ -3528,6 +3540,11 @@ article blockquote::before {
     flex-basis:17px!important;
     width:17px!important;
     height:17px!important;
+    min-width:17px!important;
+    min-height:17px!important;
+    background-size:17px 17px!important;
+    mask-size:17px 17px!important;
+    -webkit-mask-size:17px 17px!important;
   }
 
   .callout .callout-content{
