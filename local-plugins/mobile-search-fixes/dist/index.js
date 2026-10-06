@@ -90,6 +90,39 @@ const script = `
     control?.click()
   }
 
+  const setupExplorerFallback = () => {
+    document.querySelectorAll(".sidebar.left .explorer .mobile-explorer").forEach((button) => {
+      if (button.dataset.cvExplorerFallback === "1") return
+      button.dataset.cvExplorerFallback = "1"
+
+      button.addEventListener(
+        "click",
+        () => {
+          const explorer = button.closest(".explorer")
+          const quartzBody = document.querySelector("#quartz-body")
+          if (!explorer || !quartzBody) return
+
+          const wasCollapsed = explorer.classList.contains("collapsed")
+
+          // Let Quartz's own Explorer handler run first. If it does not
+          // change the state, apply the same state transition ourselves.
+          window.setTimeout(() => {
+            if (!document.contains(button)) return
+
+            const stillCollapsed = explorer.classList.contains("collapsed")
+            if (stillCollapsed !== wasCollapsed) return
+
+            const open = wasCollapsed
+            explorer.classList.toggle("collapsed", !open)
+            quartzBody.classList.toggle("lock-scroll", open)
+            button.setAttribute("aria-expanded", String(open))
+          }, 0)
+        },
+        true,
+      )
+    })
+  }
+
   const focusSearch = () => {
     const button = document.querySelector(".search .search-button")
     if (!button) return
