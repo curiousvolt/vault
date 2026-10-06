@@ -1657,29 +1657,39 @@ footer a{
     display:none!important;
   }
 
-  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer,
-  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer.hide-until-loaded{
-    display:flex!important;
+  /* Use the Explorer button by class rather than by exact DOM depth.
+     This keeps the hamburger visible across Explorer package revisions. */
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer) .explorer .mobile-explorer{
+    display:grid!important;
     visibility:visible!important;
     opacity:1!important;
     position:relative!important;
     z-index:101!important;
-    align-items:center!important;
-    justify-content:center!important;
+    place-items:center!important;
     width:38px!important;
     height:38px!important;
     min-width:38px!important;
+    min-height:38px!important;
     margin:0!important;
-    padding:5px!important;
+    padding:0!important;
     box-sizing:border-box!important;
     border:0!important;
+    border-radius:10px!important;
     background:transparent!important;
+    color:var(--darkgray)!important;
+    -webkit-appearance:none!important;
+    appearance:none!important;
   }
 
-  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer)>.explorer>.mobile-explorer svg{
+  .page:not([data-frame="canvas"])>#quartz-body>.sidebar.left:has(.explorer) .explorer .mobile-explorer svg{
+    display:block!important;
     width:24px!important;
     height:24px!important;
+    margin:0!important;
     color:var(--darkgray)!important;
+    stroke:currentColor!important;
+    opacity:1!important;
+    visibility:visible!important;
   }
 
   /* Smaller brand mark, same 38px touch box. */
