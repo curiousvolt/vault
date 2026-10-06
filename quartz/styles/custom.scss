@@ -3290,3 +3290,20 @@ article blockquote::before {
     visibility:hidden!important;
   }
 }
+
+/* ---------- Mobile Explorer: restore comfortable horizontal inset ---------- */
+@media (orientation:portrait) and (pointer:coarse) and (hover:none){
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .explorer-content{
+    padding-left:24px!important;
+    padding-right:24px!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .explorer-content .explorer-ul{
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .explorer-content .folder-container{
+    padding-left:4px!important;
+  }
+}
