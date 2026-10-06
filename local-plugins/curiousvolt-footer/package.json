@@ -27,6 +27,11 @@
         "displayName": "CuriousVolt Footer",
         "defaultPosition": "footer",
         "defaultPriority": 50
+      },
+      "CanvasFooterInjector": {
+        "displayName": "Canvas Footer Injector",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 999
       }
     }
   }
