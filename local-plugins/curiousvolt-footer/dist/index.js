@@ -80,7 +80,7 @@ const CuriousVoltFooter = () => {
     const year = new Date().getFullYear()
 
     return h(
-      "footer",
+      "div",
       { class: "cv-footer" },
       h(
         "p",
@@ -108,7 +108,7 @@ const CuriousVoltFooter = () => {
         const frame = document.querySelector('.page[data-frame="canvas"] .canvas-frame')
         if (!frame || frame.querySelector(".cv-footer")) return
 
-        const footer = document.createElement("footer")
+        const footer = document.createElement("div")
         footer.className = "cv-footer"
         const year = new Date().getFullYear()
         footer.innerHTML =
