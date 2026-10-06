@@ -3189,3 +3189,212 @@ article blockquote::before {
     z-index: 10001 !important;
   }
 }
+
+
+/* ==========================================================================
+   Note properties
+   --------------------------------------------------------------------------
+   Match the Obsidian-style metadata block used in the vault: quiet card,
+   compact key/value rows, and full frontmatter visibility.
+   ========================================================================== */
+
+.note-properties{
+  width:100%!important;
+  max-width:900px!important;
+  margin:1.25rem auto 2.25rem!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  border:1px solid color-mix(in srgb,var(--darkgray) 22%,transparent)!important;
+  border-radius:14px!important;
+  background:color-mix(in srgb,var(--light) 96%,var(--lightgray))!important;
+  box-shadow:0 1px 2px rgba(0,0,0,.08)!important;
+  overflow:hidden!important;
+  font-size:.9rem!important;
+}
+
+.note-properties .note-properties-header{
+  min-height:56px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:.55rem!important;
+  padding:0 1rem!important;
+  box-sizing:border-box!important;
+  border:0!important;
+  background:transparent!important;
+  color:var(--dark)!important;
+  font-size:1rem!important;
+  font-weight:700!important;
+}
+
+.note-properties[open] > .note-properties-header{
+  border-bottom:1px solid color-mix(in srgb,var(--darkgray) 14%,transparent)!important;
+}
+
+.note-properties .note-properties-header::before{
+  width:.5rem!important;
+  height:.5rem!important;
+  border-right:2px solid var(--gray)!important;
+  border-bottom:2px solid var(--gray)!important;
+}
+
+.note-properties .note-properties-count{
+  color:var(--gray)!important;
+  font-size:.72rem!important;
+}
+
+.note-properties .note-properties-table{
+  width:100%!important;
+  margin:0!important;
+  border-collapse:collapse!important;
+  table-layout:fixed!important;
+}
+
+.note-properties .note-properties-row{
+  border-bottom:1px solid color-mix(in srgb,var(--darkgray) 10%,transparent)!important;
+}
+
+.note-properties .note-properties-row:last-child{
+  border-bottom:0!important;
+}
+
+.note-properties .note-properties-key,
+.note-properties .note-properties-value{
+  padding:.72rem 1rem!important;
+  border:0!important;
+  line-height:1.35!important;
+  vertical-align:middle!important;
+}
+
+.note-properties .note-properties-key{
+  position:relative!important;
+  width:24%!important;
+  color:var(--gray)!important;
+  font-weight:500!important;
+  word-break:break-word!important;
+  padding-left:3.6rem!important;
+}
+
+.note-properties .note-properties-key::before{
+  content:"";
+  position:absolute;
+  left:1rem;
+  top:50%;
+  width:15px;
+  height:15px;
+  transform:translateY(-50%);
+  opacity:.72;
+  background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 5h16v2H4zm0 6h16v2H4zm0 6h16v2H4z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 5h16v2H4zm0 6h16v2H4zm0 6h16v2H4z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.note-properties .note-properties-value{
+  color:var(--darkgray)!important;
+  font-weight:520!important;
+  word-break:break-word!important;
+}
+
+.note-properties .note-properties-link{
+  color:var(--darkgray)!important;
+  background:transparent!important;
+  padding:0!important;
+  font-weight:520!important;
+}
+
+.note-properties .note-properties-link:hover{
+  color:var(--secondary)!important;
+  text-decoration:none!important;
+}
+
+.note-properties .note-properties-tags .tag-link{
+  background:var(--highlight)!important;
+  color:var(--secondary)!important;
+  border-radius:7px!important;
+}
+
+.note-properties .note-properties-object code{
+  background:var(--highlight)!important;
+}
+
+.note-properties .note-properties-empty{
+  color:var(--gray)!important;
+}
+
+/* ---------- Site footer: one reliable flow/grid surface on every device ---------- */
+
+.page:not([data-frame="canvas"]) > #quartz-body > footer{
+  grid-area:grid-footer!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  align-self:stretch!important;
+  visibility:visible!important;
+  opacity:1!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  min-height:72px!important;
+  margin:0!important;
+  padding:1.25rem 1rem 1.5rem!important;
+  box-sizing:border-box!important;
+  position:relative!important;
+  overflow:visible!important;
+  border-top:1px solid var(--lightgray)!important;
+  color:var(--gray)!important;
+}
+
+.page:not([data-frame="canvas"]) > #quartz-body > footer .cv-footer{
+  display:block!important;
+  width:100%!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+
+.page:not([data-frame="canvas"]) .cv-footer p{
+  color:var(--gray)!important;
+  font-size:.76rem!important;
+  line-height:1.5!important;
+}
+
+@media (max-width:800px){
+  .page:not([data-frame="canvas"]) > #quartz-body > footer{
+    min-height:64px!important;
+    margin-top:0!important;
+    padding:1rem 1rem 1.25rem!important;
+  }
+
+  .note-properties{
+    margin:1rem 0 1.75rem!important;
+    max-width:none!important;
+    border-radius:13px!important;
+  }
+
+  .note-properties .note-properties-key{
+    width:34%!important;
+    padding-left:2.8rem!important;
+  }
+
+  .note-properties .note-properties-key::before{
+    left:.9rem;
+  }
+
+  .note-properties .note-properties-key,
+  .note-properties .note-properties-value{
+    padding-top:.65rem!important;
+    padding-bottom:.65rem!important;
+  }
+}
+
+@media (orientation:portrait) and (pointer:coarse) and (hover:none){
+  .page:not([data-frame="canvas"]) > #quartz-body > footer{
+    grid-area:grid-footer!important;
+    display:flex!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .note-properties .note-properties-header::before{
+    transition:none!important;
+  }
+}
