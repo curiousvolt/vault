@@ -2896,220 +2896,109 @@ article blockquote::before {
 
 
 
+
 /* ==========================================================================
-   Canvas + universal mobile navigation
+   Canvas sidebar integration
    --------------------------------------------------------------------------
-   Canvas uses a separate .canvas-sidebar component, so the normal
-   .sidebar.left mobile rules do not reach it. On touch/portrait screens,
-   make that component use the same compact universal header + drawer model
-   instead of the legacy full-height sidebar.
+   Canvas already owns the sidebar drawer. Do not turn the Explorer inside
+   that drawer into a second sidebar. The Canvas toggle is the single mobile
+   and desktop entry point.
    ========================================================================== */
 
+/* Keep the Canvas drawer consistent with the normal desktop sidebar. */
+.page[data-frame="canvas"] .canvas-sidebar {
+  width: 300px !important;
+  box-sizing: border-box !important;
+  padding: 22px 20px 22px 24px !important;
+  background: var(--light) !important;
+  border-right: 1px solid var(--lightgray) !important;
+  box-shadow: 8px 0 24px rgba(0,0,0,.12) !important;
+}
+
+/* The Canvas toggle is the sidebar hamburger/close control. */
+.page[data-frame="canvas"] .canvas-sidebar-toggle {
+  z-index: 10001 !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  border: 1px solid var(--lightgray) !important;
+  border-radius: 10px !important;
+  background: color-mix(in srgb,var(--light) 94%,transparent) !important;
+  color: var(--darkgray) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.10) !important;
+}
+
+/* Canvas owns the drawer, so the Explorer's own desktop/mobile toggles
+   remain hidden inside it. Its file tree stays the actual navigation. */
+.page[data-frame="canvas"] .canvas-sidebar .explorer button.desktop-explorer,
+.page[data-frame="canvas"] .canvas-sidebar .explorer button.mobile-explorer {
+  display: none !important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar .explorer {
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.page[data-frame="canvas"] .canvas-sidebar .explorer .explorer-content {
+  position: static !important;
+  width: auto !important;
+  max-width: none !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  transform: none !important;
+  visibility: visible !important;
+  padding: 0 !important;
+  overflow-y: auto !important;
+  background: transparent !important;
+}
+
+/* Mobile Canvas: use the same drawer mechanism, but with the native
+   Canvas toggle rather than a second Explorer hamburger. */
 @media (orientation: portrait) and (pointer: coarse) and (hover: none) {
+  .page[data-frame="canvas"] {
+    --canvas-sidebar-width: calc(100vw - 56px) !important;
+  }
+
   .page[data-frame="canvas"] .canvas-sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    width: var(--canvas-sidebar-width) !important;
+    max-width: var(--canvas-sidebar-width) !important;
+    padding: 68px 20px 20px 20px !important;
     z-index: 10000 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    width: 100vw !important;
-    min-width: 0 !important;
-    max-width: 100vw !important;
-    height: 62px !important;
-    min-height: 62px !important;
-    margin: 0 !important;
-    padding: 10px 12px !important;
-    gap: 12px !important;
-    box-sizing: border-box !important;
-    overflow: visible !important;
-    background: var(--light) !important;
-    border-right: 0 !important;
-    border-bottom: 1px solid var(--lightgray) !important;
-    box-shadow: 0 1px 0 var(--lightgray) !important;
   }
 
-  .page[data-frame="canvas"] .canvas-sidebar > .page-title {
-    order: 2 !important;
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    max-width: 38px !important;
-    height: 38px !important;
-    margin: 0 !important;
-    padding: 0 !important;
+  .page[data-frame="canvas"] .canvas-sidebar-toggle {
+    position: fixed !important;
+    top: 12px !important;
+    left: 12px !important;
+    z-index: 10001 !important;
   }
 
-  .page[data-frame="canvas"] .canvas-sidebar > .page-title a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    margin: 0 !important;
+  .page[data-frame="canvas"].canvas-sidebar-open .canvas-sidebar-toggle {
+    left: calc(var(--canvas-sidebar-width) + 12px) !important;
   }
 
-  .page[data-frame="canvas"] .canvas-sidebar > .page-title a:before {
-    width: 38px !important;
-    height: 38px !important;
-    flex: 0 0 38px !important;
-    background-size: 28px 28px !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer {
-    order: 1 !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    max-width: 38px !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    align-self: center !important;
-    overflow: visible !important;
-    background: transparent !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer > .desktop-explorer {
-    display: none !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer > .mobile-explorer {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 101 !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    margin: 0 !important;
-    padding: 5px !important;
-    box-sizing: border-box !important;
-    border: 0 !important;
-    background: transparent !important;
-    color: var(--darkgray) !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer > .mobile-explorer .lucide-menu {
-    display: block !important;
-    width: 24px !important;
-    height: 24px !important;
-    stroke: currentColor !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer > .explorer-content {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    z-index: 100 !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-    margin: 0 !important;
-    padding: 4rem 24px 2rem !important;
-    box-sizing: border-box !important;
-    background: var(--light) !important;
-    overflow: auto !important;
-    visibility: hidden !important;
-    transform: translateX(-100vw) !important;
-    transition: transform 200ms ease, visibility 200ms ease !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer:not(.collapsed) > .explorer-content {
-    visibility: visible !important;
-    transform: translateX(0) !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer.collapsed > .explorer-content {
-    visibility: hidden !important;
-    transform: translateX(-100vw) !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer-content > .explorer-ul {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .flex-component {
-    order: 4 !important;
-    flex: 0 1 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
+  .page[data-frame="canvas"] .canvas-sidebar .explorer {
+    width: 100% !important;
     max-width: none !important;
-    height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    gap: 8px !important;
-    margin: 0 !important;
   }
 
-  .page[data-frame="canvas"] .canvas-sidebar > .flex-component > div {
-    flex: 0 0 38px !important;
-    width: 38px !important;
-    min-width: 38px !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .flex-component .search-button {
-    display: grid !important;
-    place-items: center !important;
-    width: 38px !important;
-    height: 38px !important;
-    min-width: 38px !important;
-    min-height: 38px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 10px !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .flex-component .search-button p {
-    display: none !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .flex-component .search-button svg {
-    width: 22px !important;
-    height: 22px !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .spacer {
-    order: 3 !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-sidebar > .mobile-only {
-    display: none !important;
-  }
-
-  .page[data-frame="canvas"] .canvas-frame {
-    position: relative !important;
+  .page[data-frame="canvas"] .canvas-sidebar .explorer .explorer-content {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
   }
 }
 
-@media (orientation: portrait) and (pointer: coarse) and (hover: none) and (prefers-reduced-motion: reduce) {
-  .page[data-frame="canvas"] .canvas-sidebar > .explorer > .explorer-content {
-    transition: none !important;
+/* Desktop Canvas: same drawer control, same 300px navigation surface. */
+@media all and (min-width: 1200px) {
+  .page[data-frame="canvas"] .canvas-sidebar {
+    width: 300px !important;
+  }
+
+  .page[data-frame="canvas"] .canvas-sidebar-toggle {
+    z-index: 10001 !important;
   }
 }
