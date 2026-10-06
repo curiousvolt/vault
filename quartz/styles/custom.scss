@@ -787,8 +787,110 @@ pre{
   border-radius:10px!important;
 }
 
+/* ---------- Callouts ---------- */
+/*
+ * Flat, color-coded callouts inspired by the vault's Obsidian design.
+ * The color communicates the role of the block; the card itself stays quiet.
+ */
 .callout{
-  border-radius:12px!important;
+  --callout-border-width:0px!important;
+  border:0!important;
+  border-left:0!important;
+  border-radius:15px!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  background:var(--bg)!important;
+  color:var(--dark)!important;
+}
+
+.callout .callout-title{
+  margin:0!important;
+  padding:16px 16px 8px!important;
+  background:transparent!important;
+  border:0!important;
+  color:rgb(var(--callout-color))!important;
+  font-weight:750!important;
+}
+
+.callout .callout-title-inner{
+  color:rgb(var(--callout-color))!important;
+}
+
+.callout .callout-content{
+  padding:0 16px 16px!important;
+  background:transparent!important;
+  color:var(--dark)!important;
+}
+
+.callout .callout-content p:first-child{
+  margin-top:.35rem!important;
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="attention"],
+.callout[data-callout="caution"]{
+  --callout-color:218,202,73;
+  --bg:rgba(218,202,73,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"]{
+  --callout-color:218,91,71;
+  --bg:rgba(218,91,71,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="tldr"]{
+  --callout-color:139,190,116;
+  --bg:rgba(139,190,116,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="info"]{
+  --callout-color:105,157,215;
+  --bg:rgba(105,157,215,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="tip"],
+.callout[data-callout="hint"],
+.callout[data-callout="important"]{
+  --callout-color:218,202,73;
+  --bg:rgba(218,202,73,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="success"],
+.callout[data-callout="done"],
+.callout[data-callout="check"]{
+  --callout-color:139,190,116;
+  --bg:rgba(139,190,116,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="danger"],
+.callout[data-callout="error"]{
+  --callout-color:218,91,71;
+  --bg:rgba(218,91,71,.105);
+  --border:transparent;
+}
+
+.callout[data-callout="example"]{
+  --callout-color:105,157,215;
+  --bg:rgba(105,157,215,.105);
+  --border:transparent;
+}
+
+/* Remove the thin article separators; the colored callout cards already provide
+   enough visual grouping. */
+article hr{
+  display:none!important;
 }
 
 /* ---------- Links / selection ---------- */
