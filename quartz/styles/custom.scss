@@ -2872,6 +2872,15 @@ article blockquote::before {
     transform: translateX(-100vw) !important;
   }
 
+  /* Explorer's actual mobile-open state is html.mobile-no-scroll.
+     Use it as a second source of truth so the drawer opens even if the
+     upstream Explorer class is restored during nav/render. */
+  html.mobile-no-scroll .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left .explorer > .explorer-content {
+    visibility: visible !important;
+    transform: translateX(0) !important;
+    z-index: 100 !important;
+  }
+
   .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left .explorer-content > .explorer-ul {
     padding: 0 !important;
     margin: 0 !important;
