@@ -227,11 +227,8 @@ plugins:
       position: footer
       priority: 5
 
-  - source: "@quartz-community/footer"
+  - source: "./local-plugins/curiousvolt-footer"
     enabled: true
-    options:
-      links:
-        "Created by Aman": https://curiousvolt.is-a.dev
     layout:
       position: footer
       priority: 50
