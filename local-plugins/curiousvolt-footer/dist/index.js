@@ -105,7 +105,7 @@ const CuriousVoltFooter = () => {
   Component.afterDOMLoaded = `
     (() => {
       const addCanvasFooter = () => {
-        const frame = document.querySelector(".page[data-frame="canvas"] .canvas-frame")
+        const frame = document.querySelector('.page[data-frame="canvas"] .canvas-frame')
         if (!frame || frame.querySelector(".cv-footer")) return
 
         const footer = document.createElement("footer")
