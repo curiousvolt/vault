@@ -3329,3 +3329,70 @@ article blockquote::before {
     max-width:100%!important;
   }
 }
+
+/* ---------- Mobile Graph View: first, above the mobile header ---------- */
+@media (orientation:portrait) and (pointer:coarse) and (hover:none){
+  .page:not([data-frame="canvas"]) > #quartz-body{
+    display:flex!important;
+    flex-direction:column!important;
+  }
+
+  /* Graph becomes the first mobile surface, before the header. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right{
+    order:0!important;
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:250px!important;
+    min-height:250px!important;
+    max-height:250px!important;
+    padding:0 1rem!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    position:relative!important;
+    overflow:hidden!important;
+    background:var(--light)!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right > .graph{
+    display:block!important;
+    position:relative!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:220px!important;
+    min-height:220px!important;
+    max-height:220px!important;
+    margin:15px 0!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+    opacity:1!important;
+    overflow:hidden!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right > .graph #graph-container{
+    display:block!important;
+    width:100%!important;
+    height:220px!important;
+    min-height:220px!important;
+    max-height:220px!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+
+  /* TOC remains disabled here; Graph View is the only right-rail surface. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right > .toc{
+    display:none!important;
+  }
+
+  /* Header follows the graph. */
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer){
+    order:1!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .center{
+    order:2!important;
+  }
+}
