@@ -1060,6 +1060,19 @@ footer a{
   display:inline-block;
 }
 
+/* Desktop/tablet pages use a flexible reading track so the footer is
+   visible at the bottom on short notes and remains in normal flow on long ones. */
+@media all and (min-width:801px){
+  .page:not([data-frame="canvas"]) > #quartz-body{
+    min-height:100vh!important;
+    grid-template-rows:auto minmax(0,1fr) auto!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .center{
+    min-height:0!important;
+  }
+}
+
 /* ---------- Unified site footer ---------- */
 
 /* Keep the footer in normal document flow on notes, docs and the homepage.
