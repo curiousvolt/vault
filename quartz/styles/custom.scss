@@ -2035,6 +2035,15 @@ article em {
 
 /* ---------- Article header ---------- */
 
+/* Desktop/tablet: keep notes close to the top. The homepage keeps its
+   intentionally larger editorial opening separately below. */
+@media all and (min-width:801px){
+  .page:not(.home):not([data-frame="canvas"]) .page-header{
+    margin-top:1.5rem!important;
+    padding-top:.75rem!important;
+  }
+}
+
 .page-header {
   padding-top: 3rem;
   padding-bottom: .5rem;
