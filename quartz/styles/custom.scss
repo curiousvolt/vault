@@ -2555,7 +2555,7 @@ article .callout {
    - desktop: keep Quartz's three-column frame
    - normal tablet: keep Quartz's native tablet frame
    - portrait touch devices: use the phone information architecture
-   - Graph View: first surface, above the mobile header
+   - Graph View: keep it at the bottom of the mobile page
    - Explorer: use Quartz's real mobile drawer/button behavior
    ========================================================================== */
 
@@ -2583,18 +2583,18 @@ article blockquote::before {
 
 @media (orientation: portrait) and (pointer: coarse) and (hover: none) {
   /*
-   * Use Quartz's existing grid model. The only intentional change is the
-   * mobile stacking order: graph first, then navigation/header, then content.
+   * Use Quartz's existing grid model. The mobile stacking order is:
+   * navigation/header -> page header -> content -> graph -> footer.
    */
   .page:not([data-frame="canvas"]) > #quartz-body {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
     grid-template-rows: auto auto auto auto auto !important;
     grid-template-areas:
-      "grid-sidebar-right"
       "grid-sidebar-left"
       "grid-header"
       "grid-center"
+      "grid-sidebar-right"
       "grid-footer" !important;
     column-gap: 0 !important;
     row-gap: 5px !important;
@@ -2605,7 +2605,7 @@ article blockquote::before {
     padding: 0 !important;
   }
 
-  /* ---------------- Graph: first surface ---------------- */
+  /* ---------------- Graph: bottom surface ---------------- */
 
   .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right {
     grid-area: grid-sidebar-right !important;
@@ -2659,9 +2659,9 @@ article blockquote::before {
   }
 
   /*
-   * Backlinks belong below the reading experience on a phone. Keeping them
-   * out of the pre-header graph surface avoids creating a second navigation
-   * column above the header.
+   * The right sidebar is now the final content surface on mobile, so Graph
+   * appears after the article instead of above the header. Backlinks remain
+   * hidden here to avoid adding a second navigation surface below the article.
    */
   .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.right > .backlinks {
     display: none !important;
