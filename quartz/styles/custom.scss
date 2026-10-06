@@ -3229,3 +3229,57 @@ article .callout::before {
     padding-top:1.55rem!important;
   }
 }
+
+/* ---------- Blockquote accent: shortened pill ---------- */
+article blockquote {
+  position:relative!important;
+  border-left:0!important;
+  border-radius:10px!important;
+  overflow:hidden!important;
+}
+
+article blockquote::before {
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:5%!important;
+  bottom:5%!important;
+  width:4px!important;
+  border-radius:999px!important;
+  background:var(--secondary)!important;
+  pointer-events:none!important;
+}
+
+/* ---------- Portrait touch tablets: make the Explorer drawer viewport-bound ---------- */
+/*
+ * Root cause: Quartz's mobile Explorer uses position:absolute. Tablet mode
+ * keeps #quartz-body's side padding, so a 100vw drawer inherits that offset
+ * and leaves a visible strip at the edge. Use the viewport as the containing
+ * block for the same phone-style drawer.
+ */
+@media (orientation:portrait) and (pointer:coarse) and (hover:none){
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer > .explorer-content{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    height:100dvh!important;
+    max-height:100dvh!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    transform:translateX(-100vw)!important;
+    visibility:hidden!important;
+    z-index:10001!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer:not(.collapsed) > .explorer-content{
+    transform:translateX(0)!important;
+    visibility:visible!important;
+  }
+
+  .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left:has(.explorer) > .explorer.collapsed > .explorer-content{
+    transform:translateX(-100vw)!important;
+    visibility:hidden!important;
+  }
+}
