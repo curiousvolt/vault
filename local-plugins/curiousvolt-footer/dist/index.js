@@ -129,4 +129,41 @@ const CuriousVoltFooter = () => {
   return Component
 }
 
-export { CuriousVoltFooter }
+const CanvasFooterInjector = () => {
+  const Component = () => h("span", { class: "cv-canvas-footer-injector", "aria-hidden": "true" })
+
+  Component.css = `
+    .cv-canvas-footer-injector {
+      display: none !important;
+    }
+  `
+
+  Component.afterDOMLoaded = `
+    (() => {
+      const addCanvasFooter = () => {
+        const page = document.querySelector('.page[data-frame="canvas"]')
+        const frame = page?.querySelector('.canvas-frame')
+        if (!page || !frame || frame.querySelector(".cv-footer")) return
+
+        const footer = document.createElement("footer")
+        footer.className = "cv-footer"
+        const year = new Date().getFullYear()
+        footer.innerHTML =
+          '<p><span>© ' + year + ' </span>' +
+          '<a href="https://curiousvolt.is-a.dev" rel="me">CuriousVolt</a>' +
+          '<span class="cv-footer-separator" aria-hidden="true">·</span>' +
+          '<span>Aman Kumar</span></p>'
+
+        frame.appendChild(footer)
+      }
+
+      addCanvasFooter()
+      document.addEventListener("nav", addCanvasFooter)
+      document.addEventListener("render", addCanvasFooter)
+    })()
+  `
+
+  return Component
+}
+
+export { CuriousVoltFooter, CanvasFooterInjector }
