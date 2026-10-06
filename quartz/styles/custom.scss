@@ -3403,8 +3403,8 @@ article blockquote::before {
 /* ==========================================================================
    Final callout visual system
    --------------------------------------------------------------------------
-   Keep each callout monochromatic: the title is a darker shade of the same
-   hue as its tinted surface. Remove the legacy accent strip/icon treatment.
+   Obsidian-like callout cards: semantic tinted surface, matching darker
+   heading, native Quartz callout icon, and no decorative left strip.
    ========================================================================== */
 
 .callout{
@@ -3424,10 +3424,10 @@ article blockquote::before {
 .callout .callout-title{
   display:flex!important;
   align-items:center!important;
-  gap:0!important;
+  gap:.55rem!important;
   margin:0!important;
   min-height:0!important;
-  padding:16px 16px 7px!important;
+  padding:15px 16px 7px!important;
   border:0!important;
   background:transparent!important;
   color:var(--callout-heading)!important;
@@ -3436,14 +3436,27 @@ article blockquote::before {
   letter-spacing:.01em!important;
 }
 
-.callout .callout-title-inner,
-.callout .callout-title-inner > p{
+/* Keep the Obsidian/Quartz callout icon, but remove any accent-pill treatment. */
+.callout .callout-icon{
+  display:inline-block!important;
+  flex:0 0 18px!important;
+  width:18px!important;
+  height:18px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:var(--callout-heading)!important;
   color:var(--callout-heading)!important;
 }
 
-.callout .callout-icon,
 .callout .fold-callout-icon{
   display:none!important;
+}
+
+.callout .callout-title-inner,
+.callout .callout-title-inner > p{
+  color:var(--callout-heading)!important;
 }
 
 .callout .callout-content{
@@ -3457,14 +3470,17 @@ article blockquote::before {
   margin-top:.35rem!important;
 }
 
+/* The background adapts to both themes because the semantic hue is mixed
+   against Quartz's current light/dark surface. */
 .callout[data-callout="warning"],
 .callout[data-callout="attention"],
 .callout[data-callout="caution"],
 .callout[data-callout="tip"],
 .callout[data-callout="hint"],
 .callout[data-callout="important"]{
-  --callout-bg:rgba(218,202,73,.105);
-  --callout-heading:#a99a32;
+  --callout-hue:218,202,73;
+  --callout-bg:color-mix(in srgb,rgb(var(--callout-hue)) 15%,var(--light));
+  --callout-heading:color-mix(in srgb,rgb(var(--callout-hue)) 72%,var(--dark));
 }
 
 .callout[data-callout="question"],
@@ -3474,8 +3490,9 @@ article blockquote::before {
 .callout[data-callout="fail"],
 .callout[data-callout="danger"],
 .callout[data-callout="error"]{
-  --callout-bg:rgba(218,91,71,.105);
-  --callout-heading:#a94436;
+  --callout-hue:218,91,71;
+  --callout-bg:color-mix(in srgb,rgb(var(--callout-hue)) 15%,var(--light));
+  --callout-heading:color-mix(in srgb,rgb(var(--callout-hue)) 72%,var(--dark));
 }
 
 .callout[data-callout="abstract"],
@@ -3484,24 +3501,33 @@ article blockquote::before {
 .callout[data-callout="success"],
 .callout[data-callout="done"],
 .callout[data-callout="check"]{
-  --callout-bg:rgba(139,190,116,.105);
-  --callout-heading:#6f985a;
+  --callout-hue:139,190,116;
+  --callout-bg:color-mix(in srgb,rgb(var(--callout-hue)) 16%,var(--light));
+  --callout-heading:color-mix(in srgb,rgb(var(--callout-hue)) 72%,var(--dark));
 }
 
 .callout[data-callout="info"],
 .callout[data-callout="example"]{
-  --callout-bg:rgba(105,157,215,.105);
-  --callout-heading:#4f78a7;
+  --callout-hue:105,157,215;
+  --callout-bg:color-mix(in srgb,rgb(var(--callout-hue)) 15%,var(--light));
+  --callout-heading:color-mix(in srgb,rgb(var(--callout-hue)) 72%,var(--dark));
 }
 
 /* Fallback for custom/unknown callout types. */
 .callout[data-callout]{
-  background:var(--callout-bg,rgba(128,128,128,.08))!important;
+  background:var(--callout-bg,var(--highlight))!important;
 }
 
 @media (max-width:800px){
   .callout .callout-title{
+    gap:.5rem!important;
     padding:14px 14px 6px!important;
+  }
+
+  .callout .callout-icon{
+    flex-basis:17px!important;
+    width:17px!important;
+    height:17px!important;
   }
 
   .callout .callout-content{
