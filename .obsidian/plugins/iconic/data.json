@@ -29,26 +29,26 @@
   "appIcons": {},
   "tabIcons": {},
   "fileIcons": {
+    "Documentation": {
+      "icon": "lucide-file-digit"
+    },
     "Notes": {
       "icon": "lucide-notebook-pen"
     },
     "Questions": {
       "icon": "lucide-badge-question-mark"
     },
-    "Tech Docs": {
-      "icon": "lucide-file-digit"
-    },
-    "Tech Docs/AI": {
-      "icon": "lucide-bot"
-    },
-    "Tech Docs/DSA": {
+    "Documentation/DSA": {
       "icon": "lucide-waypoints"
     },
-    "Tech Docs/DSA/Images": {
-      "icon": "lucide-images"
+    "Documentation/AI": {
+      "icon": "lucide-bot"
     },
-    "Tech Docs/System Design": {
+    "Documentation/System Design": {
       "icon": "lucide-server"
+    },
+    "Documentation/DSA/Images": {
+      "icon": "lucide-images"
     }
   },
   "bookmarkIcons": {},
