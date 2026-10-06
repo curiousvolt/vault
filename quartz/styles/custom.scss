@@ -3536,4 +3536,27 @@ article blockquote::before {
 }
 
 
-/* ==========================================================================\n   Content-page vertical rhythm\n   --------------------------------------------------------------------------\n   Keep the title, properties, metadata, and first content heading on one\n   predictable spacing scale. Avoid independent component margins creating\n   uneven gaps between adjacent blocks.\n   ========================================================================== */\n\n.page:not([data-frame="canvas"]) .article-title{\n  margin:0 0 .5rem!important;\n}\n\n.page:not([data-frame="canvas"]) .note-properties{\n  margin:.5rem auto 1.5rem!important;\n}\n\n.page:not([data-frame="canvas"]) .content-meta{\n  margin:0!important;\n  line-height:1.4!important;\n}\n\n.page:not([data-frame="canvas"]) article > h2:first-of-type{\n  margin-top:2.25rem!important;\n}\n
+/* ==========================================================================
+   Content-page vertical rhythm
+   --------------------------------------------------------------------------
+   Keep the title, properties, metadata, and first content heading on one
+   predictable spacing scale. Avoid independent component margins creating
+   uneven gaps between adjacent blocks.
+   ========================================================================== */
+
+.page:not([data-frame="canvas"]) .article-title{
+  margin:0 0 .5rem!important;
+}
+
+.page:not([data-frame="canvas"]) .note-properties{
+  margin:.5rem auto 1.5rem!important;
+}
+
+.page:not([data-frame="canvas"]) .content-meta{
+  margin:0!important;
+  line-height:1.4!important;
+}
+
+.page:not([data-frame="canvas"]) article > h2:first-of-type{
+  margin-top:2.25rem!important;
+}
