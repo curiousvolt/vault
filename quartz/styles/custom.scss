@@ -2872,6 +2872,15 @@ article blockquote::before {
     transform: translateX(-100vw) !important;
   }
 
+  /* Explorer's actual mobile-open state is html.mobile-no-scroll.
+     Use it as a second source of truth so the drawer opens even if the
+     upstream Explorer class is restored during nav/render. */
+  html.mobile-no-scroll .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left .explorer > .explorer-content {
+    visibility: visible !important;
+    transform: translateX(0) !important;
+    z-index: 100 !important;
+  }
+
   .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left .explorer-content > .explorer-ul {
     padding: 0 !important;
     margin: 0 !important;
@@ -2956,13 +2965,14 @@ article blockquote::before {
    * Extend the same interaction to portrait tablets so the page cannot remain
    * interactive underneath the drawer.
    */
-  .page:not([data-frame="canvas"]) > #quartz-body.lock-scroll > :not(.sidebar.left:has(.explorer)) {
+  /* Use the same state class as the upstream Explorer plugin. */
+  html.mobile-no-scroll .page:not([data-frame="canvas"]) > #quartz-body > :not(.sidebar.left:has(.explorer)) {
     transform: translateX(100dvw) !important;
     transition: transform 300ms ease-in-out !important;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .page:not([data-frame="canvas"]) > #quartz-body.lock-scroll > :not(.sidebar.left:has(.explorer)),
+    html.mobile-no-scroll .page:not([data-frame="canvas"]) > #quartz-body > :not(.sidebar.left:has(.explorer)),
     .page:not([data-frame="canvas"]) > #quartz-body > .sidebar.left .explorer > .explorer-content {
       transition: none !important;
     }

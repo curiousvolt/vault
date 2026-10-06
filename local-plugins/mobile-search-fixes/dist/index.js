@@ -91,36 +91,34 @@ const script = `
   }
 
   const setupExplorerFallback = () => {
-    document.querySelectorAll(".sidebar.left .explorer .mobile-explorer").forEach((button) => {
-      if (button.dataset.cvExplorerFallback === "1") return
-      button.dataset.cvExplorerFallback = "1"
+    if (window.__cvExplorerToggleBound) return
+    window.__cvExplorerToggleBound = true
 
-      button.addEventListener(
-        "click",
-        () => {
-          const explorer = button.closest(".explorer")
-          const quartzBody = document.querySelector("#quartz-body")
-          if (!explorer || !quartzBody) return
+    // Own the mobile Explorer toggle. The upstream Explorer plugin also binds
+    // this button during nav/render, but our responsive layout changes the
+    // surrounding geometry. Handling the event here avoids double-toggle and
+    // keeps the actual upstream state contract: .collapsed + html.mobile-no-scroll.
+    document.addEventListener(
+      "click",
+      (event) => {
+        const target = event.target
+        if (!(target instanceof Element)) return
 
-          const wasCollapsed = explorer.classList.contains("collapsed")
+        const button = target.closest(".sidebar.left .explorer .mobile-explorer")
+        if (!button) return
 
-          // Let Quartz's own Explorer handler run first. If it does not
-          // change the state, apply the same state transition ourselves.
-          window.setTimeout(() => {
-            if (!document.contains(button)) return
+        event.preventDefault()
+        event.stopImmediatePropagation()
 
-            const stillCollapsed = explorer.classList.contains("collapsed")
-            if (stillCollapsed !== wasCollapsed) return
+        const explorer = button.closest(".explorer")
+        if (!explorer) return
 
-            const open = wasCollapsed
-            explorer.classList.toggle("collapsed", !open)
-            quartzBody.classList.toggle("lock-scroll", open)
-            button.setAttribute("aria-expanded", String(open))
-          }, 0)
-        },
-        true,
-      )
-    })
+        const isOpen = explorer.classList.toggle("collapsed") === false
+        explorer.setAttribute("aria-expanded", String(isOpen))
+        document.documentElement.classList.toggle("mobile-no-scroll", isOpen)
+      },
+      true,
+    )
   }
 
   const focusSearch = () => {
