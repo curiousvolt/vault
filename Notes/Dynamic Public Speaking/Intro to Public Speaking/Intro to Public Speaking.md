@@ -10,16 +10,13 @@ topic_of_week: Understanding Speech
 # Intro to Public Speaking
 
 This video introduces the *Fundamentals of Public Speaking* course and explains why effective speech is presented as a form of power.  
-It outlines the course goals, assignments, schedule, and the Week 1 framework for studying public speaking through rhetoric, sound, and language.
 
 ## The Power of Public Speaking
 
 > [!abstract]  
 > The course presents public speaking as a skill that can be developed through study and practice, with the broader goal of speaking effectively and dynamically.
 
-The instructor is **Matt McGarrity**, a principal lecturer in the Communication Department at the University of Washington in Seattle.
-
-He says that he loves the course and public speaking, and that he has researched and taught public speaking for decades.
+The instructor is **Matt McGarrity**, a principal lecturer in the Communication Department at the University of Washington in Seattle. 
 
 He introduces a quotation by **Daniel Webster**, an American politician and senator in the late 18th century and early 19th century:
 
@@ -47,7 +44,7 @@ The course and specialization will therefore study and practice speech.
 The speaker says that Daniel Webster would be proud.
 
 > [!question] My thoughts
->
+>The speaking skills open a hell lot of possibilities in life. 
 >
 
 ---
@@ -69,21 +66,18 @@ These skills will be refined through experience by actually doing the assignment
 
 Because this is a speech class, students will have many opportunities to speak.
 
-### Design and Deliver
+### 1. Design and Deliver
 
-Both **design** and **delivery** are important.
-
-The course is not simply a course in delivery because **content matters**.
+Both **design** and **delivery** are important. The course is not simply a course in delivery because **content matters**.
 
 > [!warning] Poorly planned content
 > The speaker says that poorly planned content almost inevitably results in bad speaking.
 
 Students will therefore study:
-
 - How to craft good speeches.
 - How to deliver speeches well.
 
-### Clear and Compelling
+### 2. Clear and Compelling
 
 The class focuses on communicating ideas **clearly** to an audience so that the audience understands what the speaker means.
 
