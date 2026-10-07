@@ -3713,3 +3713,6 @@ article blockquote:not(.callout){
   white-space:nowrap;
   vertical-align:middle;
 }
+
+
+/* ==========================================================================\n   Quote callouts — restore the native quotation-mark icon\n   --------------------------------------------------------------------------\n   [!quote] callouts use Quartz's native quote SVG. The previous custom icon\n   rule referenced --callout-heading, but that variable was never defined for\n   the quote type, making the masked icon effectively transparent.\n   ========================================================================== */\n\n.callout[data-callout="quote"]{\n  --callout-hue:216,177,90;\n  --callout-bg:color-mix(in srgb,rgb(var(--callout-hue)) 15%,var(--light));\n  --callout-heading:color-mix(in srgb,rgb(var(--callout-hue)) 72%,var(--dark));\n}\n\n/* Defensive fallback for any custom callout type without a heading color. */\n.callout .callout-icon{\n  background-color:var(--callout-heading,var(--color,var(--secondary)))!important;\n  color:var(--callout-heading,var(--color,var(--secondary)))!important;\n}\n
