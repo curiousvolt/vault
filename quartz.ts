@@ -1,10 +1,11 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
 import * as ExternalPlugin from "./.quartz/plugins"
+import { getDate } from "./quartz/components/Date"
 
 ExternalPlugin.FolderPage({
   sort: (a, b) => {
-    const aTime = a.dates?.created?.getTime?.() ?? 0
-    const bTime = b.dates?.created?.getTime?.() ?? 0
+    const aTime = getDate(a)?.getTime() ?? 0
+    const bTime = getDate(b)?.getTime() ?? 0
     return aTime - bTime
   },
 })
