@@ -32,23 +32,23 @@
     "Documentation": {
       "icon": "lucide-file-digit"
     },
+    "Documentation/AI": {
+      "icon": "lucide-bot"
+    },
+    "Documentation/DSA": {
+      "icon": "lucide-waypoints"
+    },
+    "Documentation/DSA/Images": {
+      "icon": "lucide-images"
+    },
+    "Documentation/System Design": {
+      "icon": "lucide-server"
+    },
     "Notes": {
       "icon": "lucide-notebook-pen"
     },
     "Questions": {
       "icon": "lucide-badge-question-mark"
-    },
-    "Documentation/DSA": {
-      "icon": "lucide-waypoints"
-    },
-    "Documentation/AI": {
-      "icon": "lucide-bot"
-    },
-    "Documentation/System Design": {
-      "icon": "lucide-server"
-    },
-    "Documentation/DSA/Images": {
-      "icon": "lucide-images"
     }
   },
   "bookmarkIcons": {},
