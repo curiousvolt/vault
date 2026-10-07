@@ -25,10 +25,10 @@ He introduces a quotation by **Daniel Webster**, an American politician and sena
 
 The speaker says he likes the quotation because it illustrates a core truth:
 
-> [!quote] Core idea
+> [!tip] Core idea
 > **Speech is power.**
 
-> [!tip] Course goal
+> [!goal] Course goal
 > The goal is for students to be able to **speak effectively and dynamically**.
 
 > [!question] My thoughts
