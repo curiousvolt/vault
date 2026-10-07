@@ -28,44 +28,22 @@ The speaker says he likes the quotation because it illustrates a core truth:
 > [!quote] Core idea
 > **Speech is power.**
 
-The speaker explains:
-
-- At a basic level, **speech is power**.
-- Many people are bad at public speaking.
-- Many more people are afraid of public speaking.
-- If you can stand up in front of an audience and effectively and confidently communicate your ideas, you have power.
-- According to the speaker, this is a power that is hard to take away.
-
-The course and specialization will therefore study and practice speech.
-
 > [!tip] Course goal
 > The goal is for students to be able to **speak effectively and dynamically**.
-
-The speaker says that Daniel Webster would be proud.
 
 > [!question] My thoughts
 >The speaking skills open a hell lot of possibilities in life. 
 >
 
 ---
-
 ## Course Goals
 
 > [!abstract]
 > By the end of the course, students should have the skills and experience necessary to **design and deliver speeches that are clear and compelling**.
 
-The speaker wants the course to help students as much as possible and as quickly as possible, including helping them with their next presentation.
-
-The broad course goal is broken into several important terms.
-
 ### Skills and Experience
 
-The class focuses on a **core set of speech skills**.
-
-These skills will be refined through experience by actually doing the assignments.
-
-Because this is a speech class, students will have many opportunities to speak.
-
+The class focuses on a **core set of speech skills**. These skills will be refined through experience by actually doing the assignments.
 ### 1. Design and Deliver
 
 Both **design** and **delivery** are important. The course is not simply a course in delivery because **content matters**.
@@ -79,12 +57,9 @@ Students will therefore study:
 
 ### 2. Clear and Compelling
 
-The class focuses on communicating ideas **clearly** to an audience so that the audience understands what the speaker means.
-
-However, the speaker says that simply making an audience understand is usually not enough.
+The class focuses on communicating ideas **clearly** to an audience so that the audience understands what the speaker means. However, the speaker says that simply making an audience understand is usually not enough.
 
 Students will also study how to:
-
 - Phrase ideas in a compelling way.
 - Deliver ideas in a compelling way.
 
@@ -110,12 +85,11 @@ The course has three basic types of assignments:
 > The other assignments are included to provide more practice and more options.
 
 ### Speech Assignments
-
 Each speech emphasizes a specific skill set.
 
 #### 1. Introduction Speech
 
-The course begins with a short speech introducing yourself.
+The course begins with a short speech introducing yourself. 
 
 This assignment is used to practice:
 
@@ -125,9 +99,7 @@ This assignment is used to practice:
 
 #### 2. Elevator Speech
 
-In the **elevator speech**, students write and deliver a concise description.
-
-These speeches are very short, at about **30 seconds**.
+In the **elevator speech**, students write and deliver a concise description. These speeches are very short, at about **30 seconds**. 
 
 They can be brief summaries of:
 
@@ -135,13 +107,9 @@ They can be brief summaries of:
 - Your interests.
 
 The goal is to focus on **concise writing that is easy for audiences to remember**.
-
-> [!example] Elevator speech
-> A roughly 30-second description of your job or interests, designed to be concise and memorable for an audience.
-
 #### 3. Key Point Speech
 
-The **key point speech** is the main assignment for the course.
+The **key point speech** is the main assignment for the course. 
 
 It focuses on:
 
@@ -153,11 +121,7 @@ Students will spend multiple weeks building and practicing different key point s
 
 ### Weekly Quizzes
 
-There are **weekly quizzes**.
-
-The quizzes are not only intended to test memory.
-
-They are also intended to help students refine their **speech judgement**.
+There are **weekly quizzes**. The quizzes are not only intended to test memory. They are also intended to help students refine their **speech judgement**. 
 
 They will ask students to evaluate different:
 
@@ -166,9 +130,7 @@ They will ask students to evaluate different:
 
 ### Analysis Assignments
 
-The course also includes **analysis assignments**.
-
-The speaker includes these because, according to him, one of the best ways to get better at performing speeches is to get better at **listening to speeches**.
+The course also includes **analysis assignments**. The speaker includes these because, according to him, one of the best ways to get better at performing speeches is to get better at **listening to speeches**.
 
 In an analysis assignment, students will:
 
