@@ -1,6 +1,6 @@
 ---
 source: Cousera
-topic: Intro to Public Speaking
+topic: Introduction to Public Speaking
 status: v1.0
 week: 1
 module: 1
@@ -78,11 +78,6 @@ The course has three basic types of assignments:
 1. **Speeches**
 2. **Quizzes**
 3. **Analysis**
-
-> [!info] Required vs. optional assignments
-> The speaker clarifies that students do **not** need to complete all of the assignments in order to pass the class. They only need to complete the required assignments, which can be identified on the course website.
->
-> The other assignments are included to provide more practice and more options.
 
 ### Speech Assignments
 Each speech emphasizes a specific skill set.
