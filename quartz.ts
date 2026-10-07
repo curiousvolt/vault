@@ -1,6 +1,5 @@
 import { componentRegistry } from "./quartz/components/registry"
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
-import { getDate } from "./quartz/components/Date"
 
 componentRegistry.setOptionOverrides("@quartz-community/folder-page", {
   sort: (a, b) => {
@@ -17,8 +16,8 @@ componentRegistry.setOptionOverrides("@quartz-community/folder-page", {
       return aTitle.localeCompare(bTitle, undefined, { sensitivity: "base" })
     }
 
-    const aTime = getDate(a)?.getTime() ?? 0
-    const bTime = getDate(b)?.getTime() ?? 0
+    const aTime = a.dates?.modified instanceof Date ? a.dates.modified.getTime() : 0
+    const bTime = b.dates?.modified instanceof Date ? b.dates.modified.getTime() : 0
 
     if (aTime !== bTime) return aTime - bTime
 
