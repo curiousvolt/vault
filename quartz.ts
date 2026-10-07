@@ -1,8 +1,8 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
-import * as ExternalPlugin from "./.quartz/plugins"
+import { FolderPage } from "@quartz-community/folder-page"
 import { getDate } from "./quartz/components/Date"
 
-ExternalPlugin.FolderPage({
+FolderPage({
   sort: (a, b) => {
     const aCanvas = a.slug?.endsWith(".canvas") ?? false
     const bCanvas = b.slug?.endsWith(".canvas") ?? false
