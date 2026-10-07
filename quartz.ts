@@ -2,7 +2,7 @@ import { componentRegistry } from "./quartz/components/registry"
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
 import { getDate } from "./quartz/components/Date"
 
-componentRegistry.setOptionOverrides("folder-page", {
+componentRegistry.setOptionOverrides("@quartz-community/folder-page", {
   sort: (a, b) => {
     const aCanvas = a.slug?.endsWith(".canvas") ?? false
     const bCanvas = b.slug?.endsWith(".canvas") ?? false
