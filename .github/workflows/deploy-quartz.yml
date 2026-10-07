@@ -58,8 +58,14 @@ jobs:
           path = Path("quartz/plugins/pageTypes/dispatcher.ts")
           source = path.read_text()
           needle = "      const allFilesWithVirtual = [...allFiles, ...virtualEntries.map((ve) => ve.vfile.data)]"
-          replacement = needle + "\n\n      // Rebuild the folder trie after virtual pages (such as Canvas files) exist.\n      // Virtual pages do not have filePath, but the trie requires one.\n      const trieFiles = allFilesWithVirtual.map((file) => ({\n        ...file,\n        filePath: file.filePath ?? file.relativePath ?? String(file.slug ?? "") + ".md",\n      }))\n      ctx.trie = trieFromAllFiles(trieFiles)"
-          # The dispatcher has one full-build and one partial-build merge point.
+          replacement = needle + """\n
+      // Rebuild the folder trie after virtual pages (such as Canvas files) exist.
+      // Virtual pages do not have filePath, but the trie requires one.
+      const trieFiles = allFilesWithVirtual.map((file) => ({
+        ...file,
+        filePath: file.filePath ?? file.relativePath ?? String(file.slug ?? "") + ".md",
+      }))
+      ctx.trie = trieFromAllFiles(trieFiles)"""
           if source.count(needle) != 2:
               raise SystemExit(f"Expected 2 virtual-page merge points, found {source.count(needle)}")
           source = source.replace(needle, replacement)
