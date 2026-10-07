@@ -12,7 +12,12 @@ ExternalPlugin.FolderPage({
 
     const aTime = getDate(a)?.getTime() ?? 0
     const bTime = getDate(b)?.getTime() ?? 0
-    return aTime - bTime
+
+    if (aTime !== bTime) return aTime - bTime
+
+    const aTitle = a.frontmatter?.title ?? a.slug ?? ""
+    const bTitle = b.frontmatter?.title ?? b.slug ?? ""
+    return aTitle.localeCompare(bTitle, undefined, { sensitivity: "base" })
   },
 })
 
