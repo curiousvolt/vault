@@ -20,7 +20,7 @@ cssclasses:
     </span>
   </a>
 
-  <a class="cv-link" href="./Tech%20Docs/">
+  <a class="cv-link" href="./Documentation/">
     <span class="cv-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 5.5v15"/><path d="M8 7h8M8 11h8"/></svg>
     </span>
