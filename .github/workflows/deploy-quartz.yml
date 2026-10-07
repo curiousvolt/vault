@@ -49,6 +49,14 @@ jobs:
           rm -rf .quartz-build/local-plugins
           cp -R local-plugins .quartz-build/local-plugins
 
+      - name: Normalize empty Canvas files
+        working-directory: .quartz-build
+        run: |
+          find .. -path "../.quartz-build" -prune -o -type f -name "*.canvas" -size 0 -print0 |
+            while IFS= read -r -d "" file; do
+              printf '%s\n' '{"nodes":[],"edges":[]}' > "$file"
+            done
+
       - name: Include virtual pages in folder hierarchy
         working-directory: .quartz-build
         run: |
