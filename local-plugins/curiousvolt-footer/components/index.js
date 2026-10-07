@@ -7,7 +7,10 @@ const css = `
   padding: 28px 20px 32px;
   color: var(--gray);
   text-align: center;
-  font-size: .76rem;
+  font-family: "Inter", "Lexend", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .01em;
   line-height: 1.5;
 }
 
@@ -17,7 +20,9 @@ const css = `
 
 .cv-footer a {
   color: var(--darkgray);
+  font-weight: 600;
   text-decoration: none;
+  transition: color .2s ease;
 }
 
 .cv-footer a:hover,
@@ -28,7 +33,9 @@ const css = `
 .cv-footer-separator {
   display: inline-block;
   margin: 0 .45rem;
-  color: var(--lightgray);
+  color: var(--gray);
+  font-weight: 700;
+  opacity: .9;
 }
 
 @media all and (max-width:800px){
@@ -81,7 +88,14 @@ const renderFooter = () => {
         "CuriousVolt",
       ),
       h("span", { class: "cv-footer-separator", "aria-hidden": "true" }, "·"),
-      h("span", null, "Aman Kumar"),
+      h(
+        "a",
+        {
+          href: "https://curiousvolt.is-a.dev",
+          rel: "me",
+        },
+        "Aman Kumar",
+      ),
     ),
   )
 }
@@ -105,7 +119,7 @@ const CuriousVoltFooter = () => {
           '<p><span>© ' + year + ' </span>' +
           '<a href="https://curiousvolt.is-a.dev" rel="me">CuriousVolt</a>' +
           '<span class="cv-footer-separator" aria-hidden="true">·</span>' +
-          '<span>Aman Kumar</span></p>'
+          '<a href="https://curiousvolt.is-a.dev" rel="me">Aman Kumar</a></p>'
 
         frame.appendChild(footer)
       }
