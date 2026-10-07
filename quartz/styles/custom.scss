@@ -3681,3 +3681,35 @@ article blockquote:not(.callout){
   mask-image:none!important;
   -webkit-mask-image:none!important;
 }
+
+
+/* ==========================================================================
+   Folder listings — distinguish Canvas files from Markdown notes
+   ========================================================================== */
+
+/* Canvas entries stay visually separate from regular Markdown notes. */
+.page-listing a[href$=".canvas"]{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:.55rem!important;
+}
+
+.page-listing a[href$=".canvas"]::after{
+  content:"Canvas";
+  display:inline-flex;
+  align-items:center;
+  min-height:20px;
+  padding:0 .45rem;
+  border:1px solid color-mix(in srgb,var(--secondary) 30%,var(--lightgray));
+  border-radius:6px;
+  color:var(--secondary);
+  background:color-mix(in srgb,var(--secondary) 8%,transparent);
+  font-family:var(--bodyFont),system-ui,sans-serif;
+  font-size:.66rem;
+  font-weight:650;
+  line-height:1;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  vertical-align:middle;
+}
