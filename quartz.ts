@@ -10,6 +10,13 @@ componentRegistry.setOptionOverrides("@quartz-community/folder-page", {
     // Keep Canvas files as their own group after regular Markdown notes.
     if (aCanvas !== bCanvas) return aCanvas ? 1 : -1
 
+    // Canvas virtual pages do not carry Quartz date metadata.
+    if (aCanvas && bCanvas) {
+      const aTitle = a.frontmatter?.title ?? a.slug ?? ""
+      const bTitle = b.frontmatter?.title ?? b.slug ?? ""
+      return aTitle.localeCompare(bTitle, undefined, { sensitivity: "base" })
+    }
+
     const aTime = getDate(a)?.getTime() ?? 0
     const bTime = getDate(b)?.getTime() ?? 0
 
