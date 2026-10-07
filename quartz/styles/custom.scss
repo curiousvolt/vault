@@ -3760,3 +3760,61 @@ article blockquote:not(.callout){
 .callout[data-callout="goal"] .callout-icon::before{
   display:none!important;
 }
+
+
+/* ==========================================================================
+   Final semantic callout icons — use explicit background SVGs
+   --------------------------------------------------------------------------
+   Do not depend on Quartz's --callout-icon mask. The previous implementation
+   put the custom lightbulb on ::before while the callout icon element still
+   carried a native mask, which allowed the native quote glyph to remain
+   visible in some browsers/cache states.
+   ========================================================================== */
+
+.callout[data-callout="tip"] .callout-icon{
+  display:inline-block!important;
+  width:18px!important;
+  height:18px!important;
+  min-width:18px!important;
+  min-height:18px!important;
+  flex:0 0 18px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23daca49' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18h6'/%3E%3Cpath d='M10 22h4'/%3E%3Cpath d='M8.5 14.5C7.55 13.7 7 12.5 7 11a5 5 0 0 1 10 0c0 1.5-.55 2.7-1.5 3.5-.75.65-1.1 1.35-1.2 2.5h-4.6c-.1-1.15-.45-1.85-1.2-2.5Z'/%3E%3C/svg%3E")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:18px 18px!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
+
+.callout[data-callout="tip"] .callout-icon::before{
+  display:none!important;
+}
+
+.callout[data-callout="quote"] .callout-icon{
+  display:inline-block!important;
+  width:18px!important;
+  height:18px!important;
+  min-width:18px!important;
+  min-height:18px!important;
+  flex:0 0 18px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d8c078' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 11H5.5A2.5 2.5 0 0 0 3 13.5V18a2.5 2.5 0 0 0 2.5 2.5H7a3 3 0 0 0 3-3v-1.5A3 3 0 0 0 7 13H5.5'/%3E%3Cpath d='M21 11h-4.5A2.5 2.5 0 0 0 14 13.5V18a2.5 2.5 0 0 0 2.5 2.5H18a3 3 0 0 0 3-3v-1.5a3 3 0 0 0-3-3h-1.5'/%3E%3C/svg%3E")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:18px 18px!important;
+  -webkit-mask:none!important;
+  mask:none!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+}
