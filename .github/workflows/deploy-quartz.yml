@@ -52,7 +52,7 @@ jobs:
       - name: Include virtual pages in folder hierarchy
         working-directory: .quartz-build
         run: |
-          python -c 'from pathlib import Path; p=Path("quartz/plugins/pageTypes/dispatcher.ts"); s=p.read_text(); n="      const allFilesWithVirtual = [...allFiles, ...virtualEntries.map((ve) => ve.vfile.data)]"; r=n+"\\n\\n      const trieFiles = allFilesWithVirtual.map((file) => ({ ...file, filePath: file.filePath ?? file.relativePath ?? String(file.slug ?? "") + ".md" }))\\n      ctx.trie = trieFromAllFiles(trieFiles)"; assert s.count(n) == 2, f"expected 2 merge points, found {s.count(n)}"; p.write_text(s.replace(n, r))'
+          python -c 'from pathlib import Path; p=Path("quartz/plugins/pageTypes/dispatcher.ts"); s=p.read_text(); n="      const allFilesWithVirtual = [...allFiles, ...virtualEntries.map((ve) => ve.vfile.data)]"; r=n+"\\n\\n      const trieFiles = allFilesWithVirtual.map((file) => ({ ...file, filePath: file.filePath ?? file.relativePath ?? String(file.slug ?? '') + '.md' }))\\n      ctx.trie = trieFromAllFiles(trieFiles)"; assert s.count(n) == 2, f"expected 2 merge points, found {s.count(n)}"; p.write_text(s.replace(n, r))'
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
