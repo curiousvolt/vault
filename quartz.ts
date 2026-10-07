@@ -7,7 +7,7 @@ componentRegistry.setOptionOverrides("@quartz-community/folder-page", {
     const bCanvas = b.slug?.endsWith(".canvas") ?? false
 
     // Keep Canvas files as their own group after regular Markdown notes.
-    if (aCanvas !== bCanvas) return aCanvas ? 1 : -1
+    if (aCanvas !== bCanvas) return aCanvas ? -1 : 1
 
     // Canvas virtual pages do not carry Quartz date metadata.
     if (aCanvas && bCanvas) {
