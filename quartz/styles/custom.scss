@@ -3628,3 +3628,56 @@ article blockquote:not(.callout){
 .page:not([data-frame="canvas"]) article > h2:first-of-type{
   margin-top:2.25rem!important;
 }
+
+
+/* ==========================================================================
+   Final icon override
+   --------------------------------------------------------------------------
+   These rules intentionally come last so Quartz/custom callout rules above
+   cannot override the visible icon layer.
+   ========================================================================== */
+
+/* Core idea / tip: always render a visible lightbulb. */
+.callout[data-callout="tip"] .callout-icon::before,
+.callout[data-callout="hint"] .callout-icon::before,
+.callout[data-callout="important"] .callout-icon::before{
+  content:""!important;
+  display:block!important;
+  width:18px!important;
+  height:18px!important;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23daca49' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18h6'/%3E%3Cpath d='M10 22h4'/%3E%3Cpath d='M8.5 14.5C7.55 13.7 7 12.5 7 11a5 5 0 0 1 10 0c0 1.5-.55 2.7-1.5 3.5-.75.65-1.1 1.35-1.2 2.5h-4.6c-.1-1.15-.45-1.85-1.2-2.5Z'/%3E%3C/svg%3E") center/contain no-repeat!important;
+}
+
+/* Normal Markdown quote: replace the old accent bar with a quotation mark. */
+article blockquote:not(.callout)::before{
+  content:"“"!important;
+  position:absolute!important;
+  left:16px!important;
+  top:12px!important;
+  width:24px!important;
+  height:28px!important;
+  display:block!important;
+  border:0!important;
+  border-radius:0!important;
+  background:none!important;
+  color:var(--secondary)!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:32px!important;
+  line-height:28px!important;
+  font-weight:700!important;
+  opacity:1!important;
+}
+
+article blockquote:not(.callout){
+  padding-left:56px!important;
+}
+
+/* Keep the icon box visible and prevent a transparent mask from hiding it. */
+.callout[data-callout="tip"] .callout-icon,
+.callout[data-callout="hint"] .callout-icon,
+.callout[data-callout="important"] .callout-icon{
+  overflow:visible!important;
+  background-color:transparent!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+}
