@@ -2,15 +2,16 @@
 	"nodes":[
 		{"id":"12f46ad5553ad260","type":"text","text":"W2: Making Ideas Compelling and memorable","x":-70,"y":-119,"width":300,"height":60},
 		{"id":"f50b8d869761807f","type":"text","text":"W3: Illustrating and Delivering Your Ideas ","x":-70,"y":100,"width":300,"height":60},
-		{"id":"aa9e4b262f3ecb52","type":"text","text":"W5: Course Conclusion ","x":-70,"y":460,"width":300,"height":60},
 		{"id":"169cabbb85e3cac1","type":"text","text":"W4: Overcoming Fear and Developing Great Delivery","x":-70,"y":300,"width":300,"height":60},
-		{"id":"bcbfcb4899c1579f","x":-820,"y":100,"width":220,"height":60,"type":"text","text":"Public Speaking"},
-		{"id":"31890b28dec99e6e","x":-70,"y":-440,"width":300,"height":50,"type":"text","text":"W1: Understanding Speech"}
+		{"id":"bcbfcb4899c1579f","type":"text","text":"Public Speaking","x":-820,"y":100,"width":220,"height":60},
+		{"id":"31890b28dec99e6e","type":"text","text":"W1: Understanding Speech","x":-70,"y":-440,"width":300,"height":50},
+		{"id":"aa9e4b262f3ecb52","type":"text","text":"W5: Course Conclusion ","x":-100,"y":520,"width":300,"height":60}
 	],
 	"edges":[
 		{"id":"6885d253af967c26","fromNode":"bcbfcb4899c1579f","fromSide":"right","toNode":"31890b28dec99e6e","toSide":"left"},
 		{"id":"2bfa8bea50f7e21d","fromNode":"bcbfcb4899c1579f","fromSide":"right","toNode":"12f46ad5553ad260","toSide":"left"},
 		{"id":"f135a3530f8334fe","fromNode":"bcbfcb4899c1579f","fromSide":"right","toNode":"f50b8d869761807f","toSide":"left"},
-		{"id":"b3a2d918a0c5ddbf","fromNode":"bcbfcb4899c1579f","fromSide":"right","toNode":"169cabbb85e3cac1","toSide":"left"}
+		{"id":"b3a2d918a0c5ddbf","fromNode":"bcbfcb4899c1579f","fromSide":"right","toNode":"169cabbb85e3cac1","toSide":"left"},
+		{"id":"4a19e125758d37f0","fromNode":"bcbfcb4899c1579f","fromSide":"right","toNode":"aa9e4b262f3ecb52","toSide":"left"}
 	]
 }
