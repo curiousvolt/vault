@@ -3729,8 +3729,7 @@ article blockquote:not(.callout){
   --callout-heading:color-mix(in srgb,rgb(var(--callout-hue)) 72%,var(--dark));
 }
 
-/* Defensive fallback for any custom callout type without a heading color. */
-.callout .callout-icon{
-  background-color:var(--callout-heading,var(--color,var(--secondary)))!important;
-  color:var(--callout-heading,var(--color,var(--secondary)))!important;
+.callout[data-callout="quote"] .callout-icon{
+  background-color:var(--callout-heading)!important;
+  color:var(--callout-heading)!important;
 }
