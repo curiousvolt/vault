@@ -4,7 +4,8 @@ topic: Intro to Probability - 1
 status: v1.0
 link: https://youtu.be/RXMMGj7VAdo
 ---
-## Why Study Probability?### Probability and Uncertainty
+## Why Study Probability?
+### Probability and Uncertainty
 
 At school, probability is often introduced using a definition such as:
 
