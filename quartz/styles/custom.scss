@@ -3818,3 +3818,79 @@ article blockquote:not(.callout){
   -webkit-mask-image:none!important;
   mask-image:none!important;
 }
+
+
+/* ==========================================================================
+   Compact reading rhythm — especially for mobile screens
+   ========================================================================== */
+
+article,
+article p,
+article li,
+article blockquote,
+article td,
+article th,
+article dd,
+article dt,
+article .callout-content,
+article .transcludes,
+article .transcludes p,
+article .transcludes li {
+  line-height: 1.55 !important;
+}
+
+article p {
+  margin-top: 0 !important;
+  margin-bottom: 0.85rem !important;
+}
+
+article li {
+  margin-top: 0.12rem;
+  margin-bottom: 0.12rem;
+}
+
+article ul,
+article ol {
+  margin-top: 0.45rem !important;
+  margin-bottom: 0.85rem !important;
+  padding-left: 1.35rem !important;
+}
+
+article li > p {
+  margin-bottom: 0.35rem !important;
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  line-height: 1.25 !important;
+}
+
+article h1 { margin-top: 1.4rem !important; margin-bottom: 0.7rem !important; }
+article h2 { margin-top: 1.65rem !important; margin-bottom: 0.65rem !important; }
+article h3,
+article h4,
+article h5,
+article h6 { margin-top: 1.2rem !important; margin-bottom: 0.5rem !important; }
+
+article table {
+  line-height: 1.45 !important;
+}
+
+article table th,
+article table td {
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
+}
+
+article .callout .callout-title {
+  line-height: 1.35 !important;
+}
+
+article .callout .callout-content p:last-child,
+article blockquote p:last-child {
+  margin-bottom: 0 !important;
+}
